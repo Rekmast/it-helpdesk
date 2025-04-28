@@ -47,9 +47,7 @@
             </a>
           </li>
           <li class="dropdown-submenu">
-            <a href="#">
-              <i class="fas fa-ticket-alt"></i> Ticket
-            </a>
+            <a href="#"> <i class="fas fa-ticket-alt"></i> Ticket </a>
             <ul class="sub-submenu" id="ticketSubmenu">
               <li>
                 <a href="newProblemTicket.html">
@@ -197,15 +195,23 @@
         document.getElementById("nav-admin").classList.add("active");
         document.getElementById("adminSubmenu").style.display = "block";
         document.getElementById("ticketSubmenu").style.display = "block";
-        document.querySelector('.dropdown-submenu > a > i.fas.fa-ticket-alt').parentElement.classList.add("active");
-        document.querySelector('a[href="newProblemTicket.html"]').classList.add("active");
+        document
+          .querySelector(".dropdown-submenu > a > i.fas.fa-ticket-alt")
+          .parentElement.classList.add("active");
+        document
+          .querySelector('a[href="newProblemTicket.html"]')
+          .classList.add("active");
         break;
       case "ticket-list.html":
         document.getElementById("nav-admin").classList.add("active");
         document.getElementById("adminSubmenu").style.display = "block";
         document.getElementById("ticketSubmenu").style.display = "block";
-        document.querySelector('.dropdown-submenu > a > i.fas.fa-ticket-alt').parentElement.classList.add("active");
-        document.querySelector('a[href="ticket-list.html"]').classList.add("active");
+        document
+          .querySelector(".dropdown-submenu > a > i.fas.fa-ticket-alt")
+          .parentElement.classList.add("active");
+        document
+          .querySelector('a[href="ticket-list.html"]')
+          .classList.add("active");
         break;
       case "admin-user.html":
         document.getElementById("nav-admin").classList.add("active");
@@ -275,4 +281,3 @@
     });
   });
 </script>
-
