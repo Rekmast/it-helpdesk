@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Knowledge Base Article - IT-HelpDesk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header container -->
+    <div id="header-container"></div>
+
+    <!-- Sidebar container -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="content-header">
+        <div class="d-flex justify-content-between align-items-center">
+          <h1>Add Knowledge Base Article</h1>
+          <a href="knowledgeBase.html" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left me-1"></i> Back to Knowledge Base
+          </a>
+        </div>
+        <p class="text-muted">
+          Create a new article to help users solve common problems
+        </p>
+      </div>
+
+      <div class="content-body">
+        <div class="card">
+          <div class="card-body">
+            <form id="add-kb-form">
+              <!-- Article Title -->
+              <div class="mb-3">
+                <label for="article-title" class="form-label"
+                  >Article Title</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="article-title"
+                  placeholder="Enter a descriptive title"
+                  required
+                />
+              </div>
+
+              <!-- Category and Tags -->
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="article-category" class="form-label"
+                    >Category</label
+                  >
+                  <select class="form-select" id="article-category" required>
+                    <option value="" selected disabled>
+                      Select a category
+                    </option>
+                    <option value="hardware">Hardware & Devices</option>
+                    <option value="software">Software</option>
+                    <option value="network">Network & Internet</option>
+                    <option value="security">Security</option>
+                    <option value="email">Email & Communication</option>
+                    <option value="policy">Policies & Procedures</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="article-tags" class="form-label">Tags</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="article-tags"
+                    placeholder="Enter tags separated by commas"
+                  />
+                </div>
+              </div>
+
+              <!-- Short Summary -->
+              <div class="mb-3">
+                <label for="article-summary" class="form-label">Summary</label>
+                <textarea
+                  class="form-control"
+                  id="article-summary"
+                  rows="2"
+                  placeholder="Write a brief summary of the article"
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Article Content -->
+              <div class="mb-3">
+                <label for="article-content" class="form-label">Content</label>
+                <div id="summernote"></div>
+              </div>
+
+              <!-- File Attachments -->
+              <div class="mb-3">
+                <label for="article-attachments" class="form-label"
+                  >Attachments</label
+                >
+                <div class="input-group">
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="article-attachments"
+                    multiple
+                  />
+                  <button class="btn btn-outline-secondary" type="button">
+                    <i class="fas fa-paperclip"></i>
+                  </button>
+                </div>
+                <div class="form-text">
+                  Max file size: 5MB. Allowed formats: PDF, DOCX, PNG, JPG
+                </div>
+              </div>
+
+              <!-- Related Articles -->
+              <div class="mb-3">
+                <label class="form-label">Related Articles</label>
+                <div class="input-group mb-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search for related articles..."
+                    id="related-articles-search"
+                  />
+                  <button class="btn btn-outline-primary" type="button">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+                <div class="selected-articles">
+                  <div
+                    class="selected-article d-flex align-items-center p-2 mb-1 border rounded"
+                  >
+                    <span>How to Reset Your Password</span>
+                    <button
+                      type="button"
+                      class="btn-close ms-auto"
+                      aria-label="Remove"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Visibility Settings -->
+              <div class="mb-3">
+                <label class="form-label">Visibility</label>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="visibility"
+                    id="visibility-public"
+                    value="public"
+                    checked
+                  />
+                  <label class="form-check-label" for="visibility-public">
+                    Public (visible to all users)
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="visibility"
+                    id="visibility-internal"
+                    value="internal"
+                  />
+                  <label class="form-check-label" for="visibility-internal">
+                    Internal (visible to staff only)
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="visibility"
+                    id="visibility-restricted"
+                    value="restricted"
+                  />
+                  <label class="form-check-label" for="visibility-restricted">
+                    Restricted (select departments only)
+                  </label>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="d-flex gap-2 mt-4">
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-save me-1"></i> Save and Publish
+                </button>
+                <button type="button" class="btn btn-outline-primary">
+                  <i class="fas fa-clock me-1"></i> Save as Draft
+                </button>
+                <button type="button" class="btn btn-outline-secondary ms-auto">
+                  <i class="fas fa-times me-1"></i> Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="#" class="whatsapp-btn" title="Contact us on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script src="utils.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#summernote").summernote({
+          placeholder: "Write your article content here...",
+          tabsize: 2,
+          height: 300,
+          toolbar: [
+            ["style", ["style"]],
+            ["font", ["bold", "underline", "clear"]],
+            ["color", ["color"]],
+            ["para", ["ul", "ol", "paragraph"]],
+            ["table", ["table"]],
+            ["insert", ["link", "picture"]],
+            ["view", ["fullscreen", "codeview", "help"]],
+          ],
+        });
+      });
+    </script>
+  </body>
+</html>

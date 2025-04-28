@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IT Staff Statistics - IT-HelpDesk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .stat-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        margin-bottom: 24px;
+        padding: 20px;
+      }
+
+      .stat-card h3 {
+        color: #5e5873;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ebe9f1;
+      }
+
+      .stat-table th {
+        background-color: #f8f8f8;
+        color: #5e5873;
+        font-weight: 600;
+      }
+
+      .stat-table tbody tr:hover {
+        background-color: #f7f6fc;
+      }
+
+      .search-bar {
+        display: flex;
+        align-items: center;
+        background-color: #f8f8f8;
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        max-width: 300px;
+        border: 1px solid #e0e0e0;
+        margin-bottom: 15px;
+      }
+
+      .search-bar i {
+        color: #6e6b7b;
+        margin-right: 8px;
+      }
+
+      .search-bar input {
+        border: none;
+        background: transparent;
+        width: 100%;
+        outline: none;
+        color: #5e5873;
+      }
+
+      .search-bar input::placeholder {
+        color: #b9b9c3;
+      }
+
+      .chart-container {
+        position: relative;
+        height: 350px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header container -->
+    <div id="header-container"></div>
+
+    <!-- Sidebar container -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>IT Staff Statistics</h2>
+        <a href="all-statistics.html" class="btn btn-outline-primary">
+          <i class="fas fa-arrow-left me-2"></i>Back to All Statistics
+        </a>
+      </div>
+
+      <!-- Tickets Handled Chart -->
+      <div class="stat-card">
+        <h3>Tickets Handled by Staff</h3>
+        <div class="chart-container">
+          <canvas id="staffTicketsChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Staff Performance Table -->
+      <div class="stat-card">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h3 class="mb-0">IT Staff Solved Tickets</h3>
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search staff" />
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table stat-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>IT Staff</th>
+                <th>Department</th>
+                <th>Total Tickets</th>
+                <th>Solved</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>John Newman</td>
+                <td>Network Support</td>
+                <td>57</td>
+                <td>48</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Karen Elizabeth</td>
+                <td>Software Support</td>
+                <td>40</td>
+                <td>35</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>John Thor</td>
+                <td>Hardware Support</td>
+                <td>7</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Sarah Johnson</td>
+                <td>Application Support</td>
+                <td>35</td>
+                <td>30</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Michael Chen</td>
+                <td>Network Support</td>
+                <td>28</td>
+                <td>25</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Amanda Garcia</td>
+                <td>Hardware Support</td>
+                <td>22</td>
+                <td>18</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Robert Kim</td>
+                <td>Software Support</td>
+                <td>20</td>
+                <td>17</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr class="fw-bold">
+                <td colspan="3">Total</td>
+                <td>209</td>
+                <td>178</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      <!-- Export Options -->
+      <div class="d-flex justify-content-end gap-2 mb-4">
+        <button class="btn btn-outline-secondary">
+          <i class="fas fa-print me-2"></i>Print Report
+        </button>
+      </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="#" class="whatsapp-btn" title="Contact us on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="utils.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Staff Tickets Chart
+        const staffTicketsCtx = document
+          .getElementById("staffTicketsChart")
+          .getContext("2d");
+        const staffTicketsChart = new Chart(staffTicketsCtx, {
+          type: "bar",
+          data: {
+            labels: [
+              "John Newman",
+              "Karen Elizabeth",
+              "Sarah Johnson",
+              "Michael Chen",
+              "Amanda Garcia",
+              "Robert Kim",
+              "John Thor",
+            ],
+            datasets: [
+              {
+                label: "Total Tickets",
+                data: [57, 40, 35, 28, 22, 20, 7],
+                backgroundColor: "#7367f0",
+                borderRadius: 5,
+                barPercentage: 0.6,
+              },
+            ],
+          },
+          options: {
+            indexAxis: "y",
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: false,
+              },
+            },
+            scales: {
+              x: {
+                beginAtZero: true,
+                grid: {
+                  display: false,
+                },
+                ticks: {
+                  precision: 0,
+                },
+              },
+              y: {
+                grid: {
+                  display: false,
+                },
+              },
+            },
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

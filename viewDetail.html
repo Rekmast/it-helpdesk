@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Ticket Details - IT-HelpDesk</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <h1><i class="fas fa-headset me-2"></i>IT-HelpDesk</h1>
+      <div class="user-profile">
+        <span>JOHN NEWMAN</span>
+        <button class="logout-btn">
+          <i class="fas fa-sign-out-alt me-1"></i>Logout
+        </button>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="Home.html"
+            ><i class="fas fa-home"></i> Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="myTicket(s).html"
+            ><i class="fas fa-ticket-alt"></i> My Tickets</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="knowledgeBase.html"
+            ><i class="fas fa-book"></i> Knowledge Base</a
+          >
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#">
+            <i class="fas fa-cog"></i> Admin Menu
+            <i class="fas fa-angle-down ms-auto"></i>
+          </a>
+          <ul class="submenu-sidebar">
+            <li>
+              <a href="admin-article.html"
+                ><i class="far fa-file-alt"></i> Article</a
+              >
+            </li>
+            <li>
+              <a href="admin-category.html"
+                ><i class="fas fa-tags"></i> Category</a
+              >
+            </li>
+            <li>
+              <a href="admin-ticket.html"
+                ><i class="fas fa-ticket-alt"></i> Ticket</a
+              >
+            </li>
+            <li>
+              <a href="admin-user.html"><i class="fas fa-user"></i> User</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#">
+            <i class="fas fa-chart-bar"></i> Statistic
+            <i class="fas fa-angle-down ms-auto"></i>
+          </a>
+          <ul class="submenu-sidebar">
+            <li>
+              <a href="datastudio-statistics.html"
+                ><i class="fas fa-tachometer-alt"></i> Datastudio Statistic</a
+              >
+            </li>
+            <li>
+              <a href="all-statistics.html"
+                ><i class="fas fa-chart-pie"></i> All Statistic</a
+              >
+            </li>
+            <li class="dropdown-submenu">
+              <a href="#"><i class="fas fa-filter"></i> Details By</a>
+              <ul class="sub-submenu">
+                <li>
+                  <a href="statistics-year.html"
+                    ><i class="fas fa-calendar-year"></i> This Year</a
+                  >
+                </li>
+                <li>
+                  <a href="statistics-categories.html"
+                    ><i class="fas fa-tags"></i> Problem Categories</a
+                  >
+                </li>
+                <li>
+                  <a href="statistics-departments.html"
+                    ><i class="fas fa-building"></i> Departments</a
+                  >
+                </li>
+                <li>
+                  <a href="statistics-staff.html"
+                    ><i class="fas fa-users"></i> IT Staff</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="serverMonitoring.html"
+            ><i class="fas fa-server"></i> Server Monitoring</a
+          >
+        </li>
+      </ul>
+
+      <!-- Today's PIC -->
+      <div class="todays-pic mt-4 mx-3">
+        <h6>Today's PIC</h6>
+        <div class="pic-avatar">
+          <i class="fas fa-user fa-4x text-secondary"></i>
+        </div>
+        <div class="text-center mb-2">
+          <div>IT Support</div>
+          <div><strong>John Newman</strong></div>
+        </div>
+        <div class="text-start">
+          <div class="mb-1">On progress Ticket(s):</div>
+          <div class="mb-1">Solved Ticket(s):</div>
+          <div class="mb-1">Total Ticket(s):</div>
+          <div class="mt-2">No. HP/CUG</div>
+        </div>
+        <button class="check-in-btn">CHECK IN</button>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <h2 class="mb-4">Response & Detail</h2>
+
+      <div class="row">
+        <div class="col-md-8">
+          <!-- Ticket Detail Card -->
+          <div class="detail-content">
+            <div class="detail-header">
+              <a href="javascript:history.back()" class="back-button">
+                <i class="fas fa-arrow-left me-2"></i>
+                <h5 class="mb-0" id="ticket-subject">Masalah Di Excel</h5>
+              </a>
+              <button class="print-button" title="Print">
+                <i class="fas fa-print"></i>
+              </button>
+            </div>
+
+            <!-- Message Container -->
+            <div class="message-container" id="message-container">
+              <!-- Initial User Message (Description) - Always visible -->
+              <div class="message user-message">
+                <div class="user-avatar">
+                  <i class="fas fa-user"></i>
+                </div>
+                <div class="message-bubble">
+                  <p id="user-description">
+                    <!-- Content will be populated by JavaScript -->
+                  </p>
+                  <div class="message-time">
+                    <i class="far fa-clock"></i>
+                    <span id="description-time">6:30 pm</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- On Progress Messages - Only visible in On Progress status -->
+              <div id="progress-messages" style="display: none">
+                <div class="message admin-message">
+                  <div class="message-bubble">
+                    <p>
+                      akan segera di periksa lebih lanjut untuk unit laptop nya.
+                    </p>
+                    <div class="message-time">
+                      <i class="far fa-clock"></i> 6:34 pm
+                    </div>
+                  </div>
+                </div>
+
+                <div class="message user-message">
+                  <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="message-bubble">
+                    <p>
+                      dan sepertinya terdapat gangguan di aplikasi excelnya juga
+                      tolong diperbaiki
+                    </p>
+                    <div class="message-time">
+                      <i class="far fa-clock"></i> 6:38 pm
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Solved Messages - Only visible in Solved status -->
+              <div id="solved-messages" style="display: none">
+                <div class="message admin-message">
+                  <div class="message-bubble">
+                    <p>
+                      akan segera di periksa lebih lanjut untuk unit laptop nya.
+                    </p>
+                    <div class="message-time">
+                      <i class="far fa-clock"></i> 6:34 pm
+                    </div>
+                  </div>
+                </div>
+
+                <div class="message user-message">
+                  <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="message-bubble">
+                    <p>
+                      dan sepertinya terdapat gangguan di aplikasi excelnya juga
+                      tolong diperbaiki
+                    </p>
+                    <div class="message-time">
+                      <i class="far fa-clock"></i> 6:38 pm
+                    </div>
+                  </div>
+                </div>
+
+                <div class="message admin-message">
+                  <div class="message-bubble">
+                    <p>Baiklah sudah diperbaiki silahkan dicek kembali</p>
+                    <div class="message-time">
+                      <i class="far fa-clock"></i> 6:45 pm
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Status Dropdown - Only visible for Open and On Progress -->
+            <div class="mt-4 mb-3" id="status-dropdown-container">
+              <div class="status-dropdown">
+                <span>Status</span>
+                <i class="fas fa-chevron-down ms-2"></i>
+                <div class="status-dropdown-menu">
+                  <a href="#"
+                    ><i class="fas fa-check-circle text-primary me-2"></i>
+                    Solution</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Message Input - Only visible for Open and On Progress -->
+            <div class="message-input" id="message-input-container">
+              <input type="text" placeholder="Write message" />
+              <button
+                class="attachment-btn"
+                style="border: none; background: none"
+              >
+                <i class="fas fa-paperclip"></i>
+              </button>
+              <button
+                class="attachment-btn"
+                style="border: none; background: none"
+              >
+                <i class="far fa-file"></i>
+              </button>
+              <button class="send-button">
+                Send
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+
+            <!-- End Chat Message - Only visible for Solved and Expired -->
+            <div
+              class="text-center py-4 text-muted"
+              id="chat-ended-message"
+              style="display: none"
+            >
+              <p class="mb-0">The Chat Ends Here</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <!-- User Information Card -->
+          <div class="user-info-card">
+            <div class="info-section">
+              <h5>User Information</h5>
+              <p><strong>John Doe</strong></p>
+              <p>IP Address : 172.16.75.93</p>
+              <p>No Ext./ Telp./ CUG :</p>
+              <p>03 Maret 2025</p>
+              <p>IT Office - Aplikasi Insosys (Umum)</p>
+            </div>
+
+            <div class="info-section position-relative">
+              <h5>Status</h5>
+              <div id="status-badge"></div>
+            </div>
+
+            <div class="info-section">
+              <h5>IT Support Information</h5>
+              <p>3 Maret 2025 20:38</p>
+              <p>
+                handle by: <strong>John Newman</strong><br />
+                <span id="admin-action"
+                  >showed as an Administrator to user Information Technology
+                  Department</span
+                ><br />
+                john.newman@trans7.co.id
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="#" class="whatsapp-btn" title="Contact us on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Sidebar Menu Toggle
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add click event to dropdown toggles
+        const dropdownToggles = document.querySelectorAll(
+          ".nav-link.dropdown-toggle"
+        );
+
+        dropdownToggles.forEach((toggle) => {
+          toggle.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Toggle the submenu visibility
+            const submenu = this.nextElementSibling;
+            if (submenu) {
+              const isVisible = submenu.style.display === "block";
+              submenu.style.display = isVisible ? "none" : "block";
+
+              // Toggle the arrow icon rotation
+              const arrow = this.querySelector(".fa-angle-down");
+              if (arrow) {
+                arrow.style.transform = isVisible
+                  ? "rotate(0deg)"
+                  : "rotate(180deg)";
+              }
+            }
+          });
+        });
+
+        // Initialize submenus based on active state
+        const activeSubmenuItems = document.querySelectorAll(
+          ".submenu-sidebar li a.active"
+        );
+        activeSubmenuItems.forEach((item) => {
+          const parentSubmenu = item.closest(".submenu-sidebar");
+          if (parentSubmenu) {
+            parentSubmenu.style.display = "block";
+
+            const parentDropdown = parentSubmenu.previousElementSibling;
+            if (
+              parentDropdown &&
+              parentDropdown.classList.contains("dropdown-toggle")
+            ) {
+              const arrow = parentDropdown.querySelector(".fa-angle-down");
+              if (arrow) {
+                arrow.style.transform = "rotate(180deg)";
+              }
+            }
+          }
+        });
+
+        // Parse URL parameters to get ticket details
+        const urlParams = new URLSearchParams(window.location.search);
+        const ticketId = urlParams.get("id");
+        const ticketSubject = urlParams.get("subject");
+        const ticketStatus = urlParams.get("status") || "Open"; // Default to Open if not specified
+        const ticketContent = urlParams.get("content"); // Get the message content if available
+
+        // Update page with ticket info if available
+        if (ticketSubject) {
+          document.getElementById("ticket-subject").textContent = ticketSubject;
+        }
+
+        // Populate the ticket description based on subject if content not provided
+        const userDescription = document.getElementById("user-description");
+        if (ticketContent) {
+          userDescription.innerHTML = ticketContent;
+        } else {
+          // Default messages based on ticket subject if content not provided
+          switch (ticketSubject) {
+            case "Product Activation Failed":
+              userDescription.innerHTML = `Dear tim IT,<br><br>
+              saya tidak bisa memakai aplikasi Ms.Word pada komputer saya. Mohon dibantu untuk aktivasi ms.office ya<br><br>
+              Terima kasih.`;
+              break;
+            case "Permohonan penembakan PB Built in weekend project":
+              userDescription.innerHTML = `Mohon untuk dilakukan penembakan pada PB Built in weekend project
+              PB0123456789, agar shift editing bisa di tarik, dikarenakan
+              terjadi kendala dalam pekerjaan shift editing padahal sudah
+              approval dari postpro dan PCM. dengan detail PEPS sebagai berikut:<br><br>
+              PEPSB0123456789 (Shift)<br>
+              PEPSB0123456789 (Shift)<br><br>
+              Terimakasih`;
+              break;
+            case "MS Excel bermasalah":
+              userDescription.innerHTML = `Dear Team IT, aplikasi MS Office (Excel) saya tidak bisa
+              digunakan. Setiap buka aplikasi selalu minta product key. Mohon
+              bantuannya.<br><br>
+              Terima kasih.`;
+              break;
+            case "Reset Password Wifi dan Device Wifi Login":
+              userDescription.innerHTML = `Dear Tim IT,<br><br>
+              Mau minta tolong utk reset password WiFi dan Devices yang sudah
+              pernah login. Terima kasih`;
+              break;
+            default:
+              userDescription.innerHTML = `Dear Tim IT,<br><br>
+              Mohon bantuan untuk mengatasi masalah pada ${
+                ticketSubject || "perangkat"
+              } saya.<br><br>
+              Terima kasih.`;
+          }
+        }
+
+        // Update view based on status
+        updateViewBasedOnStatus(ticketStatus);
+
+        // Function to update the view based on ticket status
+        function updateViewBasedOnStatus(status) {
+          const statusBadge = document.getElementById("status-badge");
+          const messageInputContainer = document.getElementById(
+            "message-input-container"
+          );
+          const statusDropdownContainer = document.getElementById(
+            "status-dropdown-container"
+          );
+          const chatEndedMessage =
+            document.getElementById("chat-ended-message");
+          const progressMessages = document.getElementById("progress-messages");
+          const solvedMessages = document.getElementById("solved-messages");
+          const adminAction = document.getElementById("admin-action");
+
+          // Reset all elements
+          messageInputContainer.style.display = "none";
+          statusDropdownContainer.style.display = "none";
+          chatEndedMessage.style.display = "none";
+          progressMessages.style.display = "none";
+          solvedMessages.style.display = "none";
+
+          // Update based on status
+          switch (status.toLowerCase()) {
+            case "open":
+              statusBadge.innerHTML = '<div class="ticket-tag open">Open</div>';
+              messageInputContainer.style.display = "flex";
+              statusDropdownContainer.style.display = "block";
+              adminAction.textContent = "waiting to be assigned";
+              break;
+
+            case "in progress":
+            case "on progress":
+            case "progress":
+              statusBadge.innerHTML =
+                '<div class="ticket-tag progress">On Progress By: John Newman</div>';
+              messageInputContainer.style.display = "flex";
+              statusDropdownContainer.style.display = "block";
+              progressMessages.style.display = "block";
+              adminAction.textContent =
+                "showed as an Administrator to user Information Technology Department";
+              break;
+
+            case "solved":
+              statusBadge.innerHTML =
+                '<div class="ticket-tag solved">Solved By: John Newman</div>';
+              chatEndedMessage.style.display = "block";
+              solvedMessages.style.display = "block";
+              adminAction.textContent = "closed this ticket as Solved";
+              break;
+
+            case "expired":
+              statusBadge.innerHTML =
+                '<div class="ticket-tag expired">Expired</div>';
+              chatEndedMessage.style.display = "block";
+              progressMessages.style.display = "block";
+              adminAction.textContent = "marked this ticket as Expired";
+              break;
+
+            default:
+              // Default to Open
+              statusBadge.innerHTML = '<div class="ticket-tag open">Open</div>';
+              messageInputContainer.style.display = "flex";
+              statusDropdownContainer.style.display = "block";
+              adminAction.textContent = "waiting to be assigned";
+          }
+        }
+
+        // Add status parameter to all view details links
+        document.querySelectorAll(".view-details-btn").forEach((btn) => {
+          const href = btn.getAttribute("href");
+          if (href && href.includes("viewDetail.html")) {
+            // Check if there's a status badge near this button
+            const ticketItem = btn.closest(".ticket-item");
+            if (ticketItem) {
+              const statusElem = ticketItem.querySelector(
+                ".status-open, .status-progress, .status-solved, .status-expired"
+              );
+              if (statusElem) {
+                let status = "Open";
+                if (statusElem.classList.contains("status-progress"))
+                  status = "In Progress";
+                if (statusElem.classList.contains("status-solved"))
+                  status = "Solved";
+                if (statusElem.classList.contains("status-expired"))
+                  status = "Expired";
+
+                // Add status to URL
+                const newHref = href.includes("?")
+                  ? `${href}&status=${status}`
+                  : `${href}?status=${status}`;
+
+                btn.setAttribute("href", newHref);
+              }
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

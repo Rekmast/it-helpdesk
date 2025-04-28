@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin User - IT-HelpDesk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Remove any unwanted borders from dropdown menus */
+      .sidebar .nav-item.dropdown .submenu-sidebar,
+      .sidebar .submenu-sidebar li,
+      .sidebar .submenu-sidebar li a,
+      .sidebar .dropdown-submenu .sub-submenu {
+        border: none !important;
+        border-left: none !important;
+        border-right: none !important;
+        border-top: none !important;
+        border-bottom: none !important;
+      }
+
+      /* Remove horizontal lines above Admin Menu and Statistic */
+      .sidebar .nav-item:nth-child(4),
+      .sidebar .nav-item:nth-child(5) {
+        border-top: none !important;
+        box-shadow: none !important;
+        background-image: none !important;
+      }
+
+      .sidebar .nav-item:nth-child(4)::before,
+      .sidebar .nav-item:nth-child(5)::before,
+      .sidebar .nav-item:nth-child(4)::after,
+      .sidebar .nav-item:nth-child(5)::after {
+        display: none !important;
+        border: none !important;
+        background: none !important;
+      }
+
+      /* Remove any potential dividers */
+      .sidebar hr,
+      .sidebar .divider {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <h1>IT-HelpDesk</h1>
+      <div class="user-profile">
+        <span>JOHN NEWMAN</span>
+        <button class="logout-btn">
+          <i class="fas fa-sign-out-alt me-1"></i>Logout
+        </button>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="Home.html"
+            ><i class="fas fa-home"></i> Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="myTicket(s).html"
+            ><i class="fas fa-ticket-alt"></i> My Tickets</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="knowledgeBase.html"
+            ><i class="fas fa-book"></i> Knowledge Base</a
+          >
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#">
+            <i class="fas fa-cog"></i> Admin Menu
+            <i class="fas fa-angle-down ms-auto"></i>
+          </a>
+          <ul class="submenu-sidebar" style="display: block">
+            <li>
+              <a href="admin-article.html"
+                ><i class="far fa-file-alt"></i> Article</a
+              >
+            </li>
+            <li>
+              <a href="admin-category.html"
+                ><i class="fas fa-tags"></i> Category</a
+              >
+            </li>
+            <li>
+              <a href="admin-ticket.html"
+                ><i class="fas fa-ticket-alt"></i> Ticket</a
+              >
+            </li>
+            <li>
+              <a href="admin-user.html" class="active"
+                ><i class="fas fa-user"></i> User</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#">
+            <i class="fas fa-chart-bar"></i> Statistic
+            <i class="fas fa-angle-down ms-auto"></i>
+          </a>
+          <ul class="submenu-sidebar">
+            <li>
+              <a href="datastudio-statistics.html"
+                ><i class="fas fa-tachometer-alt"></i> Datastudio Statistic</a
+              >
+            </li>
+            <li>
+              <a href="all-statistics.html"
+                ><i class="fas fa-chart-pie"></i> All Statistic</a
+              >
+            </li>
+            <li class="dropdown-submenu">
+              <a href="#"><i class="fas fa-filter"></i> Details By</a>
+              <ul class="sub-submenu">
+                <li>
+                  <a href="statistics-year.html"
+                    ><i class="fas fa-calendar-year"></i> This Year</a
+                  >
+                </li>
+                <li>
+                  <a href="statistics-categories.html"
+                    ><i class="fas fa-tags"></i> Problem Categories</a
+                  >
+                </li>
+                <li>
+                  <a href="statistics-departments.html"
+                    ><i class="fas fa-building"></i> Departments</a
+                  >
+                </li>
+                <li>
+                  <a href="statistics-staff.html"
+                    ><i class="fas fa-users"></i> IT Staff</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="serverMonitoring.html"
+            ><i class="fas fa-server"></i> Server Monitoring</a
+          >
+        </li>
+      </ul>
+
+      <!-- Today's PIC -->
+      <div class="todays-pic mt-4 mx-3">
+        <h6>Today's PIC</h6>
+        <div class="pic-avatar">
+          <i class="fas fa-user fa-4x text-secondary"></i>
+        </div>
+        <div class="text-center mb-2">
+          <div>IT Support</div>
+          <div><strong>John Newman</strong></div>
+        </div>
+        <div class="text-start">
+          <div class="mb-1">On progress Ticket(s):</div>
+          <div class="mb-1">Solved Ticket(s):</div>
+          <div class="mb-1">Total Ticket(s):</div>
+          <div class="mt-2">No. HP/CUG</div>
+        </div>
+        <button class="check-in-btn">CHECK IN</button>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <h2 class="mb-4">User Management</h2>
+
+      <!-- New Category Section -->
+      <div class="mb-4">
+        <h3 class="mb-3">New Category :</h3>
+        <div class="row g-3 align-items-center">
+          <div class="col-md-8">
+            <input
+              type="text"
+              class="form-control bg-light border-0"
+              style="height: 45px; border-radius: 8px"
+            />
+          </div>
+          <div class="col-md-4">
+            <button
+              class="btn text-white px-4"
+              style="
+                background-color: #ff7f50;
+                height: 45px;
+                border-radius: 8px;
+              "
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-4 rounded-4 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div
+                class="d-flex justify-content-between align-items-center mb-4"
+              >
+                <h3 class="fs-4 mb-0">User Management</h3>
+                <div class="dropdown">
+                  <button
+                    class="btn btn-outline-secondary dropdown-toggle"
+                    type="button"
+                    id="monthDropdown"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    October
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="monthDropdown">
+                    <li><a class="dropdown-item" href="#">January</a></li>
+                    <li><a class="dropdown-item" href="#">February</a></li>
+                    <li><a class="dropdown-item" href="#">March</a></li>
+                    <li><a class="dropdown-item" href="#">April</a></li>
+                    <li><a class="dropdown-item" href="#">May</a></li>
+                    <li><a class="dropdown-item" href="#">June</a></li>
+                    <li><a class="dropdown-item" href="#">July</a></li>
+                    <li><a class="dropdown-item" href="#">August</a></li>
+                    <li><a class="dropdown-item" href="#">September</a></li>
+                    <li><a class="dropdown-item" href="#">October</a></li>
+                    <li><a class="dropdown-item" href="#">November</a></li>
+                    <li><a class="dropdown-item" href="#">December</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table m-0">
+                  <thead class="bg-light">
+                    <tr>
+                      <th class="ps-4 py-3 border-0">User ID</th>
+                      <th class="py-3 border-0">Name</th>
+                      <th class="py-3 border-0">Department</th>
+                      <th class="py-3 border-0">Group</th>
+                      <th class="text-center py-3 border-0">Edit</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-bottom">
+                      <td class="ps-4 py-3">0888899</td>
+                      <td class="py-3">John Newman</td>
+                      <td class="py-3">Information Technology</td>
+                      <td class="py-3">ADMIN - IT</td>
+                      <td class="text-center py-3">
+                        <button class="btn btn-sm p-0 border-0">
+                          <i class="fas fa-pen-to-square fs-5"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="border-bottom">
+                      <td class="ps-4 py-3">0888899</td>
+                      <td class="py-3">John Newman</td>
+                      <td class="py-3">Information Technology</td>
+                      <td class="py-3">ADMIN - IT</td>
+                      <td class="text-center py-3">
+                        <button class="btn btn-sm p-0 border-0">
+                          <i class="fas fa-pen-to-square fs-5"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ps-4 py-3">0888899</td>
+                      <td class="py-3">John Newman</td>
+                      <td class="py-3">Information Technology</td>
+                      <td class="py-3">ADMIN - IT</td>
+                      <td class="text-center py-3">
+                        <button class="btn btn-sm p-0 border-0">
+                          <i class="fas fa-pen-to-square fs-5"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="#" class="whatsapp-btn" title="Contact us on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Sidebar Menu Toggle
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add click event to dropdown toggles
+        const dropdownToggles = document.querySelectorAll(
+          ".nav-link.dropdown-toggle"
+        );
+
+        dropdownToggles.forEach((toggle) => {
+          toggle.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Toggle the submenu visibility
+            const submenu = this.nextElementSibling;
+            if (submenu) {
+              const isVisible = submenu.style.display === "block";
+              submenu.style.display = isVisible ? "none" : "block";
+
+              // Toggle the arrow icon rotation
+              const arrow = this.querySelector(".fa-angle-down");
+              if (arrow) {
+                arrow.style.transform = isVisible
+                  ? "rotate(0deg)"
+                  : "rotate(180deg)";
+              }
+            }
+          });
+        });
+
+        // Initialize submenus based on active state
+        const activeSubmenuItems = document.querySelectorAll(
+          ".submenu-sidebar li a.active"
+        );
+        activeSubmenuItems.forEach((item) => {
+          const parentSubmenu = item.closest(".submenu-sidebar");
+          if (parentSubmenu) {
+            parentSubmenu.style.display = "block";
+
+            const parentDropdown = parentSubmenu.previousElementSibling;
+            if (
+              parentDropdown &&
+              parentDropdown.classList.contains("dropdown-toggle")
+            ) {
+              const arrow = parentDropdown.querySelector(".fa-angle-down");
+              if (arrow) {
+                arrow.style.transform = "rotate(180deg)";
+              }
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

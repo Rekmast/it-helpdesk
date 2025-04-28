@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - IT-HelpDesk</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Remove horizontal lines above Admin Menu and Statistic */
+      .sidebar .nav-item:nth-child(4),
+      .sidebar .nav-item:nth-child(5) {
+        border-top: none !important;
+        box-shadow: none !important;
+        background-image: none !important;
+      }
+
+      .sidebar .nav-item:nth-child(4)::before,
+      .sidebar .nav-item:nth-child(5)::before,
+      .sidebar .nav-item:nth-child(4)::after,
+      .sidebar .nav-item:nth-child(5)::after {
+        display: none !important;
+        border: none !important;
+        background: none !important;
+      }
+
+      /* Remove any potential dividers */
+      .sidebar hr,
+      .sidebar .divider {
+        display: none !important;
+      }
+
+      /* Force remove all borders */
+      .sidebar * {
+        border-top: none !important;
+        border-bottom: none !important;
+      }
+
+      /* Dashboard card styles for proper icon display */
+      .dashboard-card {
+        position: relative;
+        text-align: left;
+        padding: 20px 20px 20px 30px;
+        height: 150px;
+        width: 100%;
+        min-width: 240px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        overflow: hidden;
+      }
+
+      /* Dashboard cards container */
+      .dashboard-cards-container {
+        margin-right: -10px;
+        margin-left: -10px;
+      }
+
+      .dashboard-cards-container > div {
+        padding-right: 10px;
+        padding-left: 10px;
+      }
+
+      /* Responsive layout for cards */
+      @media (max-width: 1200px) {
+        .dashboard-cards-container {
+          justify-content: space-around !important;
+        }
+      }
+
+      @media (max-width: 991px) {
+        .dashboard-cards-container > div {
+          width: 50%;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .dashboard-cards-container > div {
+          width: 100%;
+          max-width: 350px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      .dashboard-card .number {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 2px;
+        color: #5e5873;
+      }
+
+      .dashboard-card .description {
+        font-size: 15px;
+        font-weight: 600;
+        color: #6e6b7b;
+        margin-bottom: 2px;
+      }
+
+      .dashboard-card .sub-description {
+        font-size: 12px;
+        color: #b9b9c3;
+      }
+
+      /* Fixed icon position */
+      .dashboard-card .icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        position: absolute;
+        top: 50%;
+        right: 30px;
+        transform: translateY(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header container -->
+    <div id="header-container"></div>
+
+    <!-- Sidebar container -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <h2 class="mb-4">Home</h2>
+
+      <!-- Dashboard Cards -->
+      <div
+        class="row g-3 dashboard-cards-container d-flex justify-content-between"
+      >
+        <!-- Open Tickets -->
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-4">
+          <div class="dashboard-card open-tickets">
+            <div class="icon open-tickets">
+              <i class="fa-duotone fa-solid fa-ticket"></i>
+            </div>
+            <div class="number">5</div>
+            <div class="description">Open Ticket(s)</div>
+            <div class="sub-description">5 Ticket(s) yang Open</div>
+          </div>
+        </div>
+
+        <!-- In Progress Tickets -->
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-4">
+          <div class="dashboard-card progress-tickets">
+            <div class="icon progress-tickets">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="number">2</div>
+            <div class="description">Total On Progress</div>
+            <div class="sub-description">2 Ticket(s) yang On Progress</div>
+          </div>
+        </div>
+
+        <!-- Expired Tickets -->
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-4">
+          <div class="dashboard-card expired-tickets">
+            <div class="icon expired-tickets">
+              <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+            <div class="number">456</div>
+            <div class="description">Expired Ticket(s)</div>
+            <div class="sub-description">456 Ticket(s) yang Expired</div>
+          </div>
+        </div>
+
+        <!-- Solved Tickets -->
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-4">
+          <div class="dashboard-card solved-tickets">
+            <div class="icon solved-tickets">
+              <i class="fas fa-check"></i>
+            </div>
+            <div class="number">5.555</div>
+            <div class="description">Solved Ticket(s)</div>
+            <div class="sub-description">
+              <i class="fas fa-chart-line me-1 text-success"></i>
+              Dari Bulan Lalu
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ticket List -->
+      <div class="ticket-list">
+        <h5 class="mb-3">List Ticket(s)</h5>
+        <div
+          class="ticket-list-header d-flex justify-content-between align-items-center"
+        >
+          <div class="d-flex align-items-center">
+            <div
+              class="filter-btn me-3"
+              id="filter-btn-home"
+              style="position: relative"
+            >
+              <i class="fa-solid fa-sliders"></i>
+
+              <!-- Filter Modal -->
+              <div class="filter-modal" id="filter-modal-home">
+                <h3>Select Ticket(s) Status</h3>
+
+                <div class="filter-options">
+                  <div class="filter-option">Open</div>
+                  <div class="filter-option">On Progress</div>
+                  <div class="filter-option">Expired</div>
+                  <div class="filter-option">Solved</div>
+                  <div class="filter-option">Show All</div>
+                </div>
+
+                <div class="filter-select">
+                  <label for="filter-select-home">Show By :</label>
+                  <select id="filter-select-home">
+                    <option value="">Select</option>
+                    <option value="date">Date</option>
+                    <option value="department">Department</option>
+                    <option value="priority">Priority</option>
+                  </select>
+                </div>
+
+                <div class="filter-notes">
+                  *You can choose multiple Tickets Status<br />
+                  *You can choose the type of the Ticket(s)
+                </div>
+
+                <button class="filter-button">Select Now</button>
+              </div>
+            </div>
+            <div class="search-bar me-3">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Search" />
+            </div>
+          </div>
+          <div class="pagination">
+            <a href="#">first</a> | <a href="#">prev</a> |
+            <a href="#">next</a> | <a href="#">last</a>
+          </div>
+        </div>
+
+        <!-- Filter Modal: Moved inside filter button container above -->
+
+        <!-- Ticket Item 1 -->
+        <div class="ticket-item">
+          <div class="ticket-header">
+            <div class="ticket-title">
+              <div class="ticket-status status-open">
+                <i class="fas fa-ticket-alt"></i>
+              </div>
+              <div>
+                <h4>Product Activation Failed</h4>
+                <div class="ticket-id">PB0123456789</div>
+              </div>
+            </div>
+            <div class="ticket-actions">
+              <button class="btn btn-outline-secondary btn-sm" title="Edit">
+                <i class="fas fa-pen"></i>
+              </button>
+              <button
+                class="view-details-btn"
+                onclick="window.location.href='viewDetail.html?id=PB0123456789&subject=Product Activation Failed&status=Open&content=' + encodeURIComponent('Dear tim IT,<br><br>saya tidak bisa memakai aplikasi Ms.Word pada komputer saya. Mohon dibantu untuk aktivasi ms.office ya<br><br>Terima kasih.')"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+          <div class="ticket-content">
+            <p>Dear tim IT,</p>
+            <p>
+              saya tidak bisa memakai aplikasi Ms.Word pada komputer saya. Mohon
+              dibantu untuk aktivasi ms.office ya
+            </p>
+            <p>Terima kasih.</p>
+          </div>
+          <div class="ticket-tag open">Open By: John Doe</div>
+          <div class="ticket-footer">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="footer-row">
+                  <span class="footer-label">Reported By:</span>
+                  <span class="footer-value">John Doe</span>
+                </div>
+                <div class="footer-row">
+                  <span class="footer-label">Department:</span>
+                  <span class="footer-value"
+                    >IT Office - Aplikasi HR - HRSS (PMS, Cuti online, Legal
+                    Online)</span
+                  >
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="footer-row">
+                  <span class="footer-label">No. Ext/ Telp/ Cug:</span>
+                  <span class="footer-value">0812345678</span>
+                </div>
+                <div class="footer-row">
+                  <span class="footer-label">IP Address:</span>
+                  <span class="footer-value">192.163.2.222</span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="footer-row">
+                  <span class="footer-label">Date:</span>
+                  <span class="footer-value">03 Maret 2025</span>
+                </div>
+                <div class="footer-row">
+                  <span class="footer-label">Time:</span>
+                  <span class="footer-value">15:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ticket Item 2 -->
+        <div class="ticket-item">
+          <div class="ticket-header">
+            <div class="ticket-title">
+              <div class="ticket-status status-solved">
+                <i class="fas fa-check"></i>
+              </div>
+              <div>
+                <h4>Permohonan penembakan PB Built in weekend project</h4>
+                <div class="ticket-id">PB0123456789</div>
+              </div>
+            </div>
+            <div class="ticket-actions">
+              <button class="btn btn-outline-secondary btn-sm" title="Edit">
+                <i class="fas fa-print"></i>
+              </button>
+              <button
+                class="view-details-btn"
+                onclick="window.location.href='viewDetail.html?id=PB0123456789&subject=Permohonan penembakan PB Built in weekend project&status=Solved&content=' + encodeURIComponent('Mohon untuk dilakukan penembakan pada PB Built in weekend project PB0123456789, agar shift editing bisa di tarik, dikarenakan terjadi kendala dalam pekerjaan shift editing padahal sudah approval dari postpro dan PCM. dengan detail PEPS sebagai berikut:<br><br>PEPSB0123456789 (Shift)<br>PEPSB0123456789 (Shift)<br><br>Terimakasih')"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+          <div class="ticket-content">
+            <p>
+              Mohon untuk dilakukan penembakan pada PB Built in weekend project
+              PB0123456789, agar shift editing bisa di tarik, dikarenakan
+              terjadi kendala dalam pekerjaan shift editing padahal sudah
+              approval dari postpro dan PCM. dengan detail PEPS sebagai berikut:
+            </p>
+            <p>PEPSB0123456789 (Shift)</p>
+            <p>PEPSB0123456789 (Shift)</p>
+            <p>Terimakasih</p>
+          </div>
+          <div class="ticket-tag solved">Solved By: John Newman</div>
+          <div class="ticket-footer">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="footer-row">
+                  <span class="footer-label">Reported By:</span>
+                  <span class="footer-value">John Doe</span>
+                </div>
+                <div class="footer-row">
+                  <span class="footer-label">Department:</span>
+                  <span class="footer-value"
+                    >IT Office - Aplikasi HR - HRSS (PMS, Cuti online, Legal
+                    Online)</span
+                  >
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="footer-row">
+                  <span class="footer-label">No. Ext/ Telp/ Cug:</span>
+                  <span class="footer-value">0812345678</span>
+                </div>
+                <div class="footer-row">
+                  <span class="footer-label">IP Address:</span>
+                  <span class="footer-value">192.163.2.222</span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="footer-row">
+                  <span class="footer-label">Date:</span>
+                  <span class="footer-value">01 Maret 2025</span>
+                </div>
+                <div class="footer-row">
+                  <span class="footer-label">Time:</span>
+                  <span class="footer-value">14:59</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ticket Item 3 -->
+        <div class="ticket-item">
+          <div class="ticket-header">
+            <div class="ticket-title">
+              <div class="ticket-status status-progress">
+                <i class="fas fa-spinner"></i>
+              </div>
+              <div>
+                <h4>MS Excel bermasalah</h4>
+                <div class="ticket-id">PB0123456789</div>
+              </div>
+            </div>
+            <div class="ticket-actions">
+              <button class="btn btn-outline-secondary btn-sm" title="Edit">
+                <i class="fas fa-file"></i>
+              </button>
+              <button
+                class="view-details-btn"
+                onclick="window.location.href='viewDetail.html?id=PB0123456789&subject=MS Excel bermasalah&status=In Progress&content=' + encodeURIComponent('Dear Team IT, aplikasi MS Office (Excel) saya tidak bisa digunakan. Setiap buka aplikasi selalu minta product key. Mohon bantuannya.<br><br>Terima kasih.')"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+          <div class="ticket-content">
+            <p>
+              Dear Team IT, aplikasi MS Office (Excel) saya tidak bisa
+              digunakan. Setiap buka aplikasi selalu minta product key. Mohon
+              bantuannya.
+            </p>
+            <p>Terima kasih.</p>
+          </div>
+          <div class="ticket-tag progress">On Progress By: John Newman</div>
+          <div class="ticket-footer">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="footer-row">
+                  <span class="footer-label">Reported By:</span>
+                  <span class="footer-value">John Doe</span>
+                </div>
+                <div class="footer-row">
+                  <span class="footer-label">Department:</span>
+                  <span class="footer-value"
+                    >IT Office - Aplikasi HR - HRSS (PMS, Cuti online, Legal
+                    Online)</span
+                  >
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="footer-row">
+                  <span class="footer-label">No. Ext/ Telp/ Cug:</span>
+                  <span class="footer-value">0812345678</span>
+                </div>
+                <div class="footer-row">
+                  <span class="footer-label">IP Address:</span>
+                  <span class="footer-value">192.168.2.222</span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="footer-row">
+                  <span class="footer-label">Date:</span>
+                  <span class="footer-value">03 Maret 2025</span>
+                </div>
+                <div class="footer-row">
+                  <span class="footer-label">Time:</span>
+                  <span class="footer-value">15:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ticket Item 4 -->
+        <div class="ticket-item">
+          <div class="ticket-header">
+            <div class="ticket-title">
+              <div class="ticket-status status-expired">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div>
+                <h4>Reset Password Wifi dan Device Wifi Login</h4>
+                <div class="ticket-id">PB0123456789</div>
+              </div>
+            </div>
+            <div class="ticket-actions">
+              <button
+                class="view-details-btn"
+                onclick="window.location.href='viewDetail.html?id=PB0123456789&subject=Reset Password Wifi dan Device Wifi Login&status=Expired&content=' + encodeURIComponent('Dear Tim IT,<br><br>Mau minta tolong utk reset password WiFi dan Devices yang sudah pernah login. Terima kasih')"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+          <div class="ticket-content">
+            <p>Dear Tim IT,</p>
+            <p>
+              Mau minta tolong utk reset password WiFi dan Devices yang sudah
+              pernah login. Terima kasih
+            </p>
+          </div>
+          <div class="ticket-tag expired">Expired By: John Newman</div>
+          <div class="ticket-footer">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="footer-row">
+                  <span class="footer-label">Reported By:</span>
+                  <span class="footer-value">John Doe</span>
+                </div>
+                <div class="footer-row">
+                  <span class="footer-label">Department:</span>
+                  <span class="footer-value"
+                    >IT Office - Aplikasi HR - HRSS (PMS, Cuti online, Legal
+                    Online)</span
+                  >
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="footer-row">
+                  <span class="footer-label">No. Ext/ Telp/ Cug:</span>
+                  <span class="footer-value">0812345678</span>
+                </div>
+                <div class="footer-row">
+                  <span class="footer-label">IP Address:</span>
+                  <span class="footer-value">192.163.2.222</span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="footer-row">
+                  <span class="footer-label">Date:</span>
+                  <span class="footer-value">05 Maret 2025</span>
+                </div>
+                <div class="footer-row">
+                  <span class="footer-label">Time:</span>
+                  <span class="footer-value">15:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="utils.js"></script>
+    <script>
+      // Sidebar Menu Toggle
+      document.addEventListener("DOMContentLoaded", function () {
+        // Filter Modal Toggle
+        const filterBtn = document.getElementById("filter-btn-home");
+        const filterModal = document.getElementById("filter-modal-home");
+
+        if (filterBtn && filterModal) {
+          filterBtn.addEventListener("click", function (e) {
+            e.stopPropagation(); // Stop click from propagating to document
+            filterModal.classList.toggle("active");
+          });
+
+          // Close the filter modal when clicking outside
+          document.addEventListener("click", function (e) {
+            if (!filterBtn.contains(e.target)) {
+              filterModal.classList.remove("active");
+            }
+          });
+
+          // Prevent clicks inside the filter modal from closing it
+          filterModal.addEventListener("click", function (e) {
+            e.stopPropagation();
+          });
+
+          // Handle filter options selection
+          const filterOptions = filterModal.querySelectorAll(".filter-option");
+          filterOptions.forEach((option) => {
+            option.addEventListener("click", function () {
+              // For "Show All" option, deselect all others when selected
+              if (this.textContent === "Show All") {
+                filterOptions.forEach((opt) => {
+                  if (opt.textContent !== "Show All") {
+                    opt.classList.remove("active");
+                  }
+                });
+                this.classList.toggle("active");
+              } else {
+                // For other options, deselect "Show All" if it's active
+                filterOptions.forEach((opt) => {
+                  if (opt.textContent === "Show All") {
+                    opt.classList.remove("active");
+                  }
+                });
+                this.classList.toggle("active");
+              }
+            });
+          });
+
+          // Filter Button Action
+          const filterButton = filterModal.querySelector(".filter-button");
+          filterButton.addEventListener("click", function () {
+            // Get selected statuses
+            const selectedStatuses = [];
+            filterOptions.forEach((option) => {
+              if (option.classList.contains("active")) {
+                selectedStatuses.push(option.textContent);
+              }
+            });
+
+            // Get selected "Show By" value
+            const showByValue =
+              document.getElementById("filter-select-home").value;
+
+            // Apply filters (this is where you'd implement actual filtering)
+            console.log("Selected statuses:", selectedStatuses);
+            console.log("Show by:", showByValue);
+
+            // Close the modal
+            filterModal.classList.remove("active");
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

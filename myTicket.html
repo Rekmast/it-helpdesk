@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Tickets - IT-HelpDesk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header container -->
+    <div id="header-container"></div>
+
+    <!-- Sidebar container -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="content-header">
+        <h1>My Tickets</h1>
+      </div>
+
+      <div class="content-body">
+        <div class="card">
+          <div
+            class="card-header d-flex justify-content-between align-items-center"
+          >
+            <h5 class="mb-0">Your Ticket History</h5>
+            <a href="newProblemTicket.html" class="btn btn-primary">
+              <i class="fas fa-plus-circle me-1"></i> New Ticket
+            </a>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Ticket ID</th>
+                    <th>Subject</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Priority</th>
+                    <th>Created</th>
+                    <th>Last Updated</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>TIX-2023001</td>
+                    <td>Network Connection Issue</td>
+                    <td>Network</td>
+                    <td>
+                      <span class="badge bg-warning">In Progress</span>
+                    </td>
+                    <td>
+                      <span class="badge bg-danger">High</span>
+                    </td>
+                    <td>2023-06-15</td>
+                    <td>2023-06-16</td>
+                    <td>
+                      <a href="viewDetail.html" class="btn btn-sm btn-info">
+                        <i class="fas fa-eye"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>TIX-2023002</td>
+                    <td>Printer Not Working</td>
+                    <td>Hardware</td>
+                    <td>
+                      <span class="badge bg-success">Resolved</span>
+                    </td>
+                    <td>
+                      <span class="badge bg-warning">Medium</span>
+                    </td>
+                    <td>2023-06-10</td>
+                    <td>2023-06-12</td>
+                    <td>
+                      <a href="viewDetail.html" class="btn btn-sm btn-info">
+                        <i class="fas fa-eye"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>TIX-2023003</td>
+                    <td>Email Access Problem</td>
+                    <td>Software</td>
+                    <td>
+                      <span class="badge bg-secondary">Closed</span>
+                    </td>
+                    <td>
+                      <span class="badge bg-info">Low</span>
+                    </td>
+                    <td>2023-06-05</td>
+                    <td>2023-06-07</td>
+                    <td>
+                      <a href="viewDetail.html" class="btn btn-sm btn-info">
+                        <i class="fas fa-eye"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="#" class="whatsapp-btn" title="Contact us on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="utils.js"></script>
+  </body>
+</html>
