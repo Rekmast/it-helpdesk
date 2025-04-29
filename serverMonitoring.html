@@ -19,6 +19,44 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <style>
+      .banner {
+        background-image: url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 80px 20px;
+        margin-bottom: 30px;
+      }
+
+      .banner h1 {
+        font-size: 3rem;
+        font-weight: 700;
+      }
+
+      .banner p {
+        font-size: 1.2rem;
+      }
+
+      .main-content {
+        padding: 0;
+      }
+
+      .content-wrapper {
+        padding: 0 20px 20px 20px;
+      }
+
+      .date-input-container {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+      }
+
+      .server-table h3 {
+        font-weight: 600;
+      }
+    </style>
   </head>
   <body>
     <!-- Header container -->
@@ -29,13 +67,13 @@
 
     <!-- Main Content -->
     <div class="main-content">
-      <!-- Server Monitoring Header -->
-      <div class="server-monitoring-header text-center">
+      <!-- Banner -->
+      <div class="banner">
         <h1>SERVER MONITORING</h1>
         <p>Dokumentasi & panduan troubleshooting untuk masalah IT.</p>
       </div>
 
-      <div class="container">
+      <div class="content-wrapper">
         <!-- Date Input Section -->
         <div class="date-input-container">
           <div class="row align-items-center">
@@ -180,48 +218,9 @@
         // Simulate click to show initial data
         document.getElementById("check-button").click();
 
-        // Sidebar dropdown menu functionality
-        const dropdownToggles = document.querySelectorAll(
-          ".nav-link.dropdown-toggle"
-        );
-
-        dropdownToggles.forEach((toggle) => {
-          toggle.addEventListener("click", function (e) {
-            e.preventDefault();
-
-            // Toggle the submenu visibility
-            const submenu = this.nextElementSibling;
-            if (submenu) {
-              const isVisible = submenu.style.display === "block";
-              submenu.style.display = isVisible ? "none" : "block";
-
-              // Toggle the arrow icon rotation
-              const arrow = this.querySelector(".fa-angle-down");
-              if (arrow) {
-                arrow.style.transform = isVisible
-                  ? "rotate(0deg)"
-                  : "rotate(180deg)";
-              }
-            }
-          });
-        });
-
-        // Handle dropdown-submenu clicks
-        const submenuToggles = document.querySelectorAll(
-          ".dropdown-submenu > a"
-        );
-        submenuToggles.forEach((toggle) => {
-          toggle.addEventListener("click", function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const subSubmenu = this.nextElementSibling;
-            if (subSubmenu) {
-              const isVisible = subSubmenu.style.display === "block";
-              subSubmenu.style.display = isVisible ? "none" : "block";
-            }
-          });
-        });
+        // Load components
+        loadComponent("header-container", "header");
+        loadComponent("sidebar-container", "sidebar");
       });
     </script>
   </body>

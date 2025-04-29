@@ -41,10 +41,20 @@
               <i class="far fa-file-alt"></i> Article
             </a>
           </li>
-          <li>
-            <a href="admin-category.html">
-              <i class="fas fa-tags"></i> Category
-            </a>
+          <li class="dropdown-submenu">
+            <a href="#"> <i class="fas fa-tags"></i> Category </a>
+            <ul class="sub-submenu" id="categorySubmenu">
+              <li>
+                <a href="admin-category-article.html">
+                  <i class="far fa-file-alt"></i> Article Category
+                </a>
+              </li>
+              <li>
+                <a href="admin-category-ticket.html">
+                  <i class="fas fa-ticket-alt"></i> Ticket Category
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="dropdown-submenu">
             <a href="#"> <i class="fas fa-ticket-alt"></i> Ticket </a>
@@ -55,7 +65,7 @@
                 </a>
               </li>
               <li>
-                <a href="ticket-list.html">
+                <a href="Home.html">
                   <i class="fas fa-list"></i> Ticket List
                 </a>
               </li>
@@ -186,10 +196,27 @@
         document.getElementById("nav-admin-article").classList.add("active");
         document.getElementById("adminSubmenu").style.display = "block";
         break;
-      case "admin-category.html":
+      case "admin-category-article.html":
         document.getElementById("nav-admin").classList.add("active");
-        document.getElementById("nav-admin-category").classList.add("active");
         document.getElementById("adminSubmenu").style.display = "block";
+        document.getElementById("categorySubmenu").style.display = "block";
+        document
+          .querySelector(".dropdown-submenu > a > i.fas.fa-tags")
+          .parentElement.classList.add("active");
+        document
+          .querySelector('a[href="admin-category-article.html"]')
+          .classList.add("active");
+        break;
+      case "admin-category-ticket.html":
+        document.getElementById("nav-admin").classList.add("active");
+        document.getElementById("adminSubmenu").style.display = "block";
+        document.getElementById("categorySubmenu").style.display = "block";
+        document
+          .querySelector(".dropdown-submenu > a > i.fas.fa-tags")
+          .parentElement.classList.add("active");
+        document
+          .querySelector('a[href="admin-category-ticket.html"]')
+          .classList.add("active");
         break;
       case "newProblemTicket.html":
         document.getElementById("nav-admin").classList.add("active");
@@ -200,17 +227,6 @@
           .parentElement.classList.add("active");
         document
           .querySelector('a[href="newProblemTicket.html"]')
-          .classList.add("active");
-        break;
-      case "ticket-list.html":
-        document.getElementById("nav-admin").classList.add("active");
-        document.getElementById("adminSubmenu").style.display = "block";
-        document.getElementById("ticketSubmenu").style.display = "block";
-        document
-          .querySelector(".dropdown-submenu > a > i.fas.fa-ticket-alt")
-          .parentElement.classList.add("active");
-        document
-          .querySelector('a[href="ticket-list.html"]')
           .classList.add("active");
         break;
       case "admin-user.html":

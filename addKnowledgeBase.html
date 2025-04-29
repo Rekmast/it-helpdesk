@@ -23,6 +23,58 @@
       href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css"
       rel="stylesheet"
     />
+    <style>
+      /* Pagination style - larger size */
+      .pagination {
+        margin: 20px 0;
+        font-size: 16px;
+      }
+
+      .pagination a {
+        margin: 0 10px;
+        color: #4285f4;
+        font-weight: 500;
+        text-decoration: none;
+      }
+
+      .pagination a:hover {
+        text-decoration: underline;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+      }
+
+      .action-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .edit-btn {
+        background-color: #f1f1f1;
+        color: #333;
+        border: 1px solid #ddd;
+      }
+
+      .view-btn {
+        background-color: #4285f4;
+        color: white;
+        border: none;
+      }
+
+      .view-btn:hover {
+        background-color: #3367d6;
+      }
+
+      .edit-btn:hover {
+        background-color: #e3e3e3;
+      }
+    </style>
   </head>
   <body>
     <!-- Header container -->
@@ -36,9 +88,46 @@
       <div class="content-header">
         <div class="d-flex justify-content-between align-items-center">
           <h1>Add Knowledge Base Article</h1>
-          <a href="knowledgeBase.html" class="btn btn-outline-secondary">
-            <i class="fas fa-arrow-left me-1"></i> Back to Knowledge Base
-          </a>
+          <div class="d-flex">
+            <div class="filter-container me-3">
+              <button id="filter-btn-kb" class="filter-btn">
+                <i class="fa-solid fa-sliders"></i>
+
+                <!-- Filter Modal -->
+                <div class="filter-modal" id="filter-modal-kb">
+                  <h3>Select Knowledge Category</h3>
+
+                  <div class="filter-options">
+                    <div class="filter-option">Hardware</div>
+                    <div class="filter-option">Software</div>
+                    <div class="filter-option">Network</div>
+                    <div class="filter-option">Security</div>
+                    <div class="filter-option">Show All</div>
+                  </div>
+
+                  <div class="filter-select">
+                    <label for="filter-select-kb">Filter By :</label>
+                    <select id="filter-select-kb">
+                      <option value="">Select</option>
+                      <option value="date">Date</option>
+                      <option value="usage">Most Used</option>
+                      <option value="relevance">Relevance</option>
+                    </select>
+                  </div>
+
+                  <div class="filter-notes">
+                    *You can choose multiple categories<br />
+                    *You can sort by different criteria
+                  </div>
+
+                  <button class="filter-button">Apply Filter</button>
+                </div>
+              </button>
+            </div>
+            <a href="knowledgeBase.html" class="btn btn-outline-secondary">
+              <i class="fas fa-arrow-left me-1"></i> Back to Knowledge Base
+            </a>
+          </div>
         </div>
         <p class="text-muted">
           Create a new article to help users solve common problems
@@ -46,6 +135,35 @@
       </div>
 
       <div class="content-body">
+        <!-- Example Pagination (for demonstration) -->
+        <div class="pagination mb-4 text-center">
+          <a href="#" class="fw-bold">first</a> |
+          <a href="#" class="fw-bold">prev</a> |
+          <a href="#" class="fw-bold">next</a> |
+          <a href="#" class="fw-bold">last</a>
+        </div>
+
+        <!-- Example Action Buttons (for demonstration) -->
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h5>Knowledge Base Example Item</h5>
+                <p>
+                  This demonstrates the larger action buttons as seen in the
+                  reference image.
+                </p>
+                <div class="action-buttons">
+                  <button class="action-btn edit-btn">
+                    <i class="fas fa-pen"></i>
+                  </button>
+                  <button class="action-btn view-btn">View Details</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="card">
           <div class="card-body">
             <form id="add-kb-form">
@@ -93,18 +211,6 @@
                 </div>
               </div>
 
-              <!-- Short Summary -->
-              <div class="mb-3">
-                <label for="article-summary" class="form-label">Summary</label>
-                <textarea
-                  class="form-control"
-                  id="article-summary"
-                  rows="2"
-                  placeholder="Write a brief summary of the article"
-                  required
-                ></textarea>
-              </div>
-
               <!-- Article Content -->
               <div class="mb-3">
                 <label for="article-content" class="form-label">Content</label>
@@ -132,83 +238,10 @@
                 </div>
               </div>
 
-              <!-- Related Articles -->
-              <div class="mb-3">
-                <label class="form-label">Related Articles</label>
-                <div class="input-group mb-2">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Search for related articles..."
-                    id="related-articles-search"
-                  />
-                  <button class="btn btn-outline-primary" type="button">
-                    <i class="fas fa-search"></i>
-                  </button>
-                </div>
-                <div class="selected-articles">
-                  <div
-                    class="selected-article d-flex align-items-center p-2 mb-1 border rounded"
-                  >
-                    <span>How to Reset Your Password</span>
-                    <button
-                      type="button"
-                      class="btn-close ms-auto"
-                      aria-label="Remove"
-                    ></button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Visibility Settings -->
-              <div class="mb-3">
-                <label class="form-label">Visibility</label>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="visibility"
-                    id="visibility-public"
-                    value="public"
-                    checked
-                  />
-                  <label class="form-check-label" for="visibility-public">
-                    Public (visible to all users)
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="visibility"
-                    id="visibility-internal"
-                    value="internal"
-                  />
-                  <label class="form-check-label" for="visibility-internal">
-                    Internal (visible to staff only)
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="visibility"
-                    id="visibility-restricted"
-                    value="restricted"
-                  />
-                  <label class="form-check-label" for="visibility-restricted">
-                    Restricted (select departments only)
-                  </label>
-                </div>
-              </div>
-
               <!-- Action Buttons -->
               <div class="d-flex gap-2 mt-4">
                 <button type="submit" class="btn btn-primary">
                   <i class="fas fa-save me-1"></i> Save and Publish
-                </button>
-                <button type="button" class="btn btn-outline-primary">
-                  <i class="fas fa-clock me-1"></i> Save as Draft
                 </button>
                 <button type="button" class="btn btn-outline-secondary ms-auto">
                   <i class="fas fa-times me-1"></i> Cancel
@@ -233,6 +266,7 @@
     <script src="utils.js"></script>
     <script>
       $(document).ready(function () {
+        // Initialize Summernote editor
         $("#summernote").summernote({
           placeholder: "Write your article content here...",
           tabsize: 2,
@@ -247,6 +281,76 @@
             ["view", ["fullscreen", "codeview", "help"]],
           ],
         });
+
+        // Filter Modal Toggle
+        const filterBtn = document.getElementById("filter-btn-kb");
+        const filterModal = document.getElementById("filter-modal-kb");
+
+        if (filterBtn && filterModal) {
+          filterBtn.addEventListener("click", function (e) {
+            e.stopPropagation(); // Stop click from propagating to document
+            filterModal.classList.toggle("active");
+          });
+
+          // Close the filter modal when clicking outside
+          document.addEventListener("click", function (e) {
+            if (!filterBtn.contains(e.target)) {
+              filterModal.classList.remove("active");
+            }
+          });
+
+          // Prevent clicks inside the filter modal from closing it
+          filterModal.addEventListener("click", function (e) {
+            e.stopPropagation();
+          });
+
+          // Handle filter options selection
+          const filterOptions = filterModal.querySelectorAll(".filter-option");
+          filterOptions.forEach((option) => {
+            option.addEventListener("click", function () {
+              // For "Show All" option, deselect all others when selected
+              if (this.textContent === "Show All") {
+                filterOptions.forEach((opt) => {
+                  if (opt.textContent !== "Show All") {
+                    opt.classList.remove("active");
+                  }
+                });
+                this.classList.toggle("active");
+              } else {
+                // For other options, deselect "Show All" if it's active
+                filterOptions.forEach((opt) => {
+                  if (opt.textContent === "Show All") {
+                    opt.classList.remove("active");
+                  }
+                });
+                this.classList.toggle("active");
+              }
+            });
+          });
+
+          // Filter Button Action
+          const filterButton = filterModal.querySelector(".filter-button");
+          filterButton.addEventListener("click", function () {
+            // Get selected categories
+            const selectedCategories = [];
+            filterOptions.forEach((option) => {
+              if (option.classList.contains("active")) {
+                selectedCategories.push(option.textContent);
+              }
+            });
+
+            // Get selected "Filter By" value
+            const filterByValue =
+              document.getElementById("filter-select-kb").value;
+
+            // Apply filters (this would normally filter actual content)
+            console.log("Selected categories:", selectedCategories);
+            console.log("Filter by:", filterByValue);
+
+            // Close the modal
+            filterModal.classList.remove("active");
+          });
+        }
       });
     </script>
   </body>

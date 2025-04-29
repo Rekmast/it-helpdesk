@@ -20,210 +20,112 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <style>
-      .kb-header {
-        background-image: url("images/library-background.jpg");
+      /* Remove horizontal lines above Admin Menu and Statistic */
+      .sidebar .nav-item:nth-child(4),
+      .sidebar .nav-item:nth-child(5) {
+        border-top: none !important;
+        box-shadow: none !important;
+        background-image: none !important;
+      }
+
+      .sidebar .nav-item:nth-child(4)::before,
+      .sidebar .nav-item:nth-child(5)::before,
+      .sidebar .nav-item:nth-child(4)::after,
+      .sidebar .nav-item:nth-child(5)::after {
+        display: none !important;
+        border: none !important;
+        background: none !important;
+      }
+
+      /* Remove any potential dividers */
+      .sidebar hr,
+      .sidebar .divider {
+        display: none !important;
+      }
+
+      /* Force remove all borders */
+      .sidebar * {
+        border-top: none !important;
+        border-bottom: none !important;
+      }
+
+      .banner {
+        background-image: url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80");
         background-size: cover;
         background-position: center;
         color: white;
-        padding: 3rem 0;
-        margin-bottom: 2rem;
-        position: relative;
+        padding: 80px 20px;
+        margin-bottom: 30px;
       }
 
-      .kb-header::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-      }
-
-      .kb-header h1 {
-        position: relative;
+      .banner h1 {
         font-size: 3rem;
         font-weight: 700;
       }
 
-      .kb-header p {
-        position: relative;
+      .banner p {
         font-size: 1.2rem;
       }
 
-      .kb-categories {
-        margin-top: 2rem;
+      .main-content {
+        padding: 0;
+      }
+
+      .content-wrapper {
+        padding: 0 20px 20px 20px;
+      }
+
+      .kb-actions {
+        margin-bottom: 20px;
+      }
+
+      .kb-category {
+        background: #fff;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .kb-category h2 {
+        color: #333;
+        margin-bottom: 0;
       }
     </style>
   </head>
   <body>
-    <!-- Header -->
-    <header class="header">
-      <h1>IT-HelpDesk</h1>
-      <div class="user-profile">
-        <span>JOHN NEWMAN</span>
-        <button class="logout-btn">
-          <i class="fas fa-sign-out-alt me-1"></i>Logout
-        </button>
-      </div>
-    </header>
+    <!-- Header container -->
+    <div id="header-container"></div>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link" href="Home.html"
-            ><i class="fas fa-home"></i> Home</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="myTicket(s).html"
-            ><i class="fas fa-ticket-alt"></i> My Tickets</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="knowledgeBase.html"
-            ><i class="fas fa-book"></i> Knowledge Base</a
-          >
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#">
-            <i class="fas fa-cog"></i> Admin Menu
-            <i class="fas fa-angle-down ms-auto"></i>
-          </a>
-          <ul class="submenu-sidebar">
-            <li>
-              <a href="admin-article.html"
-                ><i class="far fa-file-alt"></i> Article</a
-              >
-            </li>
-            <li>
-              <a href="admin-category.html"
-                ><i class="fas fa-tags"></i> Category</a
-              >
-            </li>
-            <li>
-              <a href="admin-ticket.html"
-                ><i class="fas fa-ticket-alt"></i> Ticket</a
-              >
-            </li>
-            <li>
-              <a href="admin-user.html"><i class="fas fa-user"></i> User</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#">
-            <i class="fas fa-chart-bar"></i> Statistic
-            <i class="fas fa-angle-down ms-auto"></i>
-          </a>
-          <ul class="submenu-sidebar">
-            <li>
-              <a href="datastudio-statistics.html"
-                ><i class="fas fa-tachometer-alt"></i> Datastudio Statistic</a
-              >
-            </li>
-            <li>
-              <a href="all-statistics.html"
-                ><i class="fas fa-chart-pie"></i> All Statistic</a
-              >
-            </li>
-            <li class="dropdown-submenu">
-              <a href="#"><i class="fas fa-filter"></i> Details By</a>
-              <ul class="sub-submenu">
-                <li>
-                  <a href="statistics-year.html"
-                    ><i class="fas fa-calendar-year"></i> This Year</a
-                  >
-                </li>
-                <li>
-                  <a href="statistics-categories.html"
-                    ><i class="fas fa-tags"></i> Problem Categories</a
-                  >
-                </li>
-                <li>
-                  <a href="statistics-departments.html"
-                    ><i class="fas fa-building"></i> Departments</a
-                  >
-                </li>
-                <li>
-                  <a href="statistics-staff.html"
-                    ><i class="fas fa-users"></i> IT Staff</a
-                  >
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="serverMonitoring.html"
-            ><i class="fas fa-server"></i> Server Monitoring</a
-          >
-        </li>
-      </ul>
-
-      <!-- Today's PIC -->
-      <div class="todays-pic mt-4 mx-3">
-        <h6>Today's PIC</h6>
-        <div class="pic-avatar">
-          <i class="fas fa-user fa-4x text-secondary"></i>
-        </div>
-        <div class="text-center mb-2">
-          <div>IT Support</div>
-          <div><strong>John Newman</strong></div>
-        </div>
-        <div class="text-start">
-          <div class="mb-1">On progress Ticket(s):</div>
-          <div class="mb-1">Solved Ticket(s):</div>
-          <div class="mb-1">Total Ticket(s):</div>
-          <div class="mt-2">No. HP/CUG</div>
-        </div>
-        <button class="check-in-btn">CHECK IN</button>
-      </div>
-    </div>
+    <!-- Sidebar container -->
+    <div id="sidebar-container"></div>
 
     <!-- Main Content -->
     <div class="main-content">
-      <!-- Knowledge Base Header -->
-      <div class="kb-header text-center">
+      <!-- Banner -->
+      <div class="banner">
         <h1>KNOWLEDGE BASE</h1>
         <p>Dokumentasi & panduan troubleshooting untuk masalah IT.</p>
       </div>
 
-      <div class="kb-actions">
-        <a
-          href="addKnowledgeBase.html"
-          class="btn"
-          style="background-color: #ff8743; color: white"
-          >Make A New Knowledge Base</a
-        >
-      </div>
-
-      <div class="kb-categories">
-        <div
-          class="kb-category"
-          style="
-            background: #fff;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-          "
-        >
-          <h2 style="color: #333">Software</h2>
+      <div class="content-wrapper">
+        <div class="kb-actions">
+          <a
+            href="addKnowledgeBase.html"
+            class="btn"
+            style="background-color: #ff8743; color: white"
+            >Make A New Knowledge Base</a
+          >
         </div>
 
-        <div
-          class="kb-category"
-          style="
-            background: #fff;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-          "
-        >
-          <h2 style="color: #333">Hardware</h2>
+        <div class="kb-categories">
+          <div class="kb-category">
+            <h2>Software</h2>
+          </div>
+
+          <div class="kb-category">
+            <h2>Hardware</h2>
+          </div>
         </div>
       </div>
     </div>
@@ -236,52 +138,6 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="scripts.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Sidebar dropdown menu functionality
-        const dropdownToggles = document.querySelectorAll(
-          ".nav-link.dropdown-toggle"
-        );
-
-        dropdownToggles.forEach((toggle) => {
-          toggle.addEventListener("click", function (e) {
-            e.preventDefault();
-
-            // Toggle the submenu visibility
-            const submenu = this.nextElementSibling;
-            if (submenu) {
-              const isVisible = submenu.style.display === "block";
-              submenu.style.display = isVisible ? "none" : "block";
-
-              // Toggle the arrow icon rotation
-              const arrow = this.querySelector(".fa-angle-down");
-              if (arrow) {
-                arrow.style.transform = isVisible
-                  ? "rotate(0deg)"
-                  : "rotate(180deg)";
-              }
-            }
-          });
-        });
-
-        // Handle dropdown-submenu clicks
-        const submenuToggles = document.querySelectorAll(
-          ".dropdown-submenu > a"
-        );
-        submenuToggles.forEach((toggle) => {
-          toggle.addEventListener("click", function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const subSubmenu = this.nextElementSibling;
-            if (subSubmenu) {
-              const isVisible = subSubmenu.style.display === "block";
-              subSubmenu.style.display = isVisible ? "none" : "block";
-            }
-          });
-        });
-      });
-    </script>
+    <script src="utils.js"></script>
   </body>
 </html>

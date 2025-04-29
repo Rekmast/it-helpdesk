@@ -244,6 +244,33 @@
               </div>
             </div>
 
+            <!-- New Response Section -->
+            <div class="mt-4 mb-3" id="response-options">
+              <h5 class="mb-3">New Response</h5>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="handle-by-admin"
+                />
+                <label class="form-check-label" for="handle-by-admin">
+                  show 'handle by administrator'
+                </label>
+              </div>
+
+              <div class="form-check mb-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="display-solution"
+                />
+                <label class="form-check-label" for="display-solution">
+                  display solution to user
+                </label>
+              </div>
+            </div>
+
             <!-- Status Dropdown - Only visible for Open and On Progress -->
             <div class="mt-4 mb-3" id="status-dropdown-container">
               <div class="status-dropdown">
@@ -251,8 +278,12 @@
                 <i class="fas fa-chevron-down ms-2"></i>
                 <div class="status-dropdown-menu">
                   <a href="#"
-                    ><i class="fas fa-check-circle text-primary me-2"></i>
-                    Solution</a
+                    ><i class="fas fa-check-circle text-warning me-2"></i> On
+                    Process</a
+                  >
+                  <a href="#"
+                    ><i class="fas fa-check-circle text-success me-2"></i>
+                    Solve</a
                   >
                 </div>
               </div>
@@ -453,6 +484,7 @@
           const progressMessages = document.getElementById("progress-messages");
           const solvedMessages = document.getElementById("solved-messages");
           const adminAction = document.getElementById("admin-action");
+          const responseOptions = document.getElementById("response-options");
 
           // Reset all elements
           messageInputContainer.style.display = "none";
@@ -460,6 +492,7 @@
           chatEndedMessage.style.display = "none";
           progressMessages.style.display = "none";
           solvedMessages.style.display = "none";
+          responseOptions.style.display = "block"; // Show by default
 
           // Update based on status
           switch (status.toLowerCase()) {
@@ -488,6 +521,7 @@
               chatEndedMessage.style.display = "block";
               solvedMessages.style.display = "block";
               adminAction.textContent = "closed this ticket as Solved";
+              responseOptions.style.display = "none"; // Hide for solved tickets
               break;
 
             case "expired":
@@ -496,6 +530,7 @@
               chatEndedMessage.style.display = "block";
               progressMessages.style.display = "block";
               adminAction.textContent = "marked this ticket as Expired";
+              responseOptions.style.display = "none"; // Hide for expired tickets
               break;
 
             default:
