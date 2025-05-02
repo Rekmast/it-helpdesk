@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IT-HelpDesk - My Problem</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+      <div class="logo">
+        <a href="index.html">IT-HelpDesk</a>
+      </div>
+      <div class="nav-menu">
+        <a href="index.html">HOME</a>
+        <a href="mytickets.html" class="active">MY PROBLEM</a>
+        <a href="new-problem.html">NEW PROBLEM</a>
+        <a href="knowledge-base.html">KNOWLEDGE BASE</a>
+      </div>
+      <div class="user-section">
+        <span class="user-name">JOHN DOE</span>
+        <button class="logout-btn">Logout</button>
+      </div>
+    </div>
+
+    <div id="tickets-content">
+      <div class="hero-section">
+        <h1>My Problem</h1>
+        <p>
+          Kelola dan pantau semua laporan masalah IT yang telah Anda buat. Lihat
+          status terkini, riwayat komunikasi, dan tindak lanjut dari tim IT
+          Support.
+        </p>
+        <button class="main-button">Report your problem</button>
+      </div>
+
+      <div class="stats-container ticket-stats">
+        <h3>My Problem Ticket(s)</h3>
+        <div class="stats-row">
+          <div class="stats-item">
+            <div class="stats-number">4</div>
+            <div>4 Problem Ticket(s) yang dibuat</div>
+          </div>
+        </div>
+        <div class="stats-row">
+          <div class="stats-item">
+            <div style="background-color: #ffebee" class="stats-icon"></div>
+            <div class="stats-number">1</div>
+          </div>
+          <div class="stats-item">
+            <div style="background-color: #e8f5e9" class="stats-icon"></div>
+            <div class="stats-number">1</div>
+          </div>
+          <div class="stats-item">
+            <div style="background-color: #fff8e1" class="stats-icon"></div>
+            <div class="stats-number">1</div>
+          </div>
+          <div class="stats-item">
+            <div style="background-color: #e0e0e0" class="stats-icon"></div>
+            <div class="stats-number">1</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="search-container">
+        <button class="sort-button">⫶</button>
+        <input type="text" placeholder="Search..." />
+        <button class="sort-button">⌕</button>
+      </div>
+
+      <div class="ticket-list">
+        <h2>List Ticket(s)</h2>
+
+        <div class="ticket">
+          <div class="ticket-header">
+            <div class="ticket-title">Product Activation Failed</div>
+            <span class="ticket-status status-open">Open By: John Doe</span>
+          </div>
+          <div class="ticket-id">#PB012345678</div>
+          <div class="ticket-content">
+            <p>Dear tim IT,</p>
+            <p>
+              saya tidak bisa memakai aplikasi Ms.Word pada komputer saya. Mohon
+              dibantu untuk aktivasi ms.office nya
+            </p>
+            <p>Terima kasih.</p>
+          </div>
+          <div class="ticket-footer">
+            <div>
+              <p>03 Maret 2025 15:00</p>
+            </div>
+            <a href="view-detail.html" class="view-details-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="ticket">
+          <div class="ticket-header">
+            <div class="ticket-title">
+              Permohonan penembakan PB Built in weekend project
+            </div>
+            <span class="ticket-status status-solved"
+              >Solved By: John Newman</span
+            >
+          </div>
+          <div class="ticket-id">#PB012345678</div>
+          <div class="ticket-content">
+            <p>
+              Mohon untuk dilakukan penembakan pada PB Built in weekend project
+              #PB012345678, agar shift editing bisa di tarik, dikarenakan
+              terjadi kendala dalam penerapan shift editing padahal sudah
+              approval dari partner dan PCM, dengan detail PERP sebagai berikut:
+            </p>
+            <p>PERP012345678 (Jawit)</p>
+            <p>PERP012345789 (Jawit)</p>
+            <p>PERP012345892 (Jawit)</p>
+          </div>
+          <div class="ticket-footer">
+            <div>
+              <p>03 Maret 2025 14:58</p>
+            </div>
+            <a href="view-detail.html" class="view-details-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="ticket">
+          <div class="ticket-header">
+            <div class="ticket-title">MS Excel bermasalah</div>
+            <span class="ticket-status status-progress"
+              >On Progress By: John Newman</span
+            >
+          </div>
+          <div class="ticket-id">#PB012345789</div>
+          <div class="ticket-content">
+            <p>
+              Dear Team IT, aplikasi MS Office (Excel) saya tidak bisa
+              digunakan. Setiap buka aplikasi selalu minta product key. Mohon
+              bantuannya. Terima kasih
+            </p>
+          </div>
+          <div class="ticket-footer">
+            <div>
+              <p>03 Maret 2025 15:00</p>
+            </div>
+            <a href="view-detail.html" class="view-details-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="ticket">
+          <div class="ticket-header">
+            <div class="ticket-title">
+              Reset Password Wifi dan Device Wifi Login
+            </div>
+            <span class="ticket-status status-expired"
+              >Expired By: John Newman</span
+            >
+          </div>
+          <div class="ticket-id">#PB012345678</div>
+          <div class="ticket-content">
+            <p>Dear Tim IT,</p>
+            <p>
+              Mau minta tolong utk reset password WiFi dan Devices yang sudah
+              pernah login. Terima kasih
+            </p>
+          </div>
+          <div class="ticket-footer">
+            <div>
+              <p>03 Maret 2025 15:00</p>
+            </div>
+            <a href="view-detail.html" class="view-details-btn">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination">
+        <a href="#">first</a> | <a href="#">prev</a> | <a href="#">next</a> |
+        <a href="#">last</a>
+      </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="#" class="whatsapp-button">
+      <img src="whatsapp-icon.png" alt="WhatsApp" />
+    </a>
+  </body>
+</html>
