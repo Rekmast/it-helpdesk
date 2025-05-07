@@ -5,26 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IT-HelpDesk - Home</title>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <!-- Navigation Bar -->
-    <div class="navbar">
-      <div class="logo">
-        <a href="index.html">IT-HelpDesk</a>
-      </div>
-      <div class="nav-menu">
-        <a href="index.html" class="active">HOME</a>
-        <a href="mytickets.html">MY PROBLEM</a>
-        <a href="new-problem.html">NEW PROBLEM</a>
-        <a href="knowledge-base.html">KNOWLEDGE BASE</a>
-      </div>
-      <div class="user-section">
-        <span class="user-name">JOHN DOE</span>
-        <button class="logout-btn">Logout</button>
-      </div>
-    </div>
+    <div id="navbar-container"></div>
 
-    <div class="hero-section with-image">
+    <!-- Hero Section with PIC profile -->
+    <div class="hero-section">
       <div class="hero-content">
         <h1>IT-HELPDESK</h1>
         <p>
@@ -33,108 +28,170 @@
         </p>
         <a href="new-problem.html" class="main-button">REPORT A PROBLEM</a>
       </div>
-      <div class="hero-image">
-        <div class="profile-pic">
-          <img src="#" alt="Profile Picture" />
-          <div>IT Support</div>
-          <div>John Newman</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-container">
-      <div class="card">
-        <div class="card-icon">
-          <img src="#" alt="Getting Started Icon" />
-        </div>
-        <h3>Getting Started</h3>
-        <p>Let's Explore what's in the website</p>
-        <a href="#" class="see-details">SEE DETAILS ></a>
-      </div>
-      <div class="card">
-        <div class="card-icon">
-          <img src="#" alt="Request Problem Icon" />
-        </div>
-        <h3>Request Problem</h3>
-        <p>Follow The Tutorial on How To Create a Problem Ticket correctly</p>
-        <a href="#" class="see-details">SEE DETAILS ></a>
-      </div>
-      <div class="card">
-        <div class="card-icon">
-          <img src="#" alt="Troubleshooting Icon" />
-        </div>
-        <h3>Troubleshooting & Support</h3>
-        <p>
-          Find solutions to common technical issues and learn how to work with
-          support needed
-        </p>
-        <a href="#" class="see-details">SEE DETAILS ></a>
-      </div>
-    </div>
-
-    <div class="announcements">
-      <h2>IT ANNOUNCEMENT</h2>
-      <div class="announcement-container">
-        <div class="announcement-card">
-          <div class="announcement-content">
-            <h3>Help-Desk IT-HelpDesk</h3>
-            <p>
-              Something or description text for the IT announcement post will be
-              here.
-            </p>
+      <div class="hero-stats">
+        <div class="profile-pic-container">
+          <div class="today-pic">Today's PIC</div>
+          <div class="profile-pic">
+            <i class="fa-solid fa-user fa-3x" style="color: #0c416a"></i>
           </div>
-          <a href="#" class="view-detail-btn">CHECK IT</a>
+          <div class="support-text">IT Support</div>
+          <div class="support-name">John Newman</div>
         </div>
-        <div class="announcement-card">
-          <div class="announcement-content">
-            <h3>Cara mengenal Lebih Dalam Terkait IT-HelpDesk</h3>
-            <p>Cara membuat Problem Ticket.dll</p>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="container" id="main-container">
+      <!-- Card Section -->
+      <div class="card-container">
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-rocket"></i>
           </div>
-          <a href="#" class="view-detail-btn">VIEW DETAIL</a>
+          <h3>Getting Started</h3>
+          <p>Let's Explore what's in the website</p>
+          <a href="#" class="see-details">SEE DETAILS ></a>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>Request Problem</h3>
+          <p>Follow The Tutorial on How To Create a Problem Ticket correctly</p>
+          <a href="#" class="see-details">SEE DETAILS ></a>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>Troubleshooting & Support</h3>
+          <p>
+            Find solutions to common technical issues and learn how to work with
+            support needed
+          </p>
+          <a href="#" class="see-details">SEE DETAILS ></a>
+        </div>
+      </div>
+
+      <!-- Announcements Section -->
+      <div class="announcements">
+        <div class="it-announcement-section">
+          <div class="container">
+            <div class="it-announcement-text">
+              <h2>IT ANNOUNCEMENT</h2>
+              <p>
+                Pengumuman resmi dari tim IT terkait sistem, jadwal maintenance,
+                pembaruan layanan, dan informasi penting lainnya. Pastikan Anda
+                selalu mendapatkan informasi terbaru agar aktivitas kerja tidak
+                terganggu.
+              </p>
+            </div>
+            <div class="it-announcement-cards">
+              <div class="it-announcement-card with-image">
+                <div class="card-image">
+                  <div class="card-illustration">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3>Sistem Maintenance</h3>
+                  <p>
+                    Akan ada pemeliharaan sistem pada tanggal 15 Agustus 2025.
+                    Sistem akan down selama 2 jam dari pukul 23:00 - 01:00 WIB.
+                  </p>
+                  <a href="#" class="view-detail-btn">VIEW DETAILS</a>
+                </div>
+              </div>
+
+              <div class="it-announcement-card simple top-right">
+                <div>
+                  <h3>Cara mengenal Lebih Dalam Terkait IT - HelpDesk</h3>
+                  <p>Cara membuat Problem Ticket.dll</p>
+                </div>
+                <a href="#" class="view-detail-btn">VIEW DETAIL</a>
+              </div>
+
+              <div class="it-announcement-card simple bottom-right">
+                <div>
+                  <h3>Software dan Hardware</h3>
+                  <p>Perangkat yang diinstall</p>
+                </div>
+                <a href="#" class="view-detail-btn">VIEW DETAIL</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="stats-container">
-      <div class="stats-wrapper">
-        <div class="stat-box">
-          <div class="stat-number">5</div>
-          <div class="stat-label">Open Ticket(s)</div>
-          <div>5 Ticket(s) yang Open</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-number">2</div>
-          <div class="stat-label">Tiket On Progress</div>
-          <div>2 Ticket(s) yang On Progress</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-number">0</div>
-          <div class="stat-label">My Problem Ticket(s)</div>
-          <div>Tidak Problem Ticket(s) yang dibuat</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-number">5,555</div>
-          <div class="stat-label">Solved Ticket(s)</div>
-          <div>Dari Bulan Lalu</div>
+    <!-- Ticket Statistics Section -->
+    <div class="user-stats-section">
+      <div class="container-fluid px-4">
+        <div class="user-stats-row">
+          <!-- Open Tickets -->
+          <div class="user-stats-card">
+            <div class="user-dashboard-card open-tickets">
+              <div class="icon open-tickets">
+                <i class="fa-duotone fa-solid fa-ticket"></i>
+              </div>
+              <div class="number">5</div>
+              <div class="description">Open Ticket(s)</div>
+              <div class="sub-description">5 Ticket(s) yang Open</div>
+            </div>
+          </div>
+
+          <!-- In Progress Tickets -->
+          <div class="user-stats-card">
+            <div class="user-dashboard-card progress-tickets">
+              <div class="icon progress-tickets">
+                <i class="fas fa-clock progress-icon"></i>
+              </div>
+              <div class="number">2</div>
+              <div class="description">Total On Progress</div>
+              <div class="sub-description">2 Ticket(s) yang On Progress</div>
+            </div>
+          </div>
+
+          <!-- My Problem Tickets -->
+          <div class="user-stats-card">
+            <div class="user-dashboard-card problem-tickets">
+              <div class="icon problem-tickets">
+                <i class="fas fa-circle-xmark expired-icon"></i>
+              </div>
+              <div class="number">0</div>
+              <div class="description">My Problem Ticket(s)</div>
+              <div class="sub-description">
+                Tidak Problem Ticket(s) yang dibuat
+              </div>
+            </div>
+          </div>
+
+          <!-- Solved Tickets -->
+          <div class="user-stats-card">
+            <div class="user-dashboard-card solved-tickets">
+              <div class="icon solved-tickets">
+                <i class="fas fa-check solved-icon"></i>
+              </div>
+              <div class="number">5,555</div>
+              <div class="description">Solved Ticket(s)</div>
+              <div class="sub-description">
+                <i class="fas fa-chart-line me-1 text-success"></i>
+                Dari Bulan Lalu
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="recent-problems">
-      <h2>Recent Problem(s)</h2>
+    <!-- Ticket List Section -->
+    <div class="ticket-list-section">
+      <div class="container-fluid px-4">
+        <h2>List Ticket(s)</h2>
 
-      <!-- Ticket List -->
-      <div class="ticket-list">
-        <h5 class="mb-3">List Ticket(s)</h5>
-        <div
-          class="ticket-list-header d-flex justify-content-between align-items-center"
-        >
+        <div class="d-flex justify-content-between align-items-center mb-4">
           <div class="d-flex align-items-center">
-            <div
-              class="filter-btn me-3"
-              id="filter-btn-home"
-              style="position: relative"
-            >
+            <div class="filter-btn me-3" id="filter-btn-home">
               <i class="fa-solid fa-sliders"></i>
 
               <!-- Filter Modal -->
@@ -174,293 +231,296 @@
           </div>
           <div class="pagination">
             <a href="#">first</a> | <a href="#">prev</a> |
-            <a href="#">next</a> | <a href="#">last</a>
+            <a href="#">next</a> |
+            <a href="#">last</a>
           </div>
         </div>
 
-        <!-- Filter Modal: Moved inside filter button container above -->
+        <!-- Ticket List -->
+        <div class="ticket-list">
+          <!-- Ticket Item 1 -->
+          <div class="ticket-item">
+            <div class="ticket-header">
+              <div class="ticket-title">
+                <div class="ticket-status status-open">
+                  <i class="fa-duotone fa-solid fa-ticket"></i>
+                </div>
+                <div>
+                  <h4>Product Activation Failed</h4>
+                  <div class="ticket-id">PB0123456789</div>
+                </div>
+              </div>
+              <div class="ticket-actions">
+                <button class="btn btn-outline-secondary btn-sm" title="Edit">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button
+                  class="view-details-btn"
+                  onclick="window.location.href='view-detail.html?id=PB0123456789&subject=Product Activation Failed&status=Open&content=' + encodeURIComponent('Dear tim IT,<br><br>saya tidak bisa memakai aplikasi Ms.Word pada komputer saya. Mohon dibantu untuk aktivasi ms.office ya<br><br>Terima kasih.')"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+            <div class="ticket-content">
+              <p>Dear tim IT,</p>
+              <p>
+                saya tidak bisa memakai aplikasi Ms.Word pada komputer saya.
+                Mohon dibantu untuk aktivasi ms.office ya
+              </p>
+              <p>Terima kasih.</p>
+            </div>
+            <div class="ticket-tag open">Open By: John Doe</div>
+            <div class="ticket-footer">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="footer-row">
+                    <span class="footer-label">Reported By:</span>
+                    <span class="footer-value">John Doe</span>
+                  </div>
+                  <div class="footer-row">
+                    <span class="footer-label">Department:</span>
+                    <span class="footer-value"
+                      >IT Office - Aplikasi HR - HRSS (PMS, Cuti online, Legal
+                      Online)</span
+                    >
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="footer-row">
+                    <span class="footer-label">No. Ext/ Telp/ Cug:</span>
+                    <span class="footer-value">0812345678</span>
+                  </div>
+                  <div class="footer-row">
+                    <span class="footer-label">IP Address:</span>
+                    <span class="footer-value">192.163.2.222</span>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="footer-row">
+                    <span class="footer-label">Date:</span>
+                    <span class="footer-value">03 Maret 2025</span>
+                  </div>
+                  <div class="footer-row">
+                    <span class="footer-label">Time:</span>
+                    <span class="footer-value">15:00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <!-- Ticket Item 1 -->
-        <div class="ticket-item">
-          <div class="ticket-header">
-            <div class="ticket-title">
-              <div class="ticket-status status-open">
-                <i class="fas fa-ticket-alt"></i>
-              </div>
-              <div>
-                <h4>Product Activation Failed</h4>
-                <div class="ticket-id">PB0123456789</div>
-              </div>
-            </div>
-            <div class="ticket-actions">
-              <button class="btn btn-outline-secondary btn-sm" title="Edit">
-                <i class="fas fa-pen"></i>
-              </button>
-              <button
-                class="view-details-btn"
-                onclick="window.location.href='viewDetail.html?id=PB0123456789&subject=Product Activation Failed&status=Open&content=' + encodeURIComponent('Dear tim IT,<br><br>saya tidak bisa memakai aplikasi Ms.Word pada komputer saya. Mohon dibantu untuk aktivasi ms.office ya<br><br>Terima kasih.')"
-              >
-                View Details
-              </button>
-            </div>
-          </div>
-          <div class="ticket-content">
-            <p>Dear tim IT,</p>
-            <p>
-              saya tidak bisa memakai aplikasi Ms.Word pada komputer saya. Mohon
-              dibantu untuk aktivasi ms.office ya
-            </p>
-            <p>Terima kasih.</p>
-          </div>
-          <div class="ticket-tag open">Open By: John Doe</div>
-          <div class="ticket-footer">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="footer-row">
-                  <span class="footer-label">Reported By:</span>
-                  <span class="footer-value">John Doe</span>
+          <!-- Ticket Item 2 -->
+          <div class="ticket-item">
+            <div class="ticket-header">
+              <div class="ticket-title">
+                <div class="ticket-status status-solved">
+                  <i class="fas fa-check"></i>
                 </div>
-                <div class="footer-row">
-                  <span class="footer-label">Department:</span>
-                  <span class="footer-value"
-                    >IT Office - Aplikasi HR - HRSS (PMS, Cuti online, Legal
-                    Online)</span
-                  >
+                <div>
+                  <h4>Permohonan penembakan PB Built in weekend project</h4>
+                  <div class="ticket-id">PB0123456789</div>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="footer-row">
-                  <span class="footer-label">No. Ext/ Telp/ Cug:</span>
-                  <span class="footer-value">0812345678</span>
-                </div>
-                <div class="footer-row">
-                  <span class="footer-label">IP Address:</span>
-                  <span class="footer-value">192.163.2.222</span>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="footer-row">
-                  <span class="footer-label">Date:</span>
-                  <span class="footer-value">03 Maret 2025</span>
-                </div>
-                <div class="footer-row">
-                  <span class="footer-label">Time:</span>
-                  <span class="footer-value">15:00</span>
-                </div>
+              <div class="ticket-actions">
+                <button class="btn btn-outline-secondary btn-sm" title="Print">
+                  <i class="fas fa-print"></i>
+                </button>
+                <button
+                  class="view-details-btn"
+                  onclick="window.location.href='view-detail.html?id=PB0123456789&subject=Permohonan penembakan PB Built in weekend project&status=Solved&content=' + encodeURIComponent('Mohon untuk dilakukan penembakan pada PB Built in weekend project PB0123456789, agar shift editing bisa di tarik, dikarenakan terjadi kendala dalam pekerjaan shift editing padahal sudah approval dari postpro dan PCM. dengan detail PEPS sebagai berikut:<br><br>PEPSB0123456789 (Shift)<br>PEPSB0123456789 (Shift)<br><br>Terimakasih')"
+                >
+                  View Details
+                </button>
               </div>
             </div>
+            <div class="ticket-content">
+              <p>
+                Mohon untuk dilakukan penembakan pada PB Built in weekend
+                project PB0123456789, agar shift editing bisa di tarik,
+                dikarenakan terjadi kendala dalam pekerjaan shift editing
+                padahal sudah approval dari postpro dan PCM. dengan detail PEPS
+                sebagai berikut:
+              </p>
+              <p>PEPSB0123456789 (Shift)</p>
+              <p>PEPSB0123456789 (Shift)</p>
+              <p>Terimakasih</p>
+            </div>
+            <div class="ticket-tag solved">Solved By: John Newman</div>
+            <div class="ticket-footer">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="footer-row">
+                    <span class="footer-label">Reported By:</span>
+                    <span class="footer-value">John Doe</span>
+                  </div>
+                  <div class="footer-row">
+                    <span class="footer-label">Department:</span>
+                    <span class="footer-value"
+                      >IT Office - Aplikasi HR - HRSS (PMS, Cuti online, Legal
+                      Online)</span
+                    >
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="footer-row">
+                    <span class="footer-label">No. Ext/ Telp/ Cug:</span>
+                    <span class="footer-value">0812345678</span>
+                  </div>
+                  <div class="footer-row">
+                    <span class="footer-label">IP Address:</span>
+                    <span class="footer-value">192.163.2.222</span>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="footer-row">
+                    <span class="footer-label">Date:</span>
+                    <span class="footer-value">01 Maret 2025</span>
+                  </div>
+                  <div class="footer-row">
+                    <span class="footer-label">Time:</span>
+                    <span class="footer-value">14:59</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <!-- Ticket Item 2 -->
-        <div class="ticket-item">
-          <div class="ticket-header">
-            <div class="ticket-title">
-              <div class="ticket-status status-solved">
-                <i class="fas fa-check"></i>
+          <!-- Ticket Item 3 -->
+          <div class="ticket-item">
+            <div class="ticket-header">
+              <div class="ticket-title">
+                <div class="ticket-status status-progress">
+                  <i class="fas fa-spinner"></i>
+                </div>
+                <div>
+                  <h4>MS Excel bermasalah</h4>
+                  <div class="ticket-id">PB0123456789</div>
+                </div>
               </div>
-              <div>
-                <h4>Permohonan penembakan PB Built in weekend project</h4>
-                <div class="ticket-id">PB0123456789</div>
+              <div class="ticket-actions">
+                <button class="btn btn-outline-secondary btn-sm" title="File">
+                  <i class="fas fa-file"></i>
+                </button>
+                <button
+                  class="view-details-btn"
+                  onclick="window.location.href='view-detail.html?id=PB0123456789&subject=MS Excel bermasalah&status=In Progress&content=' + encodeURIComponent('Dear Team IT, aplikasi MS Office (Excel) saya tidak bisa digunakan. Setiap buka aplikasi selalu minta product key. Mohon bantuannya.<br><br>Terima kasih.')"
+                >
+                  View Details
+                </button>
               </div>
             </div>
-            <div class="ticket-actions">
-              <button class="btn btn-outline-secondary btn-sm" title="Edit">
-                <i class="fas fa-print"></i>
-              </button>
-              <button
-                class="view-details-btn"
-                onclick="window.location.href='viewDetail.html?id=PB0123456789&subject=Permohonan penembakan PB Built in weekend project&status=Solved&content=' + encodeURIComponent('Mohon untuk dilakukan penembakan pada PB Built in weekend project PB0123456789, agar shift editing bisa di tarik, dikarenakan terjadi kendala dalam pekerjaan shift editing padahal sudah approval dari postpro dan PCM. dengan detail PEPS sebagai berikut:<br><br>PEPSB0123456789 (Shift)<br>PEPSB0123456789 (Shift)<br><br>Terimakasih')"
-              >
-                View Details
-              </button>
+            <div class="ticket-content">
+              <p>
+                Dear Team IT, aplikasi MS Office (Excel) saya tidak bisa
+                digunakan. Setiap buka aplikasi selalu minta product key. Mohon
+                bantuannya.
+              </p>
+              <p>Terima kasih.</p>
             </div>
-          </div>
-          <div class="ticket-content">
-            <p>
-              Mohon untuk dilakukan penembakan pada PB Built in weekend project
-              PB0123456789, agar shift editing bisa di tarik, dikarenakan
-              terjadi kendala dalam pekerjaan shift editing padahal sudah
-              approval dari postpro dan PCM. dengan detail PEPS sebagai berikut:
-            </p>
-            <p>PEPSB0123456789 (Shift)</p>
-            <p>PEPSB0123456789 (Shift)</p>
-            <p>Terimakasih</p>
-          </div>
-          <div class="ticket-tag solved">Solved By: John Newman</div>
-          <div class="ticket-footer">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="footer-row">
-                  <span class="footer-label">Reported By:</span>
-                  <span class="footer-value">John Doe</span>
+            <div class="ticket-tag progress">On Progress By: John Newman</div>
+            <div class="ticket-footer">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="footer-row">
+                    <span class="footer-label">Reported By:</span>
+                    <span class="footer-value">John Doe</span>
+                  </div>
+                  <div class="footer-row">
+                    <span class="footer-label">Department:</span>
+                    <span class="footer-value"
+                      >IT Office - Aplikasi HR - HRSS (PMS, Cuti online, Legal
+                      Online)</span
+                    >
+                  </div>
                 </div>
-                <div class="footer-row">
-                  <span class="footer-label">Department:</span>
-                  <span class="footer-value"
-                    >IT Office - Aplikasi HR - HRSS (PMS, Cuti online, Legal
-                    Online)</span
-                  >
+                <div class="col-md-4">
+                  <div class="footer-row">
+                    <span class="footer-label">No. Ext/ Telp/ Cug:</span>
+                    <span class="footer-value">0812345678</span>
+                  </div>
+                  <div class="footer-row">
+                    <span class="footer-label">IP Address:</span>
+                    <span class="footer-value">192.168.2.222</span>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-4">
-                <div class="footer-row">
-                  <span class="footer-label">No. Ext/ Telp/ Cug:</span>
-                  <span class="footer-value">0812345678</span>
-                </div>
-                <div class="footer-row">
-                  <span class="footer-label">IP Address:</span>
-                  <span class="footer-value">192.163.2.222</span>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="footer-row">
-                  <span class="footer-label">Date:</span>
-                  <span class="footer-value">01 Maret 2025</span>
-                </div>
-                <div class="footer-row">
-                  <span class="footer-label">Time:</span>
-                  <span class="footer-value">14:59</span>
+                <div class="col-md-4">
+                  <div class="footer-row">
+                    <span class="footer-label">Date:</span>
+                    <span class="footer-value">03 Maret 2025</span>
+                  </div>
+                  <div class="footer-row">
+                    <span class="footer-label">Time:</span>
+                    <span class="footer-value">15:00</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Ticket Item 3 -->
-        <div class="ticket-item">
-          <div class="ticket-header">
-            <div class="ticket-title">
-              <div class="ticket-status status-progress">
-                <i class="fas fa-spinner"></i>
-              </div>
-              <div>
-                <h4>MS Excel bermasalah</h4>
-                <div class="ticket-id">PB0123456789</div>
-              </div>
-            </div>
-            <div class="ticket-actions">
-              <button class="btn btn-outline-secondary btn-sm" title="Edit">
-                <i class="fas fa-file"></i>
-              </button>
-              <button
-                class="view-details-btn"
-                onclick="window.location.href='viewDetail.html?id=PB0123456789&subject=MS Excel bermasalah&status=In Progress&content=' + encodeURIComponent('Dear Team IT, aplikasi MS Office (Excel) saya tidak bisa digunakan. Setiap buka aplikasi selalu minta product key. Mohon bantuannya.<br><br>Terima kasih.')"
-              >
-                View Details
-              </button>
-            </div>
-          </div>
-          <div class="ticket-content">
-            <p>
-              Dear Team IT, aplikasi MS Office (Excel) saya tidak bisa
-              digunakan. Setiap buka aplikasi selalu minta product key. Mohon
-              bantuannya.
-            </p>
-            <p>Terima kasih.</p>
-          </div>
-          <div class="ticket-tag progress">On Progress By: John Newman</div>
-          <div class="ticket-footer">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="footer-row">
-                  <span class="footer-label">Reported By:</span>
-                  <span class="footer-value">John Doe</span>
+          <!-- Ticket Item 4 -->
+          <div class="ticket-item">
+            <div class="ticket-header">
+              <div class="ticket-title">
+                <div class="ticket-status status-expired">
+                  <i class="fas fa-clock"></i>
                 </div>
-                <div class="footer-row">
-                  <span class="footer-label">Department:</span>
-                  <span class="footer-value"
-                    >IT Office - Aplikasi HR - HRSS (PMS, Cuti online, Legal
-                    Online)</span
-                  >
+                <div>
+                  <h4>Reset Password Wifi dan Device Wifi Login</h4>
+                  <div class="ticket-id">PB0123456789</div>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="footer-row">
-                  <span class="footer-label">No. Ext/ Telp/ Cug:</span>
-                  <span class="footer-value">0812345678</span>
-                </div>
-                <div class="footer-row">
-                  <span class="footer-label">IP Address:</span>
-                  <span class="footer-value">192.168.2.222</span>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="footer-row">
-                  <span class="footer-label">Date:</span>
-                  <span class="footer-value">03 Maret 2025</span>
-                </div>
-                <div class="footer-row">
-                  <span class="footer-label">Time:</span>
-                  <span class="footer-value">15:00</span>
-                </div>
+              <div class="ticket-actions">
+                <button
+                  class="view-details-btn"
+                  onclick="window.location.href='view-detail.html?id=PB0123456789&subject=Reset Password Wifi dan Device Wifi Login&status=Expired&content=' + encodeURIComponent('Dear Tim IT,<br><br>Mau minta tolong utk reset password WiFi dan Devices yang sudah pernah login. Terima kasih')"
+                >
+                  View Details
+                </button>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Ticket Item 4 -->
-        <div class="ticket-item">
-          <div class="ticket-header">
-            <div class="ticket-title">
-              <div class="ticket-status status-expired">
-                <i class="fas fa-clock"></i>
-              </div>
-              <div>
-                <h4>Reset Password Wifi dan Device Wifi Login</h4>
-                <div class="ticket-id">PB0123456789</div>
-              </div>
+            <div class="ticket-content">
+              <p>Dear Tim IT,</p>
+              <p>
+                Mau minta tolong utk reset password WiFi dan Devices yang sudah
+                pernah login. Terima kasih
+              </p>
             </div>
-            <div class="ticket-actions">
-              <button
-                class="view-details-btn"
-                onclick="window.location.href='viewDetail.html?id=PB0123456789&subject=Reset Password Wifi dan Device Wifi Login&status=Expired&content=' + encodeURIComponent('Dear Tim IT,<br><br>Mau minta tolong utk reset password WiFi dan Devices yang sudah pernah login. Terima kasih')"
-              >
-                View Details
-              </button>
-            </div>
-          </div>
-          <div class="ticket-content">
-            <p>Dear Tim IT,</p>
-            <p>
-              Mau minta tolong utk reset password WiFi dan Devices yang sudah
-              pernah login. Terima kasih
-            </p>
-          </div>
-          <div class="ticket-tag expired">Expired By: John Newman</div>
-          <div class="ticket-footer">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="footer-row">
-                  <span class="footer-label">Reported By:</span>
-                  <span class="footer-value">John Doe</span>
+            <div class="ticket-tag expired">Expired By: John Newman</div>
+            <div class="ticket-footer">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="footer-row">
+                    <span class="footer-label">Reported By:</span>
+                    <span class="footer-value">John Doe</span>
+                  </div>
+                  <div class="footer-row">
+                    <span class="footer-label">Department:</span>
+                    <span class="footer-value"
+                      >IT Office - Aplikasi HR - HRSS (PMS, Cuti online, Legal
+                      Online)</span
+                    >
+                  </div>
                 </div>
-                <div class="footer-row">
-                  <span class="footer-label">Department:</span>
-                  <span class="footer-value"
-                    >IT Office - Aplikasi HR - HRSS (PMS, Cuti online, Legal
-                    Online)</span
-                  >
+                <div class="col-md-4">
+                  <div class="footer-row">
+                    <span class="footer-label">No. Ext/ Telp/ Cug:</span>
+                    <span class="footer-value">0812345678</span>
+                  </div>
+                  <div class="footer-row">
+                    <span class="footer-label">IP Address:</span>
+                    <span class="footer-value">192.163.2.222</span>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-4">
-                <div class="footer-row">
-                  <span class="footer-label">No. Ext/ Telp/ Cug:</span>
-                  <span class="footer-value">0812345678</span>
-                </div>
-                <div class="footer-row">
-                  <span class="footer-label">IP Address:</span>
-                  <span class="footer-value">192.163.2.222</span>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="footer-row">
-                  <span class="footer-label">Date:</span>
-                  <span class="footer-value">05 Maret 2025</span>
-                </div>
-                <div class="footer-row">
-                  <span class="footer-label">Time:</span>
-                  <span class="footer-value">15:00</span>
+                <div class="col-md-4">
+                  <div class="footer-row">
+                    <span class="footer-label">Date:</span>
+                    <span class="footer-value">05 Maret 2025</span>
+                  </div>
+                  <div class="footer-row">
+                    <span class="footer-label">Time:</span>
+                    <span class="footer-value">15:00</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -470,8 +530,89 @@
     </div>
 
     <!-- WhatsApp Button -->
-    <a href="#" class="whatsapp-button">
-      <img src="whatsapp-icon.png" alt="WhatsApp" />
-    </a>
+    <div id="whatsapp-container"></div>
+
+    <!-- Bootstrap and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Include components -->
+    <script>
+      // Function to include HTML content from another file
+      function includeHTML(url, callback) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.onreadystatechange = function () {
+          if (this.readyState === 4 && this.status === 200) {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(
+              this.responseText,
+              "text/html"
+            );
+
+            // Add component elements to body but hidden
+            const components = htmlDoc.querySelectorAll('[id$="-component"]');
+            components.forEach((component) => {
+              const clone = document.importNode(component, true);
+              clone.style.display = "none";
+              document.body.appendChild(clone);
+            });
+
+            // Get the script part
+            const script = htmlDoc.querySelector("script");
+            if (script) {
+              eval(script.innerHTML);
+            }
+
+            // Initialize components after loading
+            if (window.ITHelpdesk && window.ITHelpdesk.includeComponent) {
+              window.ITHelpdesk.includeComponent(
+                "navbar-component",
+                "navbar-container"
+              );
+              window.ITHelpdesk.includeComponent(
+                "whatsapp-component",
+                "whatsapp-container"
+              );
+              window.ITHelpdesk.setActiveNavigation();
+            }
+
+            if (callback) callback();
+          }
+        };
+        xhr.send();
+      }
+
+      // Load components from components-user.html
+      document.addEventListener("DOMContentLoaded", function () {
+        includeHTML("components-user.html");
+
+        // Filter Modal Toggle - Executed after the DOM is fully loaded
+        const filterBtn = document.getElementById("filter-btn-home");
+        const filterModal = document.getElementById("filter-modal-home");
+
+        if (filterBtn && filterModal) {
+          filterBtn.addEventListener("click", function (e) {
+            e.stopPropagation(); // Stop click from propagating to document
+            filterModal.classList.toggle("active");
+          });
+
+          // Close the filter modal when clicking outside
+          document.addEventListener("click", function (e) {
+            if (
+              !filterBtn.contains(e.target) &&
+              !filterModal.contains(e.target)
+            ) {
+              filterModal.classList.remove("active");
+            }
+          });
+
+          // Prevent clicks inside the filter modal from closing it
+          filterModal.addEventListener("click", function (e) {
+            e.stopPropagation();
+          });
+        }
+      });
+    </script>
   </body>
 </html>

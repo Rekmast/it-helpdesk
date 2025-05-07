@@ -177,24 +177,44 @@
             <i class="fas fa-cog"></i> Admin Menu
             <i class="fas fa-angle-down ms-auto"></i>
           </a>
-          <ul class="submenu-sidebar">
+          <ul class="submenu-sidebar" id="adminSubmenu">
             <li>
-              <a href="admin-article.html"
-                ><i class="far fa-file-alt"></i> Article</a
-              >
+              <a href="admin-article.html">
+                <i class="far fa-file-alt"></i> Article
+              </a>
+            </li>
+            <li class="dropdown-submenu">
+              <a href="#"> <i class="fas fa-tags"></i> Category </a>
+              <ul class="sub-submenu" id="categorySubmenu">
+                <li>
+                  <a href="admin-category-article.html">
+                    <i class="far fa-file-alt"></i> Article Category
+                  </a>
+                </li>
+                <li>
+                  <a href="admin-category-ticket.html">
+                    <i class="fas fa-ticket-alt"></i> Ticket Category
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a href="#"> <i class="fas fa-ticket-alt"></i> Ticket </a>
+              <ul class="sub-submenu" id="ticketSubmenu">
+                <li>
+                  <a href="newProblemTicket.html">
+                    <i class="fas fa-plus"></i> New Ticket
+                  </a>
+                </li>
+                <li>
+                  <a href="Home.html">
+                    <i class="fas fa-list"></i> Ticket List
+                  </a>
+                </li>
+              </ul>
             </li>
             <li>
-              <a href="admin-category.html"
-                ><i class="fas fa-tags"></i> Category</a
-              >
-            </li>
-            <li>
-              <a href="admin-ticket.html"
-                ><i class="fas fa-ticket-alt"></i> Ticket</a
-              >
-            </li>
-            <li>
-              <a href="admin-user.html"><i class="fas fa-user"></i> User</a>
+              <a href="admin-user.html"> <i class="fas fa-user"></i> User </a>
             </li>
           </ul>
         </li>
@@ -203,39 +223,43 @@
             <i class="fas fa-chart-bar"></i> Statistic
             <i class="fas fa-angle-down ms-auto"></i>
           </a>
-          <ul class="submenu-sidebar">
+          <ul
+            class="submenu-sidebar"
+            id="statisticSubmenu"
+            style="display: block"
+          >
             <li>
-              <a href="datastudio-statistics.html"
-                ><i class="fas fa-tachometer-alt"></i> Datastudio Statistic</a
-              >
+              <a href="datastudio-statistics.html">
+                <i class="fas fa-tachometer-alt"></i> Datastudio Statistic
+              </a>
             </li>
             <li>
-              <a href="all-statistics.html" class="active"
-                ><i class="fas fa-chart-pie"></i> All Statistic</a
-              >
+              <a href="all-statistics.html" class="active">
+                <i class="fas fa-chart-pie"></i> All Statistic
+              </a>
             </li>
             <li class="dropdown-submenu">
-              <a href="#"><i class="fas fa-filter"></i> Details By</a>
-              <ul class="sub-submenu">
+              <a href="#"> <i class="fas fa-filter"></i> Details By </a>
+              <ul class="sub-submenu" id="detailsSubmenu">
                 <li>
-                  <a href="statistics-year.html"
-                    ><i class="fas fa-calendar-year"></i> This Year</a
-                  >
+                  <a href="statistics-year.html">
+                    <i class="fas fa-calendar-year"></i> This Year
+                  </a>
                 </li>
                 <li>
-                  <a href="statistics-categories.html"
-                    ><i class="fas fa-tags"></i> Problem Categories</a
-                  >
+                  <a href="statistics-categories.html">
+                    <i class="fas fa-tags"></i> Problem Categories
+                  </a>
                 </li>
                 <li>
-                  <a href="statistics-departments.html"
-                    ><i class="fas fa-building"></i> Departments</a
-                  >
+                  <a href="statistics-departments.html">
+                    <i class="fas fa-building"></i> Departments
+                  </a>
                 </li>
                 <li>
-                  <a href="statistics-staff.html"
-                    ><i class="fas fa-users"></i> IT Staff</a
-                  >
+                  <a href="statistics-staff.html">
+                    <i class="fas fa-users"></i> IT Staff
+                  </a>
                 </li>
               </ul>
             </li>
@@ -252,19 +276,37 @@
       <div class="todays-pic mt-4 mx-3">
         <h6>Today's PIC</h6>
         <div class="pic-avatar">
-          <i class="fas fa-user fa-2x text-secondary"></i>
+          <i class="fas fa-user fa-4x text-secondary"></i>
         </div>
         <div class="text-center mb-2">
           <div>IT Support</div>
           <div><strong>John Newman</strong></div>
         </div>
         <div class="text-start">
-          <div class="mb-1">On progress Ticket(s):</div>
-          <div class="mb-1">Solved Ticket(s):</div>
-          <div class="mb-1">Total Ticket(s):</div>
-          <div class="mt-2">No. HP/CUG</div>
+          <div class="mb-1">
+            <span style="font-size: 0.85rem">On progress Ticket(s):</span>
+          </div>
+          <div class="mb-1">
+            <span style="font-size: 0.85rem">Solved Ticket(s):</span>
+          </div>
+          <div class="mb-1">
+            <span style="font-size: 0.85rem">Total Ticket(s):</span>
+          </div>
+          <div class="mt-2">
+            <form class="mb-2">
+              <div class="input-group input-group-sm">
+                <input
+                  type="number"
+                  id="phone-number"
+                  class="form-control"
+                  placeholder="No. HP/CUG"
+                  style="box-shadow: none; background-color: #f0f0f0"
+                />
+              </div>
+            </form>
+          </div>
         </div>
-        <button class="check-in-btn">CHECK IN</button>
+        <button class="check-in-btn mt-1">CHECK IN</button>
       </div>
     </div>
 

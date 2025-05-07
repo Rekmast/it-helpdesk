@@ -5,366 +5,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IT-HelpDesk - Knowledge Base</title>
     <link rel="stylesheet" href="styles.css" />
-    <style>
-      /* Additional User-specific styles */
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f9f9ff;
-      }
-
-      .navbar {
-        background-color: white;
-        padding: 15px 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-
-      .navbar .logo {
-        margin-left: 20px;
-      }
-
-      .navbar .logo a {
-        color: #4682b4;
-        text-decoration: none;
-        font-size: 24px;
-        font-weight: bold;
-      }
-
-      .nav-menu {
-        display: flex;
-        gap: 20px;
-        margin: 0 auto;
-      }
-
-      .nav-menu a {
-        text-decoration: none;
-        color: #555;
-        font-weight: 500;
-        padding: 8px 15px;
-        transition: all 0.3s ease;
-      }
-
-      .nav-menu a:hover,
-      .nav-menu a.active {
-        color: #4682b4;
-        border-bottom: 2px solid #4682b4;
-      }
-
-      .user-section {
-        margin-right: 20px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .user-name {
-        font-weight: bold;
-      }
-
-      .logout-btn {
-        background-color: #f0f0f0;
-        border: 1px solid #ddd;
-        border-radius: 15px;
-        padding: 5px 15px;
-        cursor: pointer;
-      }
-
-      .hero-section {
-        background-color: #e8eaff;
-        padding: 50px 20px;
-        text-align: center;
-      }
-
-      .hero-section h1 {
-        color: #0b4461;
-        font-size: 2.5rem;
-        margin-bottom: 15px;
-      }
-
-      .hero-section p {
-        color: #555;
-        margin-bottom: 25px;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .kb-section {
-        max-width: 1200px;
-        margin: 40px auto;
-        padding: 0 20px;
-      }
-
-      .kb-section h2 {
-        color: #0b4461;
-        font-size: 1.8rem;
-        margin-bottom: 15px;
-      }
-
-      .kb-section p {
-        color: #555;
-        margin-bottom: 25px;
-      }
-
-      .kb-categories {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 30px;
-        margin: 40px 0;
-      }
-
-      .kb-category {
-        flex: 1;
-        min-width: 300px;
-      }
-
-      .kb-category h2 {
-        color: #0b4461;
-        margin-bottom: 20px;
-        border-bottom: 2px solid #e0e0e0;
-        padding-bottom: 10px;
-      }
-
-      .kb-articles {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-      }
-
-      .kb-article {
-        background-color: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .kb-article-info h3 {
-        color: #333;
-        margin-bottom: 10px;
-      }
-
-      .kb-article-info p {
-        color: #666;
-        margin-bottom: 0;
-      }
-
-      .view-detail-btn {
-        background-color: #4682b4;
-        color: white;
-        border: none;
-        padding: 8px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-        text-decoration: none;
-        display: inline-block;
-      }
-
-      .category-sections {
-        margin-top: 60px;
-      }
-
-      .category-section {
-        margin-bottom: 40px;
-      }
-
-      .category-section h2 {
-        color: #0b4461;
-        font-size: 1.5rem;
-        border-bottom: 2px solid #e0e0e0;
-        padding-bottom: 10px;
-        margin-bottom: 20px;
-      }
-
-      .category-items {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-      }
-
-      .whatsapp-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: #25d366;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-        text-decoration: none;
-      }
-
-      .search-container {
-        margin: 20px auto;
-        max-width: 800px;
-        display: flex;
-        align-items: center;
-        background-color: white;
-        border-radius: 30px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        padding: 5px 15px;
-      }
-
-      .search-container input {
-        flex: 1;
-        border: none;
-        padding: 10px;
-        outline: none;
-      }
-
-      .search-button {
-        background: none;
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-        margin-left: 10px;
-        color: #666;
-      }
-    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <!-- Navigation Bar -->
-    <div class="navbar">
-      <div class="logo">
-        <a href="index.html">IT-HelpDesk</a>
-      </div>
-      <div class="nav-menu">
-        <a href="index.html">HOME</a>
-        <a href="mytickets.html">MY PROBLEM</a>
-        <a href="new-problem.html">NEW PROBLEM</a>
-        <a href="knowledge-base.html" class="active">KNOWLEDGE BASE</a>
-      </div>
-      <div class="user-section">
-        <span class="user-name">JOHN DOE</span>
-        <button class="logout-btn">Logout</button>
-      </div>
+    <div id="navbar-container"></div>
+
+    <div class="hero-section">
+      <h1>Knowledge Base</h1>
+      <p>
+        Pusat dokumentasi dan panduan troubleshooting untuk masalah IT. Temukan
+        solusi mandiri untuk kendala teknis melalui artikel, tutorial, dan
+        dokumentasi dari tim IT.
+      </p>
     </div>
 
-    <div id="kb-content">
-      <div class="hero-section">
-        <h1>Knowledge Base</h1>
-        <p>
-          Pusat dokumentasi dan panduan troubleshooting untuk masalah IT.
-          Temukan solusi mandiri untuk kendala teknis melalui artikel, tutorial,
-          dan dokumentasi dari tim IT.
-        </p>
-      </div>
-
+    <div class="kb-section">
       <div class="search-container">
-        <input
-          type="text"
-          placeholder="Cari artikel, panduan, atau dokumentasi..."
-        />
-        <button class="search-button">⌕</button>
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search the knowledge base..." />
+        <button class="search-button">
+          <i class="fas fa-arrow-right"></i>
+        </button>
       </div>
 
-      <div class="kb-section">
-        <h2>Article</h2>
-        <p>
-          Kumpulan artikel panduan dan solusi mandiri untuk masalah teknis umum.
-          Tersedia berbagai topik mulai dari troubleshooting, penggunaan
-          aplikasi, hingga tips keamanan IT.
-        </p>
-
-        <div class="kb-categories">
-          <div class="kb-category">
-            <h2>Software dan Hardware</h2>
-            <div class="kb-articles">
-              <div class="kb-article">
-                <div class="kb-article-info">
-                  <h3>Software dan Hardware</h3>
-                  <p>Perangkat yang diinstal</p>
-                </div>
-                <a href="view-detail.html" class="view-detail-btn"
-                  >VIEW DETAIL</a
-                >
+      <div class="kb-categories">
+        <div class="kb-category">
+          <h2>Article</h2>
+          <p>
+            Kumpulan artikel panduan dan solusi mandiri untuk masalah teknis
+            umum. Tersedia berbagai topik mulai dari troubleshooting, penggunaan
+            aplikasi, hingga tips keamanan IT.
+          </p>
+          <div class="kb-articles">
+            <div class="kb-article">
+              <div class="kb-article-info">
+                <h3>Software dan Hardware</h3>
+                <p>Perangkat yang diinstall</p>
               </div>
+              <a href="#" class="view-detail-btn">VIEW DETAIL</a>
             </div>
-          </div>
-
-          <div class="kb-category">
-            <h2>Cara mengenal Lebih Dalam Terkait IT-HelpDesk</h2>
-            <div class="kb-articles">
-              <div class="kb-article">
-                <div class="kb-article-info">
-                  <h3>Cara membuat Problem Ticket.dll</h3>
-                </div>
-                <a href="view-detail.html" class="view-detail-btn"
-                  >VIEW DETAIL</a
-                >
+            <div class="kb-article">
+              <div class="kb-article-info">
+                <h3>Cara mengenal Lebih Dalam Terkait IT - HelpDesk</h3>
+                <p>Cara membuat Problem Ticket.dll</p>
               </div>
+              <a href="#" class="view-detail-btn">VIEW DETAIL</a>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="category-sections">
-          <div class="category-section">
-            <h2>Software</h2>
-            <div class="category-items">
-              <div class="kb-article">
-                <div class="kb-article-info">
-                  <h3>Aktivasi Office 365</h3>
-                  <p>Panduan langkah demi langkah untuk aktivasi Office 365</p>
-                </div>
-                <a href="view-detail.html" class="view-detail-btn"
-                  >VIEW DETAIL</a
-                >
-              </div>
+      <div class="category-sections">
+        <div class="category-section">
+          <h2>Software</h2>
+        </div>
 
-              <div class="kb-article">
-                <div class="kb-article-info">
-                  <h3>Troubleshooting Email</h3>
-                  <p>Solusi umum untuk masalah email</p>
-                </div>
-                <a href="view-detail.html" class="view-detail-btn"
-                  >VIEW DETAIL</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="category-section">
-            <h2>Hardware</h2>
-            <div class="category-items">
-              <div class="kb-article">
-                <div class="kb-article-info">
-                  <h3>Panduan Pemeliharaan Laptop</h3>
-                  <p>Tips untuk menjaga kinerja laptop Anda</p>
-                </div>
-                <a href="view-detail.html" class="view-detail-btn"
-                  >VIEW DETAIL</a
-                >
-              </div>
-
-              <div class="kb-article">
-                <div class="kb-article-info">
-                  <h3>Koneksi Printer</h3>
-                  <p>Cara menghubungkan dan mengonfigurasi printer</p>
-                </div>
-                <a href="view-detail.html" class="view-detail-btn"
-                  >VIEW DETAIL</a
-                >
-              </div>
-            </div>
-          </div>
+        <div class="category-section">
+          <h2>Hardware</h2>
         </div>
       </div>
     </div>
 
     <!-- WhatsApp Button -->
-    <a href="#" class="whatsapp-button">
-      <img src="whatsapp-icon.png" alt="WhatsApp" />
-    </a>
+    <div id="whatsapp-container"></div>
+
+    <!-- Bootstrap and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Include components -->
+    <script>
+      // Function to include HTML content from another file
+      function includeHTML(url, callback) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.onreadystatechange = function () {
+          if (this.readyState === 4 && this.status === 200) {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(
+              this.responseText,
+              "text/html"
+            );
+
+            // Add component elements to body but hidden
+            const components = htmlDoc.querySelectorAll('[id$="-component"]');
+            components.forEach((component) => {
+              const clone = document.importNode(component, true);
+              clone.style.display = "none";
+              document.body.appendChild(clone);
+            });
+
+            // Get the script part
+            const script = htmlDoc.querySelector("script");
+            if (script) {
+              eval(script.innerHTML);
+            }
+
+            // Initialize components after loading
+            if (window.ITHelpdesk && window.ITHelpdesk.includeComponent) {
+              window.ITHelpdesk.includeComponent(
+                "navbar-component",
+                "navbar-container"
+              );
+              window.ITHelpdesk.includeComponent(
+                "whatsapp-component",
+                "whatsapp-container"
+              );
+              window.ITHelpdesk.setActiveNavigation();
+            }
+
+            if (callback) callback();
+          }
+        };
+        xhr.send();
+      }
+
+      // Load components from components-user.html
+      document.addEventListener("DOMContentLoaded", function () {
+        includeHTML("components-user.html");
+      });
+    </script>
   </body>
 </html>
