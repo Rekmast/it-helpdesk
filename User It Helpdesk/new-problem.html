@@ -69,36 +69,6 @@
         <div class="col-md-10 mx-auto">
           <h2 class="mb-4">New Problem Ticket</h2>
 
-          <!-- Success Alert (Hidden by default) -->
-          <div
-            id="success-alert"
-            class="alert alert-success alert-dismissible fade show mb-4 d-none"
-            role="alert"
-            style="border-radius: 15px; border-left: 4px solid #28a745"
-          >
-            <div class="d-flex align-items-center">
-              <div
-                class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3"
-                style="width: 36px; height: 36px"
-              >
-                <i class="fas fa-check"></i>
-              </div>
-              <div>
-                <strong>Pesan Dikirim</strong>
-                <p class="mb-0">
-                  Pesan Anda telah terkirim. Kami akan segera menghubungi Anda
-                  kembali.
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-            ></button>
-          </div>
-
           <!-- Problem Ticket Form -->
           <div class="bg-white p-4 rounded shadow-sm">
             <form id="problem-ticket-form">
@@ -508,17 +478,12 @@
             return;
           }
 
-          // Show success message
-          const successAlert = document.getElementById("success-alert");
-          successAlert.classList.remove("d-none");
+          // Store notification flag for My Tickets page
+          localStorage.setItem('showTicketNotification', 'true');
+          localStorage.setItem('ticketNotificationMessage', 'Problem ticket has been successfully submitted.');
 
-          // Scroll to top to show the alert
-          window.scrollTo({ top: 0, behavior: "smooth" });
-
-          // Hide success message after 5 seconds
-          setTimeout(() => {
-            successAlert.classList.add("d-none");
-          }, 5000);
+          // Redirect to My Tickets page
+          window.location.href = 'mytickets.html';
         });
       });
     </script>

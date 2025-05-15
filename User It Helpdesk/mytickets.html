@@ -146,6 +146,37 @@
     <!-- Navigation Bar -->
     <div id="navbar-container"></div>
 
+    <!-- Success Notification (Hidden by default) -->
+    <div
+      id="notification-alert"
+      class="alert alert-success alert-dismissible fade show mx-auto my-3 d-none"
+      role="alert"
+      style="border-radius: 15px; border-left: 4px solid #28a745; max-width: 1200px;"
+    >
+      <div class="d-flex align-items-center">
+        <div
+          class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+          style="width: 36px; height: 36px"
+        >
+          <i class="fas fa-check"></i>
+        </div>
+        <div>
+          <strong>Pesan Dikirim</strong>
+          <p class="mb-0" id="notification-message">
+            Pesan Anda telah terkirim. Kami akan segera menghubungi Anda
+            kembali.
+          </p>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+        onclick="localStorage.removeItem('showTicketNotification'); localStorage.removeItem('ticketNotificationMessage');"
+      ></button>
+    </div>
+
     <!-- Hero Section -->
     <div class="hero-section">
       <div class="hero-content">
@@ -579,6 +610,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Include components -->
+    <script src="components-user.js"></script>
     <script>
       // Function to include HTML content from another file
       function includeHTML(url, callback) {
@@ -613,6 +645,10 @@
                 "navbar-container"
               );
               window.ITHelpdesk.includeComponent(
+                "footer-component",
+                "footer-container"
+              );
+              window.ITHelpdesk.includeComponent(
                 "whatsapp-component",
                 "whatsapp-container"
               );
@@ -625,9 +661,59 @@
         xhr.send();
       }
 
-      // Load components from components-user.html
+      // Load components and initialize
       document.addEventListener("DOMContentLoaded", function () {
+        // Check if notification should be shown
+        if (localStorage.getItem('showTicketNotification') === 'true') {
+          const notificationAlert = document.getElementById('notification-alert');
+          const notificationMessage = document.getElementById('notification-message');
+          
+          // Set message if available
+          if (localStorage.getItem('ticketNotificationMessage')) {
+            notificationMessage.textContent = localStorage.getItem('ticketNotificationMessage');
+          }
+          
+          // Show notification
+          notificationAlert.classList.remove('d-none');
+          
+          // Clear after 5 seconds
+          setTimeout(() => {
+            notificationAlert.classList.add('d-none');
+            localStorage.removeItem('showTicketNotification');
+            localStorage.removeItem('ticketNotificationMessage');
+          }, 5000);
+        }
+
+        // Load components
         includeHTML("components-user.html");
+        
+        // Initialize tabs
+        const tabBtns = document.querySelectorAll(".tab-btn");
+        const tabContents = document.querySelectorAll(".tab-content");
+
+        tabBtns.forEach(button => {
+          button.addEventListener("click", () => {
+            // Remove active class from all buttons
+            tabBtns.forEach(btn => btn.classList.remove("active"));
+            
+            // Add active class to clicked button
+            button.classList.add("active");
+            
+            // Hide all tab contents
+            tabContents.forEach(content => {
+              content.style.display = "none";
+            });
+            
+            // Show the corresponding tab content
+            const tabId = button.getAttribute("data-tab");
+            document.getElementById(tabId).style.display = "block";
+          });
+        });
+
+        // Set first tab as active by default
+        if (tabBtns.length > 0) {
+          tabBtns[0].click();
+        }
 
         // Filter Modal Toggle - Executed after the DOM is fully loaded
         const filterBtn = document.getElementById("filter-btn");
