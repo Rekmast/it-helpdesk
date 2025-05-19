@@ -146,18 +146,6 @@
                 </select>
               </div>
 
-              <!-- Priority Field -->
-              <div class="mb-3">
-                <label for="priority" class="form-label">Priority</label>
-                <select class="form-select" id="priority" required>
-                  <option value="" selected>Select Priority</option>
-                  <option value="low">Low</option>
-                  <option value="medium">Medium</option>
-                  <option value="high">High</option>
-                  <option value="urgent">Urgent</option>
-                </select>
-              </div>
-
               <!-- Category Field -->
               <div class="mb-3">
                 <label for="category" class="form-label">Category</label>
@@ -458,7 +446,6 @@
           const username = document.getElementById("username").value;
           const contactNumber = document.getElementById("contact-number").value;
           const department = document.getElementById("department").value;
-          const priority = document.getElementById("priority").value;
           const category = document.getElementById("category").value;
           const subject = document.getElementById("subject").value;
           const description =
@@ -469,7 +456,6 @@
             !username ||
             !contactNumber ||
             !department ||
-            !priority ||
             !category ||
             !subject ||
             !description
@@ -479,11 +465,14 @@
           }
 
           // Store notification flag for My Tickets page
-          localStorage.setItem('showTicketNotification', 'true');
-          localStorage.setItem('ticketNotificationMessage', 'Problem ticket has been successfully submitted.');
+          localStorage.setItem("showTicketNotification", "true");
+          localStorage.setItem(
+            "ticketNotificationMessage",
+            "Problem ticket has been successfully submitted."
+          );
 
           // Redirect to My Tickets page
-          window.location.href = 'mytickets.html';
+          window.location.href = "mytickets.html";
         });
       });
     </script>

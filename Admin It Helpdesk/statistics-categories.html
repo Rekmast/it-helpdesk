@@ -377,22 +377,8 @@
         </div>
       </div>
 
-      <!-- Monthly Trend by Category -->
-      <div class="stat-card">
-        <h3>Monthly Trend by Category (Top 3)</h3>
-        <div class="chart-container">
-          <canvas id="categoryTrendChart"></canvas>
-        </div>
-      </div>
-
       <!-- Export Options -->
       <div class="d-flex justify-content-end gap-2 mb-4">
-        <button class="btn btn-outline-primary">
-          <i class="fas fa-file-excel me-2"></i>Export to Excel
-        </button>
-        <button class="btn btn-outline-danger">
-          <i class="fas fa-file-pdf me-2"></i>Export to PDF
-        </button>
         <button class="btn btn-outline-secondary">
           <i class="fas fa-print me-2"></i>Print Report
         </button>
@@ -415,7 +401,7 @@
           .getElementById("categoryDistributionChart")
           .getContext("2d");
         const categoryDistChart = new Chart(categoryDistCtx, {
-          type: "doughnut",
+          type: "bar",
           data: {
             labels: [
               "Aplikasi",
@@ -431,38 +417,37 @@
             ],
             datasets: [
               {
+                label: "Total Tickets",
                 data: [42, 28, 15, 12, 9, 7, 5, 4, 3, 2],
                 backgroundColor: [
-                  "#7367f0",
-                  "#00cfe8",
-                  "#28c76f",
-                  "#ff9f43",
-                  "#ea5455",
-                  "#a4a8ac",
-                  "#5a8dee",
-                  "#ff6b6b",
-                  "#82e3cf",
-                  "#dfa850",
+                  "#7367f0", // Aplikasi
+                  "#00cfe8", // Lain-lain
+                  "#28c76f", // Software
+                  "#ff9f43", // Hardware
+                  "#ea5455", // Network
+                  "#a4a8ac", // Email
+                  "#5a8dee", // Database
+                  "#ff6b6b", // Security
+                  "#82e3cf", // Printer
+                  "#dfa850", // Access Control
                 ],
-                borderWidth: 0,
+                borderRadius: 5,
+                barPercentage: 0.6,
               },
             ],
           },
           options: {
+            indexAxis: "y",
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
               legend: {
-                position: "right",
-                labels: {
-                  usePointStyle: true,
-                  padding: 20,
-                },
+                display: false,
               },
               tooltip: {
                 callbacks: {
                   label: function (context) {
-                    const label = context.label || "";
+                    const label = context.dataset.label || "";
                     const value = context.raw || 0;
                     const total = context.dataset.data.reduce(
                       (acc, data) => acc + data,
@@ -474,90 +459,20 @@
                 },
               },
             },
-          },
-        });
-
-        // Category Trend Chart
-        const categoryTrendCtx = document
-          .getElementById("categoryTrendChart")
-          .getContext("2d");
-        const categoryTrendChart = new Chart(categoryTrendCtx, {
-          type: "line",
-          data: {
-            labels: [
-              "Jan",
-              "Feb",
-              "Mar",
-              "Apr",
-              "May",
-              "Jun",
-              "Jul",
-              "Aug",
-              "Sep",
-              "Oct",
-              "Nov",
-              "Dec",
-            ],
-            datasets: [
-              {
-                label: "Aplikasi",
-                data: [5, 3, 6, 4, 5, 3, 3, 7, 2, 3, 2, 3],
-                borderColor: "#7367f0",
-                backgroundColor: "rgba(115, 103, 240, 0.1)",
-                borderWidth: 2,
-                tension: 0.3,
-                fill: true,
-              },
-              {
-                label: "Lain-lain",
-                data: [3, 2, 4, 3, 2, 2, 3, 4, 1, 2, 1, 1],
-                borderColor: "#00cfe8",
-                backgroundColor: "rgba(0, 207, 232, 0.1)",
-                borderWidth: 2,
-                tension: 0.3,
-                fill: true,
-              },
-              {
-                label: "Software",
-                data: [2, 1, 2, 1, 2, 1, 1, 2, 1, 1, 0, 1],
-                borderColor: "#28c76f",
-                backgroundColor: "rgba(40, 199, 111, 0.1)",
-                borderWidth: 2,
-                tension: 0.3,
-                fill: true,
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
             scales: {
               x: {
-                grid: {
-                  display: false,
-                },
-              },
-              y: {
                 beginAtZero: true,
                 grid: {
-                  drawBorder: false,
+                  display: false,
                 },
                 ticks: {
                   precision: 0,
                 },
               },
-            },
-            plugins: {
-              legend: {
-                position: "top",
-                labels: {
-                  usePointStyle: true,
-                  padding: 20,
+              y: {
+                grid: {
+                  display: false,
                 },
-              },
-              tooltip: {
-                mode: "index",
-                intersect: false,
               },
             },
           },
