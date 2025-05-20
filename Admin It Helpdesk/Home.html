@@ -138,6 +138,51 @@
 
     <!-- Main Content -->
     <div class="main-content">
+      <!-- Success Notification -->
+      <div class="d-flex justify-content-end">
+        <div
+          id="ticket-notification"
+          class="alert mb-3 position-relative"
+          role="alert"
+          style="
+            display: none;
+            background-color: #e7f6e7;
+            color: #0c5460;
+            border: 1px solid #2a8d46;
+            padding: 10px 15px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: auto;
+          "
+        >
+          <button
+            type="button"
+            class="btn-close position-absolute"
+            style="font-size: 10px; top: 5px; right: 5px"
+            aria-label="Close"
+            onclick="closeNotification()"
+          ></button>
+          <div class="d-flex align-items-center">
+            <div class="me-2">
+              <i class="fas fa-check-circle text-success"></i>
+            </div>
+            <div>
+              <h6
+                class="mb-0 fw-bold"
+                id="notification-title"
+                style="font-size: 14px"
+              >
+                Pesan Dikirim
+              </h6>
+              <p class="mb-0" id="notification-message" style="font-size: 13px">
+                Pesan Anda telah terkirim. Kami akan segera menghubungi Anda
+                kembali.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <h2 class="mb-4">Home</h2>
 
       <!-- Dashboard Cards -->
@@ -150,7 +195,7 @@
             <div class="icon open-tickets">
               <i class="fa-duotone fa-solid fa-ticket"></i>
             </div>
-            <div class="number">5</div> 
+            <div class="number">5</div>
             <div class="description">Open Ticket(s)</div>
             <div class="sub-description">5 Ticket(s) yang Open</div>
           </div>
@@ -552,6 +597,34 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="utils.js"></script>
     <script>
+      // Check for notification
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("Checking for notification parameter");
+
+        // Check URL parameters for notification flag
+        const urlParams = new URLSearchParams(window.location.search);
+        const showNotification = urlParams.get("showNotification");
+        console.log("Show notification:", showNotification);
+
+        if (showNotification === "true") {
+          console.log("Showing notification");
+
+          // Show notification
+          const notification = document.getElementById("ticket-notification");
+          notification.style.display = "flex";
+
+          // Remove parameter from URL without refreshing page
+          const url = new URL(window.location);
+          url.searchParams.delete("showNotification");
+          window.history.pushState({}, "", url);
+        }
+      });
+
+      // Function to close notification
+      function closeNotification() {
+        document.getElementById("ticket-notification").style.display = "none";
+      }
+
       // Sidebar Menu Toggle
       document.addEventListener("DOMContentLoaded", function () {
         // Filter Modal Toggle
