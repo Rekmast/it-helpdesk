@@ -53,6 +53,28 @@
         margin-bottom: 30px;
       }
 
+      /* Ensure date input elements stay in a row */
+      .date-input-row {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .date-input-label {
+        white-space: nowrap;
+        margin-bottom: 0;
+        min-width: 100px;
+      }
+
+      .date-input-field {
+        flex-grow: 1;
+      }
+
+      .date-input-button {
+        min-width: 80px;
+      }
+
       .server-table h3 {
         font-weight: 600;
       }
@@ -76,14 +98,12 @@
       <div class="content-wrapper">
         <!-- Date Input Section -->
         <div class="date-input-container">
-          <div class="row align-items-center">
-            <div class="col-md-4">
-              <h4 class="mb-0">Enter Date:</h4>
-            </div>
-            <div class="col-md-6">
+          <div class="date-input-row">
+            <h4 class="date-input-label">Enter Date:</h4>
+            <div class="date-input-field">
               <input type="date" class="form-control" id="monitor-date" />
             </div>
-            <div class="col-md-2">
+            <div class="date-input-button">
               <button class="btn btn-warning w-100" id="check-button">
                 Cek
               </button>
