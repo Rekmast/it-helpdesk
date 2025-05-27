@@ -29,63 +29,164 @@
         </div>
 
         <div class="detail-actions">
-          <a href="mytickets.html" class="back-button">< Masalah Di Excel</a>
-          <button class="print-button">🖨️</button>
+          <a href="mytickets.html" class="back-button">
+            <i class="fas fa-arrow-left me-2"></i>
+            <span id="ticket-subject">Masalah Di Excel</span>
+          </a>
+          <button class="print-button" title="Print">
+            <i class="fas fa-print"></i>
+          </button>
         </div>
 
-        <div class="chat-container">
-          <div class="chat-message user-message">
-            <div class="message-content">
-              <p>akan segera di periksa lebih lanjut untuk unit laptop nya.</p>
-            </div>
-            <div class="message-time">6:30 pm</div>
-            <div class="message-actions">⋮</div>
-          </div>
-
-          <div class="chat-message support-message">
-            <div class="message-content">
-              <p>
-                dan sepertinya terdapat gangguan di aplikasi excelnya juga
-                tolong diperbaiki
+        <!-- Message Container -->
+        <div class="message-container" id="message-container">
+          <!-- Initial User Message (Description) - Always visible -->
+          <div class="message user-message">
+            <div class="message-bubble">
+              <p id="user-description">
+                akan segera di periksa lebih lanjut untuk unit laptop nya.
               </p>
+              <div class="msg-time">
+                <i class="far fa-clock"></i>
+                <span id="description-time">6:30 pm</span>
+              </div>
             </div>
-            <div class="message-time">6:34 pm</div>
-            <div class="message-actions">⋮</div>
+            <div class="user-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+          </div>
+
+          <!-- On Progress Messages - Only visible in On Progress status -->
+          <div id="progress-messages">
+            <!-- Admin Response -->
+            <div class="message admin-message">
+              <div class="admin-avatar">
+                <i class="fas fa-headset"></i>
+              </div>
+              <div class="message-bubble">
+                <p>
+                  Terima kasih atas laporannya. Kami akan segera memeriksa
+                  masalah pada laptop Anda.
+                </p>
+                <div class="msg-time"><i class="far fa-clock"></i> 6:32 pm</div>
+              </div>
+            </div>
+
+            <!-- User Follow-up Message -->
+            <div class="message user-message">
+              <div class="message-bubble">
+                <p>
+                  dan sepertinya terdapat gangguan di aplikasi excelnya juga
+                  tolong diperbaiki
+                </p>
+                <div class="msg-time"><i class="far fa-clock"></i> 6:34 pm</div>
+              </div>
+              <div class="user-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Solved Messages - Only visible in Solved status -->
+          <div id="solved-messages" style="display: none">
+            <!-- Admin Response -->
+            <div class="message admin-message">
+              <div class="admin-avatar">
+                <i class="fas fa-headset"></i>
+              </div>
+              <div class="message-bubble">
+                <p>
+                  Terima kasih atas laporannya. Kami akan segera memeriksa
+                  masalah pada laptop Anda.
+                </p>
+                <div class="msg-time"><i class="far fa-clock"></i> 6:32 pm</div>
+              </div>
+            </div>
+
+            <!-- User Follow-up Message -->
+            <div class="message user-message">
+              <div class="message-bubble">
+                <p>
+                  dan sepertinya terdapat gangguan di aplikasi excelnya juga
+                  tolong diperbaiki
+                </p>
+                <div class="msg-time"><i class="far fa-clock"></i> 6:38 pm</div>
+              </div>
+              <div class="user-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+            </div>
+
+            <!-- Final Admin Solution -->
+            <div class="message admin-message">
+              <div class="admin-avatar">
+                <i class="fas fa-headset"></i>
+              </div>
+              <div class="message-bubble">
+                <p>
+                  Baiklah sudah diperbaiki silahkan dicek kembali. Masalah pada
+                  Excel dan laptop sudah teratasi.
+                </p>
+                <div class="msg-time"><i class="far fa-clock"></i> 6:45 pm</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="message-input-container">
-          <input
-            type="text"
-            class="message-input"
-            placeholder="Write message"
-          />
-          <div class="message-actions-buttons">
-            <button class="attachment-button">📎</button>
-            <button class="attachment-button">📁</button>
-            <button class="send-button">Send 📤</button>
-          </div>
+        <!-- Message Input - Only visible for Open and On Progress -->
+        <div class="message-input" id="message-input-container">
+          <input type="text" placeholder="Write message" />
+          <button class="attachment-btn" style="border: none; background: none">
+            <i class="fas fa-paperclip"></i>
+          </button>
+          <button class="attachment-btn" style="border: none; background: none">
+            <i class="far fa-file"></i>
+          </button>
+          <button class="send-button">
+            Send
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+
+        <!-- End Chat Message - Only visible for Solved and Expired -->
+        <div
+          class="text-center py-4 text-muted"
+          id="chat-ended-message"
+          style="display: none"
+        >
+          <p class="mb-0">The Chat Ends Here</p>
         </div>
       </div>
 
       <div class="sidebar">
+        <!-- User Information Card -->
         <div class="user-info-card">
-          <h3>User Information</h3>
-          <p><strong>John Doe</strong></p>
-          <p>IP Address: 172.16.75.93</p>
-          <p>No Ext./Telp./CUG:</p>
-          <p>21 Maret 2025</p>
-          <p>IT Office - Aplikasi Insosys (Umum)</p>
-          <div class="status status-progress">On Progress By: John Newman</div>
-        </div>
+          <div class="info-section">
+            <h5>User Information</h5>
+            <p><strong>John Doe</strong></p>
+            <p>IP Address : 172.16.75.93</p>
+            <p>No Ext./ Telp./ CUG :</p>
+            <p>03 Maret 2025</p>
+            <p>IT Office - Aplikasi Insosys (Umum)</p>
+          </div>
 
-        <div class="user-info-card">
-          <h3>IT Support Information</h3>
-          <p>3 Maret 2025 20:38</p>
-          <p><strong>IT Support's Name:</strong> John Newman</p>
-          <p>showed as an Administrator to user</p>
-          <p>Information Technology Department</p>
-          <p>john.newman@trans7.co.id</p>
+          <div class="info-section position-relative">
+            <h5>Status</h5>
+            <div id="status-badge"></div>
+          </div>
+
+          <div class="info-section">
+            <h5>IT Support Information</h5>
+            <p>3 Maret 2025 20:38</p>
+            <p>
+              handle by: <strong>John Newman</strong><br />
+              <span id="admin-action"
+                >showed as an Administrator to user Information Technology
+                Department</span
+              ><br />
+              john.newman@trans7.co.id
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -147,6 +248,123 @@
       // Load components from components-user.html
       document.addEventListener("DOMContentLoaded", function () {
         includeHTML("components-user.html");
+
+        // Parse URL parameters to get ticket details
+        const urlParams = new URLSearchParams(window.location.search);
+        const ticketId = urlParams.get("id");
+        const ticketSubject = urlParams.get("subject");
+        const ticketStatus = urlParams.get("status") || "Open"; // Default to Open if not specified
+        const ticketContent = urlParams.get("content"); // Get the message content if available
+
+        // Update page with ticket info if available
+        if (ticketSubject) {
+          document.getElementById("ticket-subject").textContent = ticketSubject;
+        }
+
+        // Populate the ticket description based on subject if content not provided
+        const userDescription = document.getElementById("user-description");
+        if (ticketContent) {
+          userDescription.innerHTML = decodeURIComponent(ticketContent);
+        } else {
+          // Default messages based on ticket subject if content not provided
+          switch (ticketSubject) {
+            case "Product Activation Failed":
+              userDescription.innerHTML = `Dear tim IT,<br><br>
+              saya tidak bisa memakai aplikasi Ms.Word pada komputer saya. Mohon dibantu untuk aktivasi ms.office ya<br><br>
+              Terima kasih.`;
+              break;
+            case "Permohonan penembakan PB Built in weekend project":
+              userDescription.innerHTML = `Mohon untuk dilakukan penembakan pada PB Built in weekend project
+              PB0123456789, agar shift editing bisa di tarik, dikarenakan
+              terjadi kendala dalam pekerjaan shift editing padahal sudah
+              approval dari postpro dan PCM. dengan detail PEPS sebagai berikut:<br><br>
+              PEPSB0123456789 (Shift)<br>
+              PEPSB0123456789 (Shift)<br><br>
+              Terimakasih`;
+              break;
+            case "MS Excel bermasalah":
+              userDescription.innerHTML = `Dear Team IT, aplikasi MS Office (Excel) saya tidak bisa
+              digunakan. Setiap buka aplikasi selalu minta product key. Mohon
+              bantuannya.<br><br>
+              Terima kasih.`;
+              break;
+            case "Reset Password Wifi dan Device Wifi Login":
+              userDescription.innerHTML = `Dear Tim IT,<br><br>
+              Mau minta tolong utk reset password WiFi dan Devices yang sudah
+              pernah login. Terima kasih`;
+              break;
+            default:
+              userDescription.innerHTML = `Dear Tim IT,<br><br>
+              Mohon bantuan untuk mengatasi masalah yang saya alami.<br><br>
+              Terima kasih.`;
+          }
+        }
+
+        // Update view based on status
+        updateViewBasedOnStatus(ticketStatus);
+
+        // Function to update the view based on ticket status
+        function updateViewBasedOnStatus(status) {
+          const statusBadge = document.getElementById("status-badge");
+          const messageInputContainer = document.getElementById(
+            "message-input-container"
+          );
+          const chatEndedMessage =
+            document.getElementById("chat-ended-message");
+          const progressMessages = document.getElementById("progress-messages");
+          const solvedMessages = document.getElementById("solved-messages");
+          const adminAction = document.getElementById("admin-action");
+
+          // Reset all elements
+          messageInputContainer.style.display = "none";
+          chatEndedMessage.style.display = "none";
+          progressMessages.style.display = "none";
+          solvedMessages.style.display = "none";
+
+          // Update based on status
+          switch (status.toLowerCase()) {
+            case "open":
+              statusBadge.innerHTML =
+                '<div class="status status-open">Open</div>';
+              messageInputContainer.style.display = "flex";
+              adminAction.textContent = "waiting to be assigned";
+              break;
+
+            case "in progress":
+            case "on progress":
+            case "progress":
+              statusBadge.innerHTML =
+                '<div class="status status-progress">On Progress By: John Newman</div>';
+              messageInputContainer.style.display = "flex";
+              progressMessages.style.display = "block";
+              adminAction.textContent =
+                "showed as an Administrator to user Information Technology Department";
+              break;
+
+            case "solved":
+              statusBadge.innerHTML =
+                '<div class="status status-solved">Solved By: John Newman</div>';
+              chatEndedMessage.style.display = "block";
+              solvedMessages.style.display = "block";
+              adminAction.textContent = "closed this ticket as Solved";
+              break;
+
+            case "expired":
+              statusBadge.innerHTML =
+                '<div class="status status-expired">Expired</div>';
+              chatEndedMessage.style.display = "block";
+              progressMessages.style.display = "block";
+              adminAction.textContent = "marked this ticket as Expired";
+              break;
+
+            default:
+              // Default to Open
+              statusBadge.innerHTML =
+                '<div class="status status-open">Open</div>';
+              messageInputContainer.style.display = "flex";
+              adminAction.textContent = "waiting to be assigned";
+          }
+        }
       });
     </script>
   </body>

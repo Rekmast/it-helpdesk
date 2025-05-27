@@ -1,95 +1,97 @@
-    <!-- Header Component -->
-    <div id="navbar-component">
-      <header class="modern-navbar">
-        <div class="logo">
-          <a href="Home.html">IT-HelpDesk</a>
-        </div>
-        <div class="nav-menu">
-          <a href="Home.html" id="nav-home">HOME</a>
-          <a href="mytickets.html" id="nav-tickets">MY PROBLEM</a>
-          <a href="new-problem.html" id="nav-new-problem">NEW PROBLEM</a>
-          <a href="knowledge-base.html" id="nav-knowledge">KNOWLEDGE BASE</a>
-        </div>
-        <div class="user-info">
-          <span class="user-name">JOHN DOE</span>
-          <button class="logout-btn">
-            <i class="fas fa-sign-out-alt me-1"></i>Logout
-          </button>
-        </div>
-      </header>
-    </div>
-
-    <!-- WhatsApp Button Component -->
-    <div id="whatsapp-component">
-      <a
-        href="#"
-        class="whatsapp-button"
-        aria-label="Contact support via WhatsApp"
-      >
-        <i class="fab fa-whatsapp fa-2x text-white"></i>
-        <span class="tooltip">Need help? Contact us!</span>
+<!-- Header Component -->
+<div id="navbar-component">
+  <header class="modern-navbar">
+    <div class="logo">
+      <a href="Home.html">
+        <img
+          src="https://www.trans7.co.id/assets/front/images/logo/logo-trans7.png"
+          alt="Trans7 IT-HelpDesk"
+          style="height: 40px; width: auto"
+        />
       </a>
     </div>
+    <div class="nav-menu">
+      <a href="Home.html" id="nav-home">HOME</a>
+      <a href="mytickets.html" id="nav-tickets">MY PROBLEM</a>
+      <a href="new-problem.html" id="nav-new-problem">NEW PROBLEM</a>
+      <a href="knowledge-base.html" id="nav-knowledge">KNOWLEDGE BASE</a>
+    </div>
+    <div class="user-info">
+      <span class="user-name">JOHN DOE</span>
+      <button class="logout-btn">
+        <i class="fas fa-sign-out-alt me-1"></i>Logout
+      </button>
+    </div>
+  </header>
+</div>
 
-    <!-- JavaScript to handle component loading and interactions -->
-    <script>
-      // Function to include a component in the target element
-      function includeComponent(componentId, targetElementId) {
-        const component = document.getElementById(componentId);
-        const targetElement = document.getElementById(targetElementId);
+<!-- WhatsApp Button Component -->
+<div id="whatsapp-component">
+  <a href="#" class="whatsapp-button" aria-label="Contact support via WhatsApp">
+    <i class="fab fa-whatsapp fa-2x text-white"></i>
+    <span class="tooltip">Need help? Contact us!</span>
+  </a>
+</div>
 
-        if (component && targetElement) {
-          targetElement.innerHTML = component.innerHTML;
-        }
-      }
+<!-- JavaScript to handle component loading and interactions -->
+<script>
+  // Function to include a component in the target element
+  function includeComponent(componentId, targetElementId) {
+    const component = document.getElementById(componentId);
+    const targetElement = document.getElementById(targetElementId);
 
-      // Function to set active navigation based on current page
-      function setActiveNavigation() {
-        const currentPage = window.location.pathname.split("/").pop();
+    if (component && targetElement) {
+      targetElement.innerHTML = component.innerHTML;
+    }
+  }
 
-        // Reset all active classes
-        document.querySelectorAll(".nav-link, .nav-menu a").forEach((item) => {
-          item.classList.remove("active");
-        });
+  // Function to set active navigation based on current page
+  function setActiveNavigation() {
+    const currentPage = window.location.pathname.split("/").pop();
 
-        // Set active link based on current page
-        switch (currentPage) {
-          case "":
-          case "index.html":
-          case "Index.html":
-          case "Home.html":
-            document.querySelector("#nav-home")?.classList.add("active");
-            break;
-          case "mytickets.html":
-            document.querySelector("#nav-tickets")?.classList.add("active");
-            break;
-          case "new-problem.html":
-            document.querySelector("#nav-new-problem")?.classList.add("active");
-            break;
-          case "knowledge-base.html":
-            document.querySelector("#nav-knowledge")?.classList.add("active");
-            break;
-        }
-      }
+    // Reset all active classes
+    document.querySelectorAll(".nav-link, .nav-menu a").forEach((item) => {
+      item.classList.remove("active");
+    });
 
-      // Initialize components after page loads
-      document.addEventListener("DOMContentLoaded", function () {
-        // Set active navigation links
-        setTimeout(setActiveNavigation, 100);
+    // Set active link based on current page
+    switch (currentPage) {
+      case "":
+      case "index.html":
+      case "Index.html":
+      case "Home.html":
+        document.querySelector("#nav-home")?.classList.add("active");
+        break;
+      case "mytickets.html":
+        document.querySelector("#nav-tickets")?.classList.add("active");
+        break;
+      case "new-problem.html":
+        document.querySelector("#nav-new-problem")?.classList.add("active");
+        break;
+      case "knowledge-base.html":
+        document.querySelector("#nav-knowledge")?.classList.add("active");
+        break;
+    }
+  }
 
-        // Initialize WhatsApp button functionality
-        const whatsappButton = document.querySelector(".whatsapp-button");
-        if (whatsappButton) {
-          whatsappButton.addEventListener("click", function (e) {
-            e.preventDefault();
-            window.open("https://wa.me/6221123456", "_blank");
-          });
-        }
+  // Initialize components after page loads
+  document.addEventListener("DOMContentLoaded", function () {
+    // Set active navigation links
+    setTimeout(setActiveNavigation, 100);
+
+    // Initialize WhatsApp button functionality
+    const whatsappButton = document.querySelector(".whatsapp-button");
+    if (whatsappButton) {
+      whatsappButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.open("https://wa.me/6281234567890", "_blank");
       });
+    }
+  });
 
-      // Export functions for use in other scripts
-      window.ITHelpdesk = {
-        includeComponent,
-        setActiveNavigation,
-      };
-    </script>
+  // Export functions for use in other scripts
+  window.ITHelpdesk = {
+    includeComponent,
+    setActiveNavigation,
+  };
+</script>
