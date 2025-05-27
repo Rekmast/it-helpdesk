@@ -140,88 +140,11 @@
         </a>
       </div>
 
-      <!-- Filter Section -->
-      <div class="filter-container">
-        <div class="row g-3">
-          <div class="col-md-4">
-            <label class="form-label">Time Period</label>
-            <select class="form-select">
-              <option>This Year (2025)</option>
-              <option>Last Year (2024)</option>
-              <option>Last 6 Months</option>
-              <option>Last 3 Months</option>
-              <option>Custom Range</option>
-            </select>
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Status</label>
-            <select class="form-select">
-              <option>All Statuses</option>
-              <option>Open</option>
-              <option>In Progress</option>
-              <option>Solved</option>
-              <option>Expired</option>
-            </select>
-          </div>
-          <div class="col-md-4 d-flex align-items-end">
-            <button class="btn btn-primary w-100">Apply Filter</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Chart Card -->
-      <div class="row mb-4">
-        <div class="col-md-8">
-          <div class="stat-card h-100">
-            <h3>Problem Distribution by Category</h3>
-            <div class="chart-container">
-              <canvas id="categoryDistributionChart"></canvas>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="stat-card h-100">
-            <h3>Top Categories</h3>
-            <div class="progress-card">
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="category-name">Aplikasi</div>
-                <span class="badge bg-primary badge-count">42</span>
-              </div>
-              <div class="progress">
-                <div class="progress-bar bg-primary" style="width: 49.4%"></div>
-              </div>
-              <div class="stats">
-                <span>49.4%</span>
-                <span>42 tickets</span>
-              </div>
-            </div>
-            <div class="progress-card">
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="category-name">Lain-lain</div>
-                <span class="badge bg-info badge-count">28</span>
-              </div>
-              <div class="progress">
-                <div class="progress-bar bg-info" style="width: 32.9%"></div>
-              </div>
-              <div class="stats">
-                <span>32.9%</span>
-                <span>28 tickets</span>
-              </div>
-            </div>
-            <div class="progress-card">
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="category-name">Software</div>
-                <span class="badge bg-success badge-count">15</span>
-              </div>
-              <div class="progress">
-                <div class="progress-bar bg-success" style="width: 17.7%"></div>
-              </div>
-              <div class="stats">
-                <span>17.7%</span>
-                <span>15 tickets</span>
-              </div>
-            </div>
-          </div>
+      <!-- Chart Card - Now full width like other statistics pages -->
+      <div class="stat-card">
+        <h3>Problem Distribution by Category</h3>
+        <div class="chart-container">
+          <canvas id="categoryDistributionChart"></canvas>
         </div>
       </div>
 
@@ -419,18 +342,7 @@
               {
                 label: "Total Tickets",
                 data: [42, 28, 15, 12, 9, 7, 5, 4, 3, 2],
-                backgroundColor: [
-                  "#7367f0", // Aplikasi
-                  "#00cfe8", // Lain-lain
-                  "#28c76f", // Software
-                  "#ff9f43", // Hardware
-                  "#ea5455", // Network
-                  "#a4a8ac", // Email
-                  "#5a8dee", // Database
-                  "#ff6b6b", // Security
-                  "#82e3cf", // Printer
-                  "#dfa850", // Access Control
-                ],
+                backgroundColor: "#7367f0",
                 borderRadius: 5,
                 barPercentage: 0.6,
               },
