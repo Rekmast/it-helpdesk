@@ -9,7 +9,13 @@ const COMPONENTS = {
   "navbar-component": `
     <header class="modern-navbar">
       <div class="logo">
-        <a href="Home.html">IT-HelpDesk</a>
+        <a href="Home.html">
+          <img
+            src="https://www.trans7.co.id/assets/front/images/logo/logo-trans7.png"
+            alt="Trans7 IT-HelpDesk"
+            style="height: 40px; width: auto"
+          />
+        </a>
       </div>
       <div class="nav-menu">
         <a href="Home.html" id="nav-home">HOME</a>
@@ -32,6 +38,17 @@ const COMPONENTS = {
       <i class="fab fa-whatsapp fa-2x text-white"></i>
       <span class="tooltip">Need help? Contact us!</span>
     </a>
+  `,
+
+  // Footer Component
+  "footer-component": `
+    <footer class="footer mt-5">
+      <div class="container py-3">
+        <div class="text-center">
+          <p>© 2025 Trans 7. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
   `,
 };
 
@@ -98,6 +115,10 @@ document.addEventListener("DOMContentLoaded", function () {
     includeComponent("whatsapp-component", "whatsapp-container");
   }
 
+  if (document.getElementById("footer-container")) {
+    includeComponent("footer-component", "footer-container");
+  }
+
   // Set active navigation
   setActiveNavigation();
 
@@ -106,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (whatsappButton) {
     whatsappButton.addEventListener("click", function (e) {
       e.preventDefault();
-      window.open("https://wa.me/6221123456", "_blank");
+      window.open("https://wa.me/6281234567890", "_blank");
     });
   }
 });
