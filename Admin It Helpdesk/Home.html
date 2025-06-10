@@ -127,6 +127,35 @@
         right: 30px;
         transform: translateY(-50%);
       }
+
+      /* Filter styles to ensure visibility */
+      .filter-btn {
+        cursor: pointer;
+        position: relative;
+        padding: 8px;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .filter-modal {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 280px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        padding: 15px;
+        z-index: 1000;
+        display: none;
+      }
+
+      .filter-modal.active {
+        display: block;
+      }
     </style>
   </head>
   <body>
@@ -449,7 +478,7 @@
         <div class="ticket-item">
           <div class="ticket-header">
             <div class="ticket-title">
-              <div class="ticket-status status-progress"> 
+              <div class="ticket-status status-progress">
                 <i class="fas fa-spinner"></i>
               </div>
               <div>

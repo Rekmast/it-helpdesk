@@ -42,8 +42,9 @@
           <div class="today-pic">Today's PIC</div>
           <div class="profile-pic">
             <img
-              src="https://i.pinimg.com/736x/cb/7e/3e/cb7e3ebc6de6214e146948ba9fdf3053.jpg"
+              src="https://hris.trans7.co.id/Photo/0906270.jpg?250610112212"
               alt="Today's PIC Profile"
+              style="transform: rotate(90deg)"
             />
           </div>
           <div class="support-text">IT Support</div>
@@ -55,71 +56,143 @@
 
     <!-- Main Content Area -->
     <div class="container-fluid" id="main-container">
-      <!-- Two Section Boxes Side by Side - Full Width -->
-      <div class="two-section-container-full">
-        <!-- Left Box: IT Announcement -->
-        <div class="left-section-box-full">
-          <div class="it-announcement-box">
-            <h2>IT ANNOUNCEMENT</h2>
-            <p>
+      <!-- Full Width IT Announcement Section -->
+      <div class="row">
+        <div class="col-12">
+          <div class="it-announcement-box p-4 bg-white rounded shadow-sm m-3">
+            <h2 class="mb-4">IT ANNOUNCEMENT</h2>
+            <p class="mb-4">
               Pengumuman resmi dari tim IT terkait sistem, jadwal maintenance,
               pembaruan layanan, dan informasi penting lainnya. Pastikan Anda
               selalu mendapatkan informasi terbaru agar aktivitas kerja tidak
               terganggu.
             </p>
 
-            <!-- All IT Announcement Cards -->
-            <div class="announcement-cards-grid">
+            <!-- Main Announcements Row -->
+            <div class="row">
               <!-- Main Maintenance Card -->
-              <div class="main-announcement-card">
-                <div class="card-image">
-                  <div class="card-illustration">
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
+              <div class="col-md-6 mb-4">
+                <div
+                  class="main-announcement-card h-100"
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    overflow: hidden;
+                    border-radius: 12px;
+                  "
+                >
+                  <!-- Card image section at top -->
+                  <div
+                    style="
+                      background-color: #fff5f5;
+                      padding: 30px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <div
+                      style="
+                        width: 60px;
+                        height: 60px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                      "
+                    >
+                      <i
+                        class="fa-solid fa-screwdriver-wrench"
+                        style="font-size: 40px; color: #0a3255"
+                      ></i>
+                    </div>
                   </div>
-                </div>
-                <div class="card-content">
-                  <h3>Sistem Maintenance</h3>
-                  <p>
-                    Akan ada pemeliharaan sistem pada tanggal 15 Agustus 2025.
-                    Sistem akan down selama 2 jam dari pukul 23:00 - 01:00 WIB.
-                  </p>
-                  <a href="#" class="view-detail-btn">VIEW DETAILS</a>
+
+                  <!-- Content section in middle -->
+                  <div style="padding: 25px; flex-grow: 1">
+                    <h3 style="font-weight: 600; margin-bottom: 15px">
+                      Sistem Maintenance
+                    </h3>
+                    <p
+                      style="color: #666; margin-bottom: 30px; line-height: 1.5"
+                    >
+                      Akan ada pemeliharaan sistem pada tanggal 15 Agustus 2025.
+                      Sistem akan down selama 2 jam dari pukul 23:00 - 01:00
+                      WIB.
+                    </p>
+                  </div>
+
+                  <!-- Button at bottom -->
+                  <div style="padding: 0">
+                    <a
+                      href="article-detail.html"
+                      class="view-detail-btn"
+                      style="
+                        width: 100%;
+                        display: block;
+                        text-align: center;
+                        padding: 12px;
+                        background-color: #0d6efd;
+                        color: white;
+                        text-decoration: none;
+                        border-radius: 0;
+                        margin: 0;
+                        font-weight: 500;
+                        letter-spacing: 0.5px;
+                      "
+                      >VIEW DETAILS</a
+                    >
+                  </div>
                 </div>
               </div>
 
-              <!-- Other Announcement Cards -->
-              <div class="other-announcement-cards">
-                <div class="announcement-card-small">
-                  <div>
-                    <h3>Cara mengenal Lebih Dalam Terkait IT - HelpDesk</h3>
-                    <p>Cara membuat Problem Ticket.dll</p>
+              <!-- Other Announcement Cards in a column -->
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-12 mb-4">
+                    <div class="announcement-card-small h-100">
+                      <div>
+                        <h3>Cara mengenal Lebih Dalam Terkait IT - HelpDesk</h3>
+                        <p>Cara membuat Problem Ticket.dll</p>
+                      </div>
+                      <a href="article-detail.html" class="view-detail-btn"
+                        >VIEW DETAIL</a
+                      >
+                    </div>
                   </div>
-                  <a href="#" class="view-detail-btn">VIEW DETAIL</a>
-                </div>
 
-                <div class="announcement-card-small">
-                  <div>
-                    <h3>Software dan Hardware</h3>
-                    <p>Perangkat yang diinstall</p>
+                  <div class="col-12 mb-4">
+                    <div class="announcement-card-small h-100">
+                      <div>
+                        <h3>Software dan Hardware</h3>
+                        <p>Perangkat yang diinstall</p>
+                      </div>
+                      <a href="article-detail.html" class="view-detail-btn"
+                        >VIEW DETAIL</a
+                      >
+                    </div>
                   </div>
-                  <a href="#" class="view-detail-btn">VIEW DETAIL</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Right Box: Tutorial -->
-        <div class="right-section-box-full">
-          <div class="tutorial-box">
-            <h2>TUTORIAL</h2>
-            <div class="tutorial-video-box">
-              <div class="video-container">
-                <div class="play-button">
-                  <i
-                    class="fas fa-play"
-                    style="color: white; font-size: 24px"
-                  ></i>
+                  <!-- New Additional Announcement Card -->
+                  <div class="col-12">
+                    <div
+                      class="announcement-card-small h-100"
+                      style="
+                        background-color: #e8f5e9;
+                        border-left-color: #28a745;
+                      "
+                    >
+                      <div>
+                        <h3>Update Aplikasi Terbaru</h3>
+                        <p>
+                          Pembaruan aplikasi internal telah dirilis dengan fitur
+                          terbaru
+                        </p>
+                      </div>
+                      <a href="article-detail.html" class="view-detail-btn"
+                        >VIEW DETAIL</a
+                      >
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -138,7 +211,7 @@
       "
     >
       <p class="mb-0" style="color: #666">
-        © 2023 Trans 7. All Rights Reserved.
+        © 2025 Trans 7. All Rights Reserved.
       </p>
     </div>
 

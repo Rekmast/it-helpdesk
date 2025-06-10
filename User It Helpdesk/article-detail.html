@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IT-HelpDesk - Article Detail</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Odor+Mean+Chey&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .article-container {
+        display: flex;
+        max-width: 1200px;
+        margin: 30px auto;
+        gap: 30px;
+      }
+
+      .article-main {
+        flex: 3;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        padding: 30px;
+      }
+
+      .article-sidebar {
+        flex: 1;
+        min-width: 250px;
+      }
+
+      .article-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        line-height: 1.2;
+      }
+
+      .article-meta {
+        display: flex;
+        align-items: center;
+        color: #6c757d;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+      }
+
+      .article-meta span {
+        margin-right: 20px;
+      }
+
+      .article-content {
+        line-height: 1.7;
+        color: #333;
+      }
+
+      .article-content p {
+        margin-bottom: 1.5rem;
+      }
+
+      .sidebar-widget {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        padding: 20px;
+        margin-bottom: 30px;
+      }
+
+      .sidebar-widget h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .sidebar-posts li {
+        margin-bottom: 15px;
+        list-style: none;
+      }
+
+      .sidebar-posts li a {
+        color: #333;
+        text-decoration: none;
+        transition: color 0.2s;
+        display: block;
+        font-weight: 500;
+      }
+
+      .sidebar-posts li a:hover {
+        color: #007bff;
+      }
+
+      .sidebar-categories {
+        padding-left: 0;
+      }
+
+      .sidebar-categories li {
+        list-style: none;
+        margin-bottom: 10px;
+      }
+
+      .sidebar-categories li a {
+        color: #333;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-between;
+        transition: color 0.2s;
+      }
+
+      .sidebar-categories li a:hover {
+        color: #007bff;
+      }
+
+      .article-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 25px;
+      }
+
+      @media (max-width: 768px) {
+        .article-container {
+          flex-direction: column;
+        }
+
+        .article-sidebar {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <div id="navbar-container"></div>
+
+    <div class="container mt-4">
+      <div class="article-container">
+        <!-- Main Content -->
+        <main class="article-main">
+          <h1 class="article-title">
+            Cara Install Microsoft Office di Komputer Perusahaan
+          </h1>
+
+          <div class="article-meta">
+            <span
+              ><i class="far fa-calendar-alt me-1"></i> Posted on October 15,
+              2023</span
+            >
+          </div>
+
+          <!-- Optional Featured Image -->
+          <img
+            src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            class="article-image"
+            alt="Featured Image"
+          />
+
+          <div class="article-content">
+            <h2>Introduction:</h2>
+            <p>
+              Microsoft Office merupakan perangkat lunak esensial yang digunakan
+              oleh seluruh karyawan untuk berbagai keperluan administratif dan
+              operasional. Panduan ini akan membantu Anda menginstal Microsoft
+              Office di komputer perusahaan dengan benar sesuai dengan kebijakan
+              lisensi yang berlaku.
+            </p>
+
+            <h2>Prasyarat Instalasi:</h2>
+            <p>Sebelum memulai instalasi, pastikan Anda memiliki:</p>
+            <ul>
+              <li>
+                Komputer dengan sistem operasi Windows 10 atau yang lebih baru
+              </li>
+              <li>Koneksi internet yang stabil</li>
+              <li>Akun email perusahaan yang aktif</li>
+              <li>Hak akses administrator pada komputer Anda</li>
+            </ul>
+
+            <h2>Langkah-langkah Instalasi:</h2>
+            <h3>1. Mengunduh Installer</h3>
+            <p>
+              Buka browser dan akses portal perangkat lunak perusahaan di
+              <a href="#">http://software.perusahaan.com</a>. Login menggunakan
+              kredensial perusahaan Anda, kemudian pilih "Microsoft Office" dari
+              daftar perangkat lunak yang tersedia.
+            </p>
+
+            <h3>2. Menjalankan Setup</h3>
+            <p>
+              Setelah unduhan selesai, buka file installer (biasanya bernama
+              "OfficeSetup.exe") dengan mengklik kanan dan pilih "Run as
+              administrator". Proses ini mungkin memerlukan izin UAC (User
+              Account Control).
+            </p>
+
+            <h3>3. Proses Instalasi</h3>
+            <p>
+              Ikuti petunjuk yang muncul di layar. Saat diminta, masukkan email
+              perusahaan Anda. Sistem akan secara otomatis memverifikasi lisensi
+              Anda melalui server perusahaan.
+            </p>
+
+            <h3>4. Konfigurasi Awal</h3>
+            <p>
+              Setelah instalasi selesai, buka salah satu aplikasi Office
+              (misalnya Word atau Excel). Anda akan diminta untuk login
+              menggunakan akun perusahaan. Proses ini akan mengaktifkan lisensi
+              pada perangkat Anda.
+            </p>
+
+            <h2>Troubleshooting Umum:</h2>
+            <h3>Masalah Aktivasi</h3>
+            <p>
+              Jika muncul pesan error saat aktivasi, pastikan Anda terhubung ke
+              jaringan perusahaan. Jika masalah berlanjut, hubungi helpdesk
+              melalui tiket dengan menyertakan screenshot pesan error.
+            </p>
+
+            <h3>Aplikasi Crash atau Error</h3>
+            <p>
+              Jika aplikasi Office crash atau menampilkan error, coba restart
+              komputer Anda. Jika masalah berlanjut, pertimbangkan untuk
+              melakukan repair instalasi melalui Control Panel > Programs >
+              Programs and Features.
+            </p>
+
+            <h2>Kesimpulan:</h2>
+            <p>
+              Dengan mengikuti panduan ini, Anda akan dapat menginstal Microsoft
+              Office dengan benar pada komputer perusahaan. Jika Anda mengalami
+              masalah yang tidak tercakup dalam troubleshooting di atas, jangan
+              ragu untuk membuat tiket dukungan melalui portal IT-HelpDesk.
+            </p>
+          </div>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="article-sidebar">
+          <!-- Recent Posts Widget -->
+          <div class="sidebar-widget">
+            <h3>Recent Posts</h3>
+            <ul class="sidebar-posts">
+              <li>
+                <a href="article-detail.html">Software dan Hardware</a>
+              </li>
+              <li>
+                <a href="article-detail.html"
+                  >Cara mengenal Lebih Dalam Terkait IT - HelpDesk</a
+                >
+              </li>
+              <li>
+                <a href="article-detail.html">Cara Install Microsoft Office</a>
+              </li>
+              <li>
+                <a href="article-detail.html"
+                  >Menggunakan Software VPN Perusahaan</a
+                >
+              </li>
+              <li>
+                <a href="article-detail.html"
+                  >Mengatasi Error pada Aplikasi Internal</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Categories Widget -->
+          <div class="sidebar-widget">
+            <h3>Categories</h3>
+            <ul class="sidebar-categories">
+              <li>
+                <a href="#">Article <span>(2)</span></a>
+              </li>
+              <li>
+                <a href="#">Software <span>(4)</span></a>
+              </li>
+              <li>
+                <a href="#">Hardware <span>(4)</span></a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tags Widget -->
+          <div class="sidebar-widget">
+            <h3>Related Articles</h3>
+            <ul class="sidebar-posts">
+              <li>
+                <a href="article-detail.html">Update Software Wajib</a>
+              </li>
+              <li>
+                <a href="article-detail.html"
+                  >Menghubungkan Perangkat ke Jaringan WiFi</a
+                >
+              </li>
+              <li>
+                <a href="article-detail.html">Panduan Penggunaan Printer</a>
+              </li>
+              <li>
+                <a href="article-detail.html">Perawatan Laptop Perusahaan</a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
+
+    <!-- WhatsApp Button -->
+    <div id="whatsapp-container"></div>
+
+    <!-- Bootstrap and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Include components -->
+    <script>
+      // Function to include HTML content from another file
+      function includeHTML(url, callback) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.onreadystatechange = function () {
+          if (this.readyState === 4 && this.status === 200) {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(
+              this.responseText,
+              "text/html"
+            );
+
+            // Add component elements to body but hidden
+            const components = htmlDoc.querySelectorAll('[id$="-component"]');
+            components.forEach((component) => {
+              const clone = document.importNode(component, true);
+              clone.style.display = "none";
+              document.body.appendChild(clone);
+            });
+
+            // Get the script part
+            const script = htmlDoc.querySelector("script");
+            if (script) {
+              eval(script.innerHTML);
+            }
+
+            // Initialize components after loading
+            if (window.ITHelpdesk && window.ITHelpdesk.includeComponent) {
+              window.ITHelpdesk.includeComponent(
+                "navbar-component",
+                "navbar-container"
+              );
+              window.ITHelpdesk.includeComponent(
+                "whatsapp-component",
+                "whatsapp-container"
+              );
+              window.ITHelpdesk.includeComponent(
+                "footer-component",
+                "footer-container"
+              );
+              window.ITHelpdesk.setActiveNavigation();
+            }
+
+            if (callback) callback();
+          }
+        };
+        xhr.send();
+      }
+
+      // Load components from components-user.html
+      document.addEventListener("DOMContentLoaded", function () {
+        includeHTML("components-user.html");
+      });
+    </script>
+  </body>
+</html>
