@@ -47,6 +47,49 @@ The user-facing interface of the IT Helpdesk system, designed for end users to r
 - `styles.css` - Styling for all user interface elements
 - `Index.html` - Entry point/redirect to Home
 
+## Additional Files
+
+- `article-detail.html` - Detailed view of knowledge base articles
+- `person2.png` - Helper image for new problem form
+- `logo.png` - Company logo used in navbar
+
+## Dependencies
+
+- Bootstrap 5.3.0-alpha1 - Frontend framework
+- jQuery 3.6.0 - JavaScript library
+- Font Awesome 6.4.0 - Icon library
+- Google Fonts (Odor Mean Chey) - Custom typography
+
+## Component Structure
+
+### Navbar Component
+- Company logo and branding
+- Main navigation menu
+- User profile section
+
+### Footer Component  
+- Copyright information
+- Company details
+- Additional links
+
+### WhatsApp Component
+- Floating action button
+- Direct support contact
+- Always accessible
+
+### Ticket Components
+- Status indicators (Open, Progress, Solved, Expired)
+- Detailed ticket information layout
+- Action buttons and controls
+
+### Form Components
+- Input validation
+- File upload controls
+- Dynamic field toggling
+- Success notifications
+
+
+
 ## UI Improvements
 
 The interface includes several UI enhancements:

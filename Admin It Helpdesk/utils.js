@@ -36,6 +36,15 @@ async function loadLayoutComponents() {
     "sidebar-component"
   );
 
+  // Load copyright component if container exists
+  if (document.getElementById("copyright-container")) {
+    await loadComponent(
+      "copyright-container",
+      "components.html",
+      "copyright-component"
+    );
+  }
+
   // After loading components, set active navigation based on current page
   setActiveNavigation();
 }
