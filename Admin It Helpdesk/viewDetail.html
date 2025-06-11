@@ -123,8 +123,29 @@
       <!-- Today's PIC -->
       <div class="todays-pic mt-4 mx-3">
         <h6>Today's PIC</h6>
-        <div class="pic-avatar">
-          <i class="fas fa-user fa-4x text-secondary"></i>
+        <div
+          class="pic-avatar"
+          style="
+            height: 180px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            margin-bottom: 0;
+          "
+        >
+          <img
+            src="assets/images/profile-pic.jpg"
+            alt="John Newman"
+            style="
+              max-width: 100%;
+              max-height: 180px;
+              object-fit: contain;
+              transform: rotate(90deg);
+              background: transparent;
+            "
+          />
         </div>
         <div class="text-center mb-2">
           <div>IT Support</div>
@@ -169,10 +190,7 @@
                   <p id="user-description">
                     <!-- Content will be populated by JavaScript -->
                   </p>
-                  <div class="message-time">
-                    <i class="far fa-clock"></i>
-                    <span id="description-time">6:30 pm</span>
-                  </div>
+                  <div class="message-time">6:30 pm</div>
                 </div>
               </div>
 
@@ -183,9 +201,7 @@
                     <p>
                       akan segera di periksa lebih lanjut untuk unit laptop nya.
                     </p>
-                    <div class="message-time">
-                      <i class="far fa-clock"></i> 6:34 pm
-                    </div>
+                    <div class="message-time">6:34 pm</div>
                   </div>
                 </div>
 
@@ -198,9 +214,7 @@
                       dan sepertinya terdapat gangguan di aplikasi excelnya juga
                       tolong diperbaiki
                     </p>
-                    <div class="message-time">
-                      <i class="far fa-clock"></i> 6:38 pm
-                    </div>
+                    <div class="message-time">6:38 pm</div>
                   </div>
                 </div>
               </div>
@@ -212,9 +226,7 @@
                     <p>
                       akan segera di periksa lebih lanjut untuk unit laptop nya.
                     </p>
-                    <div class="message-time">
-                      <i class="far fa-clock"></i> 6:34 pm
-                    </div>
+                    <div class="message-time">6:34 pm</div>
                   </div>
                 </div>
 
@@ -227,18 +239,14 @@
                       dan sepertinya terdapat gangguan di aplikasi excelnya juga
                       tolong diperbaiki
                     </p>
-                    <div class="message-time">
-                      <i class="far fa-clock"></i> 6:38 pm
-                    </div>
+                    <div class="message-time">6:38 pm</div>
                   </div>
                 </div>
 
-                <div class="message admin-message">
+                <div class="message admin-message last-message">
                   <div class="message-bubble">
                     <p>Baiklah sudah diperbaiki silahkan dicek kembali</p>
-                    <div class="message-time">
-                      <i class="far fa-clock"></i> 6:45 pm
-                    </div>
+                    <div class="message-time">6:45 pm</div>
                   </div>
                 </div>
               </div>
@@ -272,10 +280,10 @@
             </div>
 
             <!-- Status Dropdown - Only visible for Open and On Progress -->
-            <div class="mt-4 mb-3" id="status-dropdown-container">
+            <div class="mt-4 mb-3 ps-2" id="status-dropdown-container">
               <div class="status-dropdown">
                 <span>Status</span>
-                <i class="fas fa-chevron-down ms-2"></i>
+                <i class="fas fa-chevron-down"></i>
                 <div class="status-dropdown-menu">
                   <a href="#"
                     ><i class="fas fa-check-circle text-warning me-2"></i> On
@@ -292,21 +300,15 @@
             <!-- Message Input - Only visible for Open and On Progress -->
             <div class="message-input" id="message-input-container">
               <input type="text" placeholder="Write message" />
-              <button
-                class="attachment-btn"
-                style="border: none; background: none"
-              >
+              <button class="attachment-btn no-border">
                 <i class="fas fa-paperclip"></i>
               </button>
-              <button
-                class="attachment-btn"
-                style="border: none; background: none"
-              >
+              <button class="attachment-btn no-border">
                 <i class="far fa-file"></i>
               </button>
               <button class="send-button">
                 Send
-                <i class="fas fa-paper-plane"></i>
+                <i class="fas fa-paper-plane ms-1"></i>
               </button>
             </div>
 
@@ -391,6 +393,57 @@
             }
           });
         });
+
+        // Make status dropdown interactive
+        const statusDropdown = document.querySelector(".status-dropdown");
+        const statusDropdownMenu = document.querySelector(
+          ".status-dropdown-menu"
+        );
+
+        if (statusDropdown && statusDropdownMenu) {
+          statusDropdown.addEventListener("click", function (e) {
+            e.preventDefault();
+            const isVisible = statusDropdownMenu.style.display === "block";
+            statusDropdownMenu.style.display = isVisible ? "none" : "block";
+
+            // Toggle arrow rotation
+            const arrow = this.querySelector("i.fa-chevron-down");
+            if (arrow) {
+              arrow.style.transform = isVisible
+                ? "rotate(0deg)"
+                : "rotate(180deg)";
+            }
+          });
+
+          // Close dropdown when clicking outside
+          document.addEventListener("click", function (e) {
+            if (!statusDropdown.contains(e.target)) {
+              statusDropdownMenu.style.display = "none";
+              const arrow = statusDropdown.querySelector("i.fa-chevron-down");
+              if (arrow) {
+                arrow.style.transform = "rotate(0deg)";
+              }
+            }
+          });
+
+          // Handle status selection
+          const statusOptions = statusDropdownMenu.querySelectorAll("a");
+          statusOptions.forEach((option) => {
+            option.addEventListener("click", function (e) {
+              e.preventDefault();
+              // Update status text
+              const statusText = this.textContent.trim();
+              statusDropdown.querySelector("span").textContent = statusText;
+
+              // Close dropdown
+              statusDropdownMenu.style.display = "none";
+              const arrow = statusDropdown.querySelector("i.fa-chevron-down");
+              if (arrow) {
+                arrow.style.transform = "rotate(0deg)";
+              }
+            });
+          });
+        }
 
         // Initialize submenus based on active state
         const activeSubmenuItems = document.querySelectorAll(

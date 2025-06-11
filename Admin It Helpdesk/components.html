@@ -129,8 +129,29 @@
     <!-- Today's PIC -->
     <div class="todays-pic mt-4 mx-3">
       <h6>Today's PIC</h6>
-      <div class="pic-avatar">
-        <i class="fas fa-user fa-4x text-white"></i>
+      <div
+        class="pic-avatar"
+        style="
+          height: 180px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: transparent;
+          margin-bottom: 0;
+        "
+      >
+        <img
+          src="assets/images/profile-pic.jpg"
+          alt="John Newman"
+          style="
+            max-width: 100%;
+            max-height: 180px;
+            object-fit: contain;
+            transform: rotate(90deg);
+            background: transparent;
+          "
+        />
       </div>
       <div class="text-center mb-2">
         <div>IT Support</div>
@@ -160,7 +181,7 @@
           </form>
         </div>
       </div>
-      <buttx  on class="check-in-btn mt-1">CHECK IN</button>
+      <button class="check-in-btn mt-1">CHECK IN</button>
     </div>
   </div>
 </div>
