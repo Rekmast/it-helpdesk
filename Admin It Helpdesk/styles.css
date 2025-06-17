@@ -82,11 +82,28 @@ body {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .user-profile span {
   font-weight: 500;
+}
+
+.notification-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.2s ease;
+}
+
+.notification-icon i {
+  font-size: 18px;
+}
+
+.notification-icon:hover {
+  color: var(--primary-color);
 }
 
 .logout-btn {

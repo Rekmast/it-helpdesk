@@ -1417,13 +1417,30 @@ body {
 .modern-navbar .user-info {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 15px;
 }
 
 .modern-navbar .user-name {
   font-weight: 500;
   color: #333;
   font-size: 14px;
+}
+
+.notification-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.2s ease;
+}
+
+.notification-icon i {
+  font-size: 18px;
+}
+
+.notification-icon:hover {
+  color: #0c416a;
 }
 
 .modern-navbar .logout-btn {

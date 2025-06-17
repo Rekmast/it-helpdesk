@@ -25,6 +25,9 @@ const COMPONENTS = {
       </div>
       <div class="user-info">
         <span class="user-name">JOHN DOE</span>
+        <div class="notification-icon">
+          <i class="fas fa-bell"></i>
+        </div>
         <button class="logout-btn">
           <i class="fas fa-sign-out-alt me-1"></i>Logout
         </button>
