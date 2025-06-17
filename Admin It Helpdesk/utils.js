@@ -64,7 +64,10 @@ ready(function () {
     document.getElementById("header-container") &&
     document.getElementById("sidebar-container")
   ) {
-    loadLayoutComponents();
+    loadLayoutComponents().then(() => {
+      initializeEventListeners();
+      initializeSidebarDropdownSubmenu();
+    });
   }
 });
 
@@ -243,16 +246,33 @@ function initializeEventListeners() {
   });
 }
 
-// Call this function after DOM is loaded and components are loaded
-ready(function () {
-  // First load components
-  if (
-    document.getElementById("header-container") &&
-    document.getElementById("sidebar-container")
-  ) {
-    loadLayoutComponents().then(() => {
-      // Then initialize event listeners
-      initializeEventListeners();
+// Setelah komponen sidebar dimuat, inisialisasi event listener dropdown-submenu
+function initializeSidebarDropdownSubmenu() {
+  document
+    .querySelectorAll("#sidebar-container .dropdown-submenu > a")
+    .forEach(function (item) {
+      item.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Tutup semua dropdown lain
+        document
+          .querySelectorAll("#sidebar-container .dropdown-submenu > a")
+          .forEach(function (other) {
+            if (other !== item) other.classList.remove("active");
+          });
+        document
+          .querySelectorAll("#sidebar-container .sub-submenu")
+          .forEach(function (sub) {
+            if (sub !== item.nextElementSibling) sub.classList.remove("show");
+          });
+
+        // Toggle dropdown yang diklik
+        const submenu = this.nextElementSibling;
+        if (submenu) {
+          submenu.classList.toggle("show");
+          this.classList.toggle("active");
+        }
+      });
     });
-  }
-});
+}

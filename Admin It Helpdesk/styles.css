@@ -113,8 +113,17 @@ body {
   bottom: 0;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
   padding-top: 20px;
+  padding-bottom: 80px;
   z-index: 900;
   height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  font-size: 13px;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .logo {
@@ -159,9 +168,13 @@ body {
 }
 
 .sidebar .nav-item {
-  margin-bottom: 5px;
+  margin-bottom: 2px;
   position: relative;
   margin-top: 0;
+}
+
+.sidebar .nav-item:last-child {
+  margin-bottom: 0;
 }
 
 .sidebar .nav-link {
@@ -173,6 +186,7 @@ body {
   transition: all 0.3s ease;
   margin: 2px 0;
   border-radius: 8px;
+  font-size: 13px;
 }
 
 .sidebar .nav-link i {
@@ -192,8 +206,54 @@ body {
   color: #fff;
 }
 
+.sidebar .nav-link.dropdown-toggle {
+  cursor: pointer;
+  position: relative;
+}
+
+.sidebar .nav-link .fa-angle-down {
+  margin-left: auto;
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.sidebar .nav-item.dropdown .submenu-sidebar {
+  display: none;
+  list-style: none;
+  padding: 5px 0 5px 36px;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.sidebar .nav-item.dropdown:hover .submenu-sidebar,
+.sidebar .nav-item.dropdown:focus-within .submenu-sidebar {
+  /* display: block; */
+}
+
+.sidebar .nav-item.dropdown .submenu-sidebar.show {
+  display: block;
+}
+
+.sidebar .dropdown-submenu:hover > .sub-submenu,
+.sidebar .dropdown-submenu:focus-within > .sub-submenu {
+  /* display: block; */
+}
+
+.sidebar .dropdown-submenu .sub-submenu {
+  display: none;
+}
+
+.sidebar .dropdown-submenu .sub-submenu.show {
+  display: block;
+}
+
 .sidebar .nav-link:hover:not(.active) {
   background: #e9ecef;
+}
+
+.sidebar .submenu-sidebar li a:hover,
+.sidebar .dropdown-submenu .sub-submenu li a:hover {
+  background-color: #e9ecef;
 }
 
 /* Dropdown styles */
@@ -216,75 +276,117 @@ body {
   transition: all 0.3s ease;
 }
 
+/* Hapus efek hover untuk menampilkan submenu */
 .sidebar .nav-item.dropdown:hover .submenu-sidebar,
-.sidebar .nav-item.dropdown:focus-within .submenu-sidebar,
+.sidebar .nav-item.dropdown:focus-within .submenu-sidebar {
+  /* display: block; */
+}
 .sidebar .nav-item.dropdown .submenu-sidebar.show {
   display: block;
 }
 
-.sidebar .nav-item.dropdown:hover .fa-angle-down,
-.sidebar .nav-item.dropdown:focus-within .fa-angle-down,
-.sidebar .nav-item.dropdown .nav-link.active .fa-angle-down {
-  transform: rotate(180deg);
+/* Hapus efek hover untuk sub-submenu */
+.sidebar .dropdown-submenu:hover > .sub-submenu,
+.sidebar .dropdown-submenu:focus-within > .sub-submenu {
+  /* display: block; */
 }
-
-.sidebar .submenu-sidebar li {
-  margin-bottom: 8px;
-  position: relative;
+.sidebar .dropdown-submenu .sub-submenu {
+  display: none;
 }
-
-.sidebar .submenu-sidebar li a {
-  padding: 7px 15px;
-  color: var(--text-primary);
+.sidebar .dropdown-submenu .sub-submenu.show {
   display: block;
-  text-decoration: none;
-  font-size: 13px;
-  transition: all 0.3s ease;
-  border-radius: 5px;
-  position: relative;
 }
 
-.sidebar .submenu-sidebar li a.active {
-  background-color: rgba(66, 133, 244, 0.1);
+/* Hover hanya untuk warna */
+.sidebar .nav-link:hover:not(.active) {
+  background: #e9ecef;
+}
+.sidebar .submenu-sidebar li a:hover,
+.sidebar .dropdown-submenu .sub-submenu li a:hover {
+  background-color: #e9ecef;
+}
+
+/* Hilangkan bullet pada semua submenu */
+.sidebar .submenu-sidebar,
+.sidebar .submenu-sidebar li,
+.sidebar .dropdown-submenu .sub-submenu,
+.sidebar .dropdown-submenu .sub-submenu li {
+  list-style: none;
+}
+
+/* Hanya menu utama yang dapat background biru saat active */
+.sidebar .nav-link.active {
+  background: var(--primary-color);
+  color: #fff;
+}
+.sidebar .nav-link.active i {
+  color: #fff;
+}
+
+/* Submenu dan sub-submenu: background putih, tanpa border-radius besar, tanpa box-shadow */
+.sidebar .submenu-sidebar,
+.sidebar .dropdown-submenu .sub-submenu {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.sidebar .dropdown-submenu > a.active {
+  background: transparent !important;
+  color: var(--primary-color);
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.sidebar .dropdown-submenu > a,
+.sidebar .submenu-sidebar li a,
+.sidebar .dropdown-submenu .sub-submenu li a {
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+/* Submenu item: font kecil, padding kiri lebih menjorok, warna gelap, tanpa background biru */
+.sidebar .submenu-sidebar li a,
+.sidebar .dropdown-submenu .sub-submenu li a {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: 100%;
+  min-width: 180px;
+  max-width: 220px;
+  font-size: 13px;
+  color: #222;
+  background: transparent;
+  border-radius: 0;
+  margin: 0;
+  padding: 7px 20px;
+  box-sizing: border-box;
+}
+
+/* Submenu item active/hover: highlight abu, bukan biru */
+.sidebar .submenu-sidebar li a.active,
+.sidebar .dropdown-submenu .sub-submenu li a.active,
+.sidebar .submenu-sidebar li a:hover,
+.sidebar .dropdown-submenu .sub-submenu li a:hover {
+  background: #e9ecef;
   color: var(--primary-color);
   font-weight: 500;
 }
 
-.sidebar .submenu-sidebar li a:hover {
-  background-color: #e9ecef;
-}
-
-/* Sub-submenu styling */
-.sidebar .dropdown-submenu {
-  position: relative;
-}
-
+/* Hilangkan box-shadow pada submenu */
+.sidebar .submenu-sidebar,
 .sidebar .dropdown-submenu .sub-submenu {
-  display: none;
-  list-style: none;
-  padding: 5px 0 5px 15px;
-  margin-top: 5px;
-}
-
-.sidebar .dropdown-submenu:hover > .sub-submenu,
-.sidebar .dropdown-submenu:focus-within > .sub-submenu {
-  display: block;
-}
-
-.sidebar .dropdown-submenu > a:after {
-  content: "\f105";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: transform 0.3s ease;
-}
-
-.sidebar .dropdown-submenu:hover > a:after,
-.sidebar .dropdown-submenu:focus-within > a:after {
-  transform: translateY(-50%) rotate(90deg);
+  box-shadow: none;
 }
 
 /* ==========================================================================
@@ -737,7 +839,7 @@ body {
   background: #fff;
   border-radius: var(--border-radius);
   padding: 20px;
-  margin: 20px 10px;
+  margin: 8px 10px;
   text-align: center;
 }
 
@@ -1475,6 +1577,106 @@ body {
   z-index: 900;
 }
 
+@media (min-width: 768px) {
+  .copyright-container {
+    left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+  }
+}
+
 .copyright-text p {
   margin: 0;
+}
+
+.sidebar .submenu-sidebar,
+.sidebar .dropdown-submenu .sub-submenu {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 8px 0 8px 0;
+  margin-top: 6px;
+}
+
+.sidebar .submenu-sidebar li,
+.sidebar .dropdown-submenu .sub-submenu li {
+  margin-bottom: 6px;
+  padding: 0 10px;
+}
+
+.sidebar .submenu-sidebar li:last-child,
+.sidebar .dropdown-submenu .sub-submenu li:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar .submenu-sidebar li a,
+.sidebar .dropdown-submenu .sub-submenu li a {
+  color: #222;
+  font-size: 13px;
+  padding: 7px 16px;
+  background: transparent;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.sidebar .submenu-sidebar li a.active,
+.sidebar .dropdown-submenu .sub-submenu li a.active {
+  background: rgba(66, 133, 244, 0.08);
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.sidebar .dropdown-submenu .sub-submenu li a:hover {
+  background: #e9ecef;
+  color: #222;
+}
+
+.sidebar .dropdown-submenu > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 16px;
+  color: #222;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.sidebar .dropdown-submenu > a .submenu-arrow {
+  margin-left: 8px;
+  font-size: 14px;
+  transition: transform 0.2s;
+}
+
+.sidebar .dropdown-submenu > a.active .submenu-arrow {
+  transform: rotate(90deg); /* panah ke bawah saat aktif */
+}
+
+.sidebar .dropdown-submenu .sub-submenu {
+  padding-left: 24px;
+}
+
+.sidebar .nav-item.dropdown {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.sidebar .nav-item.dropdown .submenu-sidebar {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.sidebar .nav-link.active {
+  margin-bottom: 0 !important;
+}
+
+.sidebar .submenu-sidebar {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.sidebar a,
+.sidebar .submenu-sidebar li a,
+.sidebar .dropdown-submenu .sub-submenu li a {
+  text-decoration: none !important;
 }
