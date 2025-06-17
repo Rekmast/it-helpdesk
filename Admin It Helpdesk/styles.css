@@ -1649,7 +1649,7 @@ body {
 }
 
 .sidebar .dropdown-submenu > a.active .submenu-arrow {
-  transform: rotate(90deg); /* panah ke bawah saat aktif */
+  transform: rotate(180deg);
 }
 
 .sidebar .dropdown-submenu .sub-submenu {
