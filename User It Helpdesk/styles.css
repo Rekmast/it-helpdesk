@@ -1432,7 +1432,11 @@ body {
   justify-content: center;
   cursor: pointer;
   color: #555;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
 }
 
 .notification-icon i {
@@ -1441,6 +1445,24 @@ body {
 
 .notification-icon:hover {
   color: #0c416a;
+  background-color: rgba(12, 65, 106, 0.1);
+}
+
+.notification-icon::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background-color: #ea5455;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  display: none;
+}
+
+.notification-icon.has-notification::after {
+  display: block;
 }
 
 .modern-navbar .logout-btn {
